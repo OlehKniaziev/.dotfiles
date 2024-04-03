@@ -1,5 +1,3 @@
-# vim:fileencoding=utf-8:foldmethod=marker
-
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
@@ -9,6 +7,7 @@
 # font_family BlexMono Nerd Font Mono
 # font_family Input Mono Narrow
 # font_family Iosevka Nerd Font Mono
+# font_family Iosevka Custom
 # font_family Hack Nerd Font Mono
 # font_family Lilex Nerd Font Mono
 # font_family Geist Mono
@@ -17,12 +16,8 @@
 
 font_family JetBrains Mono Medium
 bold_font    JetBrains Mono Bold
-italic_font    JetBrains Mono Italic
+italic_font    JetBrains Mono Medium Italic
 bold_italic_font JetBrains Mono Bold Italic
-#font_family FiraCode Nerd Font Mono Ret
-#bold_font    FiraCode Nerd Font Mono Bold
-#italic_font    FiraCode Nerd Font Mono Italic
-#bold_italic_font FiraCode Nerd Font Mono Bold Italic
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
 #: +list-fonts` command. By default they are derived automatically, by
@@ -106,6 +101,8 @@ force_ltr yes
 
 font_features JetBrainsMono-Regular      +zero
 font_features JetBrainsMono-Medium       +zero
+font_features JetBrainsMono-SemiBold      +zero
+font_features JetBrainsMono-Italic      +zero
 font_features JetBrainsMono-Bold         +zero
 font_features JetBrainsMono-MediumItalic +zero
 font_features JetBrainsMono-BoldItalic   +zero
@@ -2485,6 +2482,6 @@ window_padding_width 0
 
 
 # BEGIN_KITTY_THEME
-# Bluloco Light
+# Ayu
 include current-theme.conf
 # END_KITTY_THEME

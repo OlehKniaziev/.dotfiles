@@ -3,10 +3,16 @@ return {
 		mocha = {
 			base = "#000000",
 		},
+		macchiato = {
+			base = "#000000",
+		},
+		frappe = {
+			base = "#000000",
+		},
 	},
 
-	flavour = "mocha",
-	no_italic = true,
+	flavour = "macchiato",
+	no_italic = false,
 	no_bold = false,
 	no_underline = false,
 

@@ -2,7 +2,7 @@ require("neodev").setup({})
 local lspconfig = require("lspconfig")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "gopls", "tailwindcss", "gleam", "metals" }
+local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "jdtls", "gopls", "tailwindcss", "gleam", "metals" }
 
 for _, server in ipairs(servers) do
 	lspconfig[server].setup({

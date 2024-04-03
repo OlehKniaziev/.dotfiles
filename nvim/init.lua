@@ -24,5 +24,6 @@ require("mappings")
 require("autocmds")
 require("options")
 
-vim.o.background = "light"
-vim.cmd.colorscheme("zenbones")
+-- vim.o.background = "light"
+-- vim.cmd.colorscheme("zenbones")
+vim.cmd.colorscheme("catppuccin")
