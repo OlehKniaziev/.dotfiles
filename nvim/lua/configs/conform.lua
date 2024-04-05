@@ -11,6 +11,7 @@ return {
 		c = { "clang_format" },
 		cpp = { "clang_format" },
 		go = { "gofmt" },
+		cs = { "csharpier" },
 		gleam = { "gleam" },
 		rust = { "rustfmt" },
 		scala = { "scalafmt" },
