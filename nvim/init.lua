@@ -23,7 +23,10 @@ require("lazy").setup("plugins", {
 require("mappings")
 require("autocmds")
 require("options")
+require("misc")
 
 -- vim.o.background = "light"
 -- vim.cmd.colorscheme("zenbones")
-vim.cmd.colorscheme("catppuccin")
+
+-- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("kanagawa")

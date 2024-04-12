@@ -2,7 +2,7 @@ require("neodev").setup({})
 local lspconfig = require("lspconfig")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "jdtls", "gopls", "tailwindcss", "gleam", "metals" }
+local servers = require("configs.servers")
 
 for _, server in ipairs(servers) do
 	lspconfig[server].setup({
@@ -25,8 +25,11 @@ local omnisharp_extended = require("omnisharp_extended")
 
 lspconfig.omnisharp.setup({
 	cmd = { "dotnet", "/home/oleg/software/omnisharp/OmniSharp.dll" },
-	enable_roslyn_analyzers = true,
-	enable_import_completion = true,
+	settings = {
+		RoslyExtensionOptions = {
+			EnableImportCompletion = true,
+		},
+	},
 
 	handlers = {
 		["textDocument/definition"] = omnisharp_extended.definition_handler,

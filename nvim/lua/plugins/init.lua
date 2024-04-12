@@ -2,14 +2,30 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-context",
-        },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-context",
+		},
 		opts = function()
 			return require("configs.tree-sitter")
 		end,
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
+		end,
+	},
+	{
+		"williamboman/mason.nvim",
+		dependencies = {
+			{
+				"williamboman/mason-lspconfig.nvim",
+			},
+		},
+		lazy = false,
+		opts = function()
+			return require("configs.mason-lspconfig")
+		end,
+		config = function(_, opts)
+			require("mason").setup()
+			require("mason-lspconfig").setup(opts)
 		end,
 	},
 	{
@@ -63,9 +79,26 @@ return {
 		lazy = false,
 	},
 	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-	{ "lewis6991/gitsigns.nvim", lazy = false, config = true },
+	{
+		"lewis6991/gitsigns.nvim",
+		lazy = false,
+		opts = function()
+			return require("configs.gitsigns")
+		end,
+		config = function(_, opts)
+			require("gitsigns").setup(opts)
+		end,
+	},
 	"Hoffs/omnisharp-extended-lsp.nvim",
-	"rebelot/kanagawa.nvim",
+	{
+		"rebelot/kanagawa.nvim",
+		opts = function()
+			return require("configs.kanagawa")
+		end,
+		config = function(_, opts)
+			require("kanagawa").setup(opts)
+		end,
+	},
 	"folke/tokyonight.nvim",
 	"sainnhe/sonokai",
 	"nvimdev/zephyr-nvim",
@@ -77,7 +110,7 @@ return {
 	"uloco/bluloco.nvim",
 	{
 		"sainnhe/everforest",
-		config = function(opts)
+		config = function(_)
 			require("configs.everforest")
 		end,
 	},

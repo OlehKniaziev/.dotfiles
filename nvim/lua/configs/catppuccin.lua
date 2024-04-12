@@ -16,6 +16,8 @@ return {
 	no_bold = false,
 	no_underline = false,
 
+    transparent_background = true,
+
 	styles = {
 		comments = { "italic" },
 	},
