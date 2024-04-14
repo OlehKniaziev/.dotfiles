@@ -2,47 +2,47 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
--- config.font = wezterm.font("VictorMono Nerd Font Mono")
--- 
+-- config.font = wezterm.font("MonaspiceNe Nerd Font Mono")
 -- config.font_rules = {
 -- 	{
 -- 		intensity = "Normal",
 -- 		italic = false,
--- 		font = wezterm.font("VictorMono NFM Medium"),
+-- 		font = wezterm.font("MonaspiceNe NFM Medium"),
 -- 	},
 -- 	{
 -- 		intensity = "Normal",
 -- 		italic = true,
--- 		font = wezterm.font({ family = "VictorMono NFM Medium", italic = true }),
+-- 		font = wezterm.font({ family = "MonaspiceNe NFM Medium", italic = true }),
 -- 	},
 -- 	{
 -- 		intensity = "Bold",
 -- 		italic = false,
--- 		font = wezterm.font({ family = "VictorMono Nerd Font Mono", weight = "Bold" }),
+-- 		font = wezterm.font({ family = "MonaspiceNe Nerd Font Mono", weight = "Bold" }),
 -- 	},
 -- 	{
 -- 		intensity = "Bold",
 -- 		italic = true,
--- 		font = wezterm.font({ family = "VictorMono Nerd Font Mono", weight = "Bold", italic = true }),
+-- 		font = wezterm.font({ family = "MonaspiceNe Nerd Font Mono", weight = "Bold", italic = true }),
 -- 	},
 -- }
 
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("RecMonoLinear Nerd Font Mono")
+-- config.font = wezterm.font("JetBrains Mono")
 -- config.font = wezterm.font("MonaspiceNe Nerd Font Mono")
 -- config.font = wezterm.font("FantasqueSansM Nerd Font Mono")
--- config.font = wezterm.font("Iosevka Nerd Font Mono")
+-- config.font = wezterm.font("IosevkaTerm Nerd Font Mono")
 
 config.font_size = 16
 
-config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "dlig", "zero" }
+config.harfbuzz_features = { "ss01", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "zero" }
 
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.8
 
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 0,
-	bottom = 0,
+	top = 6,
+	bottom = 6,
 }
 
 config.use_fancy_tab_bar = false
