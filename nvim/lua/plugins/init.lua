@@ -32,7 +32,15 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufRead", "BufNewFile" },
 		dependencies = {
-			{ "j-hui/fidget.nvim", config = true },
+			{
+				"j-hui/fidget.nvim",
+				opts = function()
+					return require("configs.fidget")
+				end,
+				config = function(_, opts)
+					require("fidget").setup(opts)
+				end,
+			},
 		},
 
 		config = function()
@@ -48,14 +56,31 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"saadparwaiz1/cmp_luasnip",
-			"L3MON4D3/LuaSnip",
+			{
+				"L3MON4D3/LuaSnip",
+				opts = function()
+					return require("configs.luasnip")
+				end,
+				config = function(_, opts)
+					require("luasnip").setup(opts)
+				end,
+			},
+			{
+				"windwp/nvim-autopairs",
+				event = "InsertEnter",
+				config = true,
+			},
 		},
 
 		opts = function()
 			return require("configs.cmp")
 		end,
 		config = function(_, opts)
-			require("cmp").setup(opts)
+			local autopairs_cmp = require("nvim-autopairs.completion.cmp")
+			local cmp = require("cmp")
+
+			cmp.event:on("confirm_done", autopairs_cmp.on_confirm_done())
+			cmp.setup(opts)
 		end,
 	},
 	{
@@ -99,15 +124,19 @@ return {
 			require("kanagawa").setup(opts)
 		end,
 	},
+	{
+		"Mofiqul/dracula.nvim",
+		opts = function()
+			return require("configs.dracula")
+		end,
+		config = function(_, opts)
+			require("dracula").setup(opts)
+		end,
+	},
 	"folke/tokyonight.nvim",
 	"sainnhe/sonokai",
-	"nvimdev/zephyr-nvim",
-	"ray-x/starry.nvim",
-	"oxfist/night-owl.nvim",
 	"AlexvZyl/nordic.nvim",
 	"savq/melange-nvim",
-	"EdenEast/nightfox.nvim",
-	"uloco/bluloco.nvim",
 	{
 		"sainnhe/everforest",
 		config = function(_)

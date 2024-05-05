@@ -1,4 +1,4 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
+    change_detection = { notify = false },
 	defaults = {
 		lazy = true,
 	},
@@ -28,5 +29,5 @@ require("misc")
 -- vim.o.background = "light"
 -- vim.cmd.colorscheme("zenbones")
 
--- vim.cmd.colorscheme("catppuccin")
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("kanagawa")

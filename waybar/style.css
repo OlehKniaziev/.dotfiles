@@ -44,15 +44,10 @@ button:hover {
     padding: 0 7px;
     background-color: transparent;
     border-radius: 50%;
-    color: #DCD7BA;
 }
 
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.focused {
-    background-color: #54546D;
+#workspaces button.active {
+    background-color: #8bd5ca;
 }
 
 #workspaces button.urgent {
@@ -86,26 +81,25 @@ button:hover {
 }
 
 #workspaces {
-    background-color: #49443C;
+    background-color: #a6da95;
 }
 
 #window {
-    background-color: rgba(200, 192, 147, 1);
+    background-color: #f0c6c6;
     padding: 0 10px;
 }
 
 #clock {
-    background-color: #D27E99;
+    background-color: #ed8796;
 }
 
 #battery {
-    background-color: #658594;
+    background-color: #8aadf4;
     color: black;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #76946A;
+    background-color: #a6da95;
 }
 
 @keyframes blink {
@@ -150,8 +144,7 @@ label:focus {
 }
 
 #cpu {
-    background-color: #98BB6C;
-    color: #000000;
+    background-color: #8bd5ca;
 }
 
 #memory {
@@ -167,8 +160,7 @@ label:focus {
 }
 
 #network {
-    background-color: #7E9CD8;
-    color: black;
+    background-color: #c6a0f6;
 }
 
 #network.disconnected {
@@ -176,13 +168,12 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #C0A36E;
-    color: #000000;
+    background-color: #eed49f;
 }
 
 #pulseaudio.muted {
-    background-color: #727169;
-    color: #DCD7BA;
+    background-color: #494d64;
+    color: #f0c6c6;
 }
 
 #custom-media {
@@ -200,8 +191,7 @@ label:focus {
 }
 
 #temperature {
-    background-color: #FFA066;
-    color: black;
+    background-color: #f5a97f;
 }
 
 #temperature.critical {

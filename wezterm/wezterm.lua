@@ -2,53 +2,51 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
--- config.font = wezterm.font("MonaspiceNe Nerd Font Mono")
--- config.font_rules = {
--- 	{
--- 		intensity = "Normal",
--- 		italic = false,
--- 		font = wezterm.font("MonaspiceNe NFM Medium"),
--- 	},
--- 	{
--- 		intensity = "Normal",
--- 		italic = true,
--- 		font = wezterm.font({ family = "MonaspiceNe NFM Medium", italic = true }),
--- 	},
--- 	{
--- 		intensity = "Bold",
--- 		italic = false,
--- 		font = wezterm.font({ family = "MonaspiceNe Nerd Font Mono", weight = "Bold" }),
--- 	},
--- 	{
--- 		intensity = "Bold",
--- 		italic = true,
--- 		font = wezterm.font({ family = "MonaspiceNe Nerd Font Mono", weight = "Bold", italic = true }),
--- 	},
--- }
+local font_name = "CaskaydiaCove Nerd Font"
 
-config.font = wezterm.font("RecMonoLinear Nerd Font Mono")
--- config.font = wezterm.font("JetBrains Mono")
--- config.font = wezterm.font("MonaspiceNe Nerd Font Mono")
--- config.font = wezterm.font("FantasqueSansM Nerd Font Mono")
--- config.font = wezterm.font("IosevkaTerm Nerd Font Mono")
+config.font = wezterm.font(font_name)
+config.font_rules = {
+	{
+		intensity = "Normal",
+		italic = true,
+		font = wezterm.font(font_name, { italic = true }),
+	},
+	{
+		intensity = "Bold",
+		italic = false,
+		font = wezterm.font(font_name, { weight = "Bold" }),
+	},
+	{
+		intensity = "Bold",
+		italic = true,
+		font = wezterm.font(font_name, { weight = "Bold", italic = true }),
+	},
+}
 
-config.font_size = 16
+config.freetype_load_flags = 'NO_HINTING'
+config.front_end = "WebGpu"
 
-config.harfbuzz_features = { "ss01", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "zero" }
+config.font_size = 17
 
-config.window_background_opacity = 0.8
+config.harfbuzz_features = { "calt", "dlig", "zero" }
+
+config.window_background_opacity = 0.75
 
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 6,
-	bottom = 6,
+	top = 0,
+	bottom = 0,
 }
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
-config.enable_scroll_bar = false
-config.show_new_tab_button_in_tab_bar = false
+config.enable_tab_bar = true
+
+config.color_scheme = "Catppuccin Mocha"
+config.colors = {
+	background = "black",
+}
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
@@ -98,5 +96,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Text = " " },
 	}
 end)
+
+config.keys = {
+	{ key = "t", mods = "ALT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+}
 
 return config

@@ -16,8 +16,6 @@ return {
 	no_bold = false,
 	no_underline = false,
 
-    transparent_background = true,
-
 	styles = {
 		comments = { "italic" },
 	},
@@ -26,7 +24,7 @@ return {
 		cmp = true,
 		treesitter = true,
 		fidget = true,
-		barbar = true,
+		gitsigns = true,
 	},
 
 	custom_highlights = function(colors)
@@ -38,7 +36,11 @@ return {
 			Constant = {
 				style = { "bold" },
 			},
-			["@function.builtin"] = { style = { "bold" } },
+			Type = {
+				style = { "italic" },
+			},
+
+			["@function.builtin"] = { style = { "bold", "italic" } },
 			["@constant.builtin"] = { style = { "bold" } },
 			["@keyword.operator"] = { fg = colors.red, style = { "bold" } },
 		}
