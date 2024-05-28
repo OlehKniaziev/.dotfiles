@@ -24,7 +24,7 @@ lspconfig.lua_ls.setup({
 local omnisharp_extended = require("omnisharp_extended")
 
 lspconfig.omnisharp.setup({
-	cmd = { "dotnet", "/home/oleg/software/omnisharp/OmniSharp.dll" },
+	cmd = { "/home/oleg/.local/share/nvim/mason/bin/omnisharp" },
 	settings = {
 		RoslyExtensionOptions = {
 			EnableImportCompletion = true,
@@ -36,30 +36,6 @@ lspconfig.omnisharp.setup({
 		["textDocument/references"] = omnisharp_extended.references_handler,
 		["textDocument/implementation"] = omnisharp_extended.implementation_handler,
 	},
-})
-local configs = require("lspconfig.configs")
-
-local lexical_config = {
-	filetypes = { "elixir", "eelixir", "heex" },
-	cmd = { "/home/oleg/software/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
-	settings = {},
-}
-
-if not configs.lexical then
-	configs.lexical = {
-		default_config = {
-			filetypes = lexical_config.filetypes,
-			cmd = lexical_config.cmd,
-			root_dir = function(fname)
-				return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
-			end,
-			settings = lexical_config.settings,
-		},
-	}
-end
-
-lspconfig.lexical.setup({
-	capabilities = capabilities,
 })
 
 local border = "rounded"

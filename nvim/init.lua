@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-    change_detection = { notify = false },
+	change_detection = { notify = false },
 	defaults = {
 		lazy = true,
 	},
@@ -26,8 +26,5 @@ require("autocmds")
 require("options")
 require("misc")
 
--- vim.o.background = "light"
--- vim.cmd.colorscheme("zenbones")
-
-vim.cmd.colorscheme("catppuccin")
--- vim.cmd.colorscheme("kanagawa")
+-- vim.g.background = "light"
+vim.cmd.colorscheme("tokyonight")

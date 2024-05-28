@@ -7,11 +7,11 @@ vim.opt.signcolumn = "yes"
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+vim.opt.scrolloff = 10
+
 vim.opt.listchars = [[eol:⤶,tab:» ]]
 vim.opt.list = true
 
-vim.opt.guicursor = "n-v-c-i:block"
-
-vim.opt.guifont = "RecMonoDuotone Nerd Font Mono:h14"
+vim.opt.guifont = "FiraCode Nerd Font Ret:h14"
 vim.g.neovide_scale_factor = 0.7
 vim.g.neovide_cursor_animation_length = 0.05

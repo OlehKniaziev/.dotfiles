@@ -15,5 +15,7 @@ return {
 		gleam = { "gleam" },
 		rust = { "rustfmt" },
 		scala = { "scalafmt" },
+		ocaml = { "ocamlformat" },
+		python = { "black" },
 	},
 }

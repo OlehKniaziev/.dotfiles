@@ -20,9 +20,12 @@ return {
 		comments = { "italic" },
 	},
 
+    transparent_background = true,
+
 	integrations = {
 		cmp = true,
 		treesitter = true,
+		treesitter_context = true,
 		fidget = true,
 		gitsigns = true,
 	},
@@ -36,13 +39,13 @@ return {
 			Constant = {
 				style = { "bold" },
 			},
-			Type = {
+			Keyword = {
 				style = { "italic" },
 			},
 
-			["@function.builtin"] = { style = { "bold", "italic" } },
+			["@function.builtin"] = { style = { "bold" } },
 			["@constant.builtin"] = { style = { "bold" } },
-			["@keyword.operator"] = { fg = colors.red, style = { "bold" } },
+			["@keyword.operator"] = { fg = colors.maroon, style = { "bold" } },
 		}
 	end,
 }
