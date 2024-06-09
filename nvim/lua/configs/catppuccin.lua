@@ -20,8 +20,6 @@ return {
 		comments = { "italic" },
 	},
 
-    transparent_background = true,
-
 	integrations = {
 		cmp = true,
 		treesitter = true,
@@ -39,13 +37,14 @@ return {
 			Constant = {
 				style = { "bold" },
 			},
-			Keyword = {
-				style = { "italic" },
-			},
+			-- Keyword = {
+			-- 	style = { "italic" },
+			-- },
 
 			["@function.builtin"] = { style = { "bold" } },
 			["@constant.builtin"] = { style = { "bold" } },
 			["@keyword.operator"] = { fg = colors.maroon, style = { "bold" } },
+			["@lsp.type.decorator"] = { link = "@function.macro" },
 		}
 	end,
 }

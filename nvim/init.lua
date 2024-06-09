@@ -26,5 +26,7 @@ require("autocmds")
 require("options")
 require("misc")
 
+-- vim.cmd("set statusline=%!v:lua.require'line'.line()")
+
 -- vim.g.background = "light"
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("catppuccin")

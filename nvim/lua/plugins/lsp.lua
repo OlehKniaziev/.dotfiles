@@ -11,8 +11,8 @@ return {
 				config = function(_, opts)
 					require("fidget").setup(opts)
 				end,
-				{ "folke/neodev.nvim", opts = {} },
 			},
+			{ "folke/neodev.nvim", opts = {} },
 		},
 
 		config = function()
@@ -36,6 +36,11 @@ return {
 				config = function(_, opts)
 					require("luasnip").setup(opts)
 				end,
+			},
+			{
+				"windwp/nvim-autopairs",
+				event = "InsertEnter",
+				config = true,
 			},
 		},
 

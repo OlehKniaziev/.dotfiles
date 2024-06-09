@@ -7,7 +7,7 @@ vim.opt.signcolumn = "yes"
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 15
 
 vim.opt.listchars = [[eol:⤶,tab:» ]]
 vim.opt.list = true

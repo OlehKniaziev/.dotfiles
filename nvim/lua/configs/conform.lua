@@ -17,5 +17,6 @@ return {
 		scala = { "scalafmt" },
 		ocaml = { "ocamlformat" },
 		python = { "black" },
+		zig = { "zigfmt" },
 	},
 }
