@@ -37,11 +37,6 @@ return {
 					require("luasnip").setup(opts)
 				end,
 			},
-			{
-				"windwp/nvim-autopairs",
-				event = "InsertEnter",
-				config = true,
-			},
 		},
 
 		opts = function()
@@ -50,6 +45,11 @@ return {
 		config = function(_, opts)
 			require("cmp").setup(opts)
 		end,
+	},
+	{
+		"windwp/nvim-autopairs",
+		-- event = "InsertEnter",
+		config = true,
 	},
 	{
 		"stevearc/conform.nvim",
