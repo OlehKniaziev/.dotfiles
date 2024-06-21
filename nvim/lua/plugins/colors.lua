@@ -55,4 +55,5 @@ return {
 			require("catppuccin").setup(opts)
 		end,
 	},
+	"RRethy/base16-nvim",
 }

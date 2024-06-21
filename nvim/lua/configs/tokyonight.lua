@@ -1,5 +1,5 @@
 return {
-	style = "night",
+	style = "day",
 	transparent = false,
 
 	on_highlights = function(highlights, colors)
@@ -11,5 +11,9 @@ return {
 			vim.tbl_deep_extend("force", highlights["@function.builtin"] or {}, { style = { bold = true } })
 		highlights["@variable.builtin"] =
 			vim.tbl_deep_extend("force", highlights["@variable.builtin"] or {}, { style = { italic = true } })
+		highlights["@module"] =
+			vim.tbl_deep_extend("force", highlights["@module"] or {}, { style = { italic = true } })
+		highlights["@lsp.typemod.namespace"] =
+			vim.tbl_deep_extend("force", highlights["@lsp.typemod.namespace"] or {}, { style = { italic = true } })
 	end,
 }

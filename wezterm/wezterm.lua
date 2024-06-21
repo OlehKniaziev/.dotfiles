@@ -2,8 +2,8 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-local font_name = "CascadiaCode NF"
-config.font = wezterm.font(font_name)
+local font_name = "Dank Mono"
+config.font = wezterm.font_with_fallback({font_name, "CascadiaCode NF"})
 config.font_rules = {
 	{
 		intensity = "Normal",
@@ -30,10 +30,10 @@ config.font_rules = {
 config.freetype_load_flags = "NO_HINTING"
 config.front_end = "WebGpu"
 
-config.font_size = 16
+config.font_size = 19
 -- config.harfbuzz_features =
 -- 	{ "calt", "liga", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "zero" }
-config.harfbuzz_features = { "zero", "ss01" }
+-- config.harfbuzz_features = { "zero", "ss01" }
 -- config.harfbuzz_features = { "calt=0", "dlig", }
 -- config.harfbuzz_features = { "zero", "ss01", "cv11", "cv08", "cv06" }
 -- config.harfbuzz_features = { "calt", "dlig", "ss02", "ss05", "ss09", "cv31", "cv27", "cv10" }
@@ -51,10 +51,11 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.enable_tab_bar = true
 
-config.color_scheme = "Catppuccin Macchiato"
-config.colors = {
-	background = "black",
-}
+config.color_scheme = "tokyonight_day"
+-- config.color_scheme = "Catppuccin Macchiato"
+-- config.colors = {
+-- 	background = "black",
+-- }
 
 -- config.window_background_opacity = 0.5
 

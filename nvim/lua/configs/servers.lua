@@ -10,4 +10,5 @@ return {
 	"ols",
 	"ocamllsp",
 	"zls",
+	"phpactor",
 }
