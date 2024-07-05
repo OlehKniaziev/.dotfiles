@@ -12,7 +12,7 @@ return {
 	},
 
 	flavour = "macchiato",
-	no_italic = false,
+	no_italic = true,
 	no_bold = false,
 	no_underline = false,
 
