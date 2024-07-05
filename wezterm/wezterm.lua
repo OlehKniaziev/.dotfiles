@@ -36,7 +36,7 @@ config.font_size = 18
 -- config.harfbuzz_features = { "zero", "ss01" }
 -- config.harfbuzz_features = { "calt=0", "dlig", }
 -- config.harfbuzz_features = { "zero", "ss01", "cv11", "cv08", "cv06" }
-config.harfbuzz_features = { "calt", "dlig", "ss02", "ss05", "ss09", "cv31", "cv27", "cv10" }
+config.harfbuzz_features = { "calt", "dlig", "ss02", "ss05", "ss09", "cv31", "cv27", }
 -- config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05" }
 -- config.harfbuzz_features = { "ss02", "calt", "dlig" }
 
