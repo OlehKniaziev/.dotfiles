@@ -10,21 +10,11 @@ for _, server in ipairs(servers) do
 	})
 end
 
-lspconfig.lua_ls.setup({
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
-	capabilities = capabilities,
-})
-
 local omnisharp_extended = require("omnisharp_extended")
 
 lspconfig.omnisharp.setup({
 	cmd = { "/home/oleg/.local/share/nvim/mason/bin/omnisharp" },
+
 	settings = {
 		RoslyExtensionOptions = {
 			EnableImportCompletion = true,
@@ -36,6 +26,27 @@ lspconfig.omnisharp.setup({
 		["textDocument/references"] = omnisharp_extended.references_handler,
 		["textDocument/implementation"] = omnisharp_extended.implementation_handler,
 	},
+
+	capabilities = capabilities,
+})
+
+local configs = require("lspconfig.configs")
+
+if not configs.lexical then
+	configs.lexical = {
+		default_config = {
+			filetypes = { "elixir", "eelixir", "heex" },
+			cmd = { "/home/oleg/.local/share/nvim/mason/bin/lexical" },
+			root_dir = function(filename)
+				return lspconfig.util.root_pattern("mix.exs")(filename) or vim.loop.os_homedir()
+			end,
+			settings = {},
+		},
+	}
+end
+
+lspconfig.lexical.setup({
+	capabilities = capabilities,
 })
 
 local border = "rounded"

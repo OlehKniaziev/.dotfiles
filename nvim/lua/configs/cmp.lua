@@ -1,11 +1,11 @@
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
--- 
 -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 local source_map = {
 	nvim_lsp = "LSP",
+	nvim_lsp_signature_help = "LSP",
 	buffer = "BUF",
 	text = "TEXT",
 	path = "PATH",
@@ -107,6 +107,7 @@ return {
 	}),
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "path" },
