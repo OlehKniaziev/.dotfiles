@@ -10,6 +10,7 @@ return {
 	"ols",
 	"ocamllsp",
 	"zls",
-	"phpactor",
 	"cmake",
+	"nil_ls",
+	"eslint"
 }

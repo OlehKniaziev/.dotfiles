@@ -29,4 +29,4 @@ require("misc")
 -- vim.cmd("set statusline=%!v:lua.require'line'.line()")
 
 -- vim.g.background = "light"
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("onedark")

@@ -10,6 +10,10 @@ for _, server in ipairs(servers) do
 	})
 end
 
+lspconfig.clojure_lsp.setup({
+	capabilities = capabilities,
+})
+
 local omnisharp_extended = require("omnisharp_extended")
 
 lspconfig.omnisharp.setup({

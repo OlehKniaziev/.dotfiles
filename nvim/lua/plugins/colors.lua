@@ -56,4 +56,13 @@ return {
 		end,
 	},
 	"RRethy/base16-nvim",
+	{
+		"navarasu/onedark.nvim",
+		opts = function()
+			return require("configs.onedark")
+		end,
+		config = function(_, opts)
+			require("onedark").setup(opts)
+		end
+	},
 }
