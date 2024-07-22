@@ -1,0 +1,13 @@
+emacs/eln-cache/
+emacs/elpa/
+emacs/saves/
+emacs/etc/
+emacs/saves/
+emacs/auto-save-list/
+emacs/tramp
+emacs/recentf
+emacs/tree-sitter/
+emacs/elpaca/
+emacs/eshell/
+emacs/transient/
+emacs/multisession/
