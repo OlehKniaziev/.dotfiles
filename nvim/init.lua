@@ -29,4 +29,11 @@ require("misc")
 -- vim.cmd("set statusline=%!v:lua.require'line'.line()")
 
 -- vim.g.background = "light"
-vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("onedark")
+
+-- vim.cmd("let g:gruvbox_material_background='medium'")
+-- vim.cmd("let g:gruvbox_material_disable_italic_comment=1")
+-- vim.cmd("let g:gruvbox_material_diagnostic_virtual_text='colored'")
+-- vim.cmd("let g:gruvbox_material_better_performance=1")
+
+vim.cmd.colorscheme("tokyonight")
