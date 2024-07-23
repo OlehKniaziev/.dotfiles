@@ -93,10 +93,11 @@
 (use-package git-gutter
   :ensure t
   :config
+  (setq git-gutter:update-interval 0.2)
+
   (pcase system-type
-    ("windows-nt" nil)
-    (_ (setq git-gutter:update-interval 0.2)
-       (global-git-gutter-mode 1))))
+    ('windows-nt nil)
+    (_ (global-git-gutter-mode 1))))
 
 (use-package git-gutter-fringe
   :ensure t
@@ -167,13 +168,22 @@
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-elisp-block))
- 
+
+(use-package projectile
+  :ensure t
+
+  :bind
+  (:map projectile-mode-map
+	("<leader>p" . projectile-command-map))
+    
+  :init
+  (projectile-mode 1))
+
 (use-package emacs
   :custom
   (tab-always-indent 'complete))
 
 ;; theming
-
 (use-package ligature
   :ensure t
   :config
@@ -215,9 +225,13 @@
  
   :init
   (setq catppuccin-flavor 'mocha))
+
+(use-package dracula-theme
+  :ensure (:wait t)
+  :demand t)
  
-;; (require 'catppuccin-theme)
-(load-theme 'catppuccin t)
+;; (load-theme 'catppuccin t)
+(load-theme 'dracula t)
 
 ;; faces
 (set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
@@ -252,8 +266,12 @@
 (set-frame-font "Cascadia Code 17" nil t)
  
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
- 
+
 (add-to-list 'auto-mode-alist '("\\rs\\'" . rust-ts-mode))
+
+(setq major-mode-remap-alist
+    '((javascript-mode . js-ts-mode)
+      (js-mode . js-ts-mode)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
