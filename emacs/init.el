@@ -74,12 +74,17 @@
   (--evil-normal-bind "<leader>fG" consult-git-grep)
   (--evil-normal-bind "<leader>fb" consult-buffer)
 
+  (--evil-normal-bind "<leader>ca" eglot-code-actions)
+
   ;; init the evil mode 🥔 (i do not have the imp emoji)
   (evil-mode 1))
  
 (use-package evil-collection
   :ensure t
  
+  :init
+  (setq evil-collection-key-blacklist '("K"))
+  
   :config
   (evil-collection-init))
  
@@ -168,6 +173,38 @@
 
 ;; theming
 
+(use-package ligature
+  :ensure t
+  :config
+  (ligature-set-ligatures 'prog-mode '("-->" "->" "->>" "-<" "--<"
+				       "-~" "]#" ".-" "!=" "!=="
+				       "#(" "#{" "#[" "#_" "#_("
+				       "/=" "/==" "|||" "||" ;; "|"
+				       "==" "===" "==>" "=>" "=>>"
+				       "=<<" "=/" ">-" ">->" ">="
+				       ">=>" "<-" "<--" "<->" "<-<"
+				       "<!--" "<|" "<||" "<|||" "|>"
+				       "<|>" "<=" "<==" "<==>" "<=>"
+				       "<=<" "<<-" "<<=" "<~" "<~>"
+				       "<~~" "~-" "~@" "~=" "~>"
+				       "~~" "~~>" ".=" "..=" "---"
+				       "{|" "[|" ".."  "..."  "..<"
+				       ".?"  "::" ":::" "::=" ":="
+				       ":>" ":<" ";;" "!!"  "!!."
+				       "!!!"  "?."  "?:" "??"  "?="
+				       "**" "***" "*>" "*/" "#:"
+				       "#!"  "#?"  "##" "###" "####"
+				       "#=" "/*" "/>" "//" "///"
+				       "&&" "|}" "|]" "$>" "++"
+				       "+++" "+>" "=:=" "=!=" ">:"
+				       ">>" ">>>" "<:" "<*" "<*>"
+				       "<$" "<$>" "<+" "<+>" "<>"
+				       "<<" "<<<" "</" "</>" "^="
+				       "%%" "'''" "\"\"\"" ))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
+    
 (use-package go-mode
   :ensure t)
 
@@ -210,7 +247,11 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
-(set-frame-font "IosevkaTerm Nerd Font 16" nil t)
+(set-frame-font "IosevkaTerm Nerd Font 17" nil t)
  
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
  
+(add-to-list 'auto-mode-alist '("\\rs\\'" . rust-ts-mode))
+
+;; misc
+(setq eldoc-echo-area-use-multiline-p nil)
