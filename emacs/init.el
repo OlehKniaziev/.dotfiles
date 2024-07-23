@@ -76,7 +76,6 @@
 
   (--evil-normal-bind "<leader>ca" eglot-code-actions)
 
-  ;; init the evil mode 🥔 (i do not have the imp emoji)
   (evil-mode 1))
  
 (use-package evil-collection
@@ -94,8 +93,10 @@
 (use-package git-gutter
   :ensure t
   :config
-  (setq git-gutter:update-interval 0.2)
-  (global-git-gutter-mode 1))
+  (pcase system-type
+    ("windows-nt" nil)
+    (_ (setq git-gutter:update-interval 0.2)
+       (global-git-gutter-mode 1))))
 
 (use-package git-gutter-fringe
   :ensure t
@@ -221,6 +222,7 @@
 ;; faces
 (set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
 (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+(set-face-underline 'eglot-highlight-symbol-face t)
 
 (setq indent-tabs-mode nil)
 (setq tab-width 4)
@@ -247,7 +249,7 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
-(set-frame-font "IosevkaTerm Nerd Font 17" nil t)
+(set-frame-font "Cascadia Code 17" nil t)
  
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
  
