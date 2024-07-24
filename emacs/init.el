@@ -75,6 +75,8 @@
   (--evil-normal-bind "<leader>fb" consult-buffer)
 
   (--evil-normal-bind "<leader>ca" eglot-code-actions)
+  (--evil-normal-bind "<leader>cr" eglot-rename)
+  (--evil-normal-bind "<leader>cf" eglot-format)
 
   (evil-mode 1))
  
@@ -106,6 +108,10 @@
   (define-fringe-bitmap 'git-gutter-fr:modified [224] nil nil '(center repeated))
   (define-fringe-bitmap 'git-gutter-fr:deleted [128 192 224 240] nil nil 'bottom))
 
+(use-package vterm
+  :ensure t
+  :defer t)
+
 (use-package consult
   :ensure t
   :demand t)
@@ -123,6 +129,8 @@
 (use-package eglot
   :hook
   ((c-mode . eglot-ensure)
+   (c-ts-mode . eglot-ensure)
+   (c++-mode . eglot-ensure)
    (js-mode . eglot-ensure)
    (js-ts-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
@@ -200,7 +208,7 @@
      "|=" "//=" "/="
      ; Group C
      "<<" ">>" "<<<" ">>>" "<>" "<$" "$>" "<$>" "<+" "+>" "<+>" "<:" ":<"
-     "<:<" ">:" ":>" "<~" "~>" "<~>" "<<~" "<~~" "~~>" "~~" "<|" "|>"
+     "<:<" "<~" "~>" "<~>" "<<~" "<~~" "~~>" "~~" "<|" "|>"
      "<|>" "<||" "||>" "<|||" "|||>" "</" "/>" "</>" "<*" "*>" "<*>" ":?>"
      ; Group D
      "#(" "#{" "#[" "]#" "#!" "#?" "#=" "#_" "#_(" "##" "###" "####"
@@ -219,6 +227,12 @@
 (use-package go-mode
   :ensure t)
 
+(use-package nix-mode
+  :ensure t)
+
+(use-package cmake-mode
+  :ensure t)
+
 (use-package catppuccin-theme
   :ensure (:wait t)
   :demand t
@@ -234,17 +248,21 @@
 (load-theme 'dracula t)
 
 ;; faces
+(set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
 (set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
 (set-face-attribute 'font-lock-type-face nil :weight 'bold :slant 'normal)
 (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+
 (set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :slant 'italic :inherit 'shadow)
 (set-face-underline 'eglot-highlight-symbol-face t)
 
-(setq indent-tabs-mode nil)
-(setq tab-width 4)
-(setq indent-line-function 'insert-tab)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default indent-line-function 'insert-tab)
 
+(setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
+(setq c-indentation-style "k&r")
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -265,8 +283,7 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
-(set-frame-font "Berkeley Mono 16" nil t)
- 
+(set-frame-font "Berkeley Mono 19" nil t)
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
 (defvar auto-mode-pairs
@@ -279,7 +296,14 @@
 
 (setq major-mode-remap-alist
     '((javascript-mode . js-ts-mode)
-      (js-mode . js-ts-mode)))
+      (js-mode . js-ts-mode)
+      (c-mode . c-ts-mode)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
+
+(setq eglot-ignored-server-capabilities
+  '(:inlayHintProvider))
+
+(setq projectile-project-search-path
+  '("~/personal"))
