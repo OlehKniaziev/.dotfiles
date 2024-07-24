@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-local font_name = "IosevkaTerm Nerd Font"
+local font_name = "Berkeley Mono"
 -- config.font = wezterm.font_with_fallback({ font_name, "CascadiaCode NF" })
 config.font = wezterm.font(font_name)
 config.font_rules = {
@@ -29,7 +29,7 @@ config.font_rules = {
 }
 
 config.freetype_load_flags = "NO_HINTING"
--- config.front_end = "WebGpu"
+config.front_end = "WebGpu"
 
 config.font_size = 20
 --config.harfbuzz_features =
@@ -38,7 +38,7 @@ config.font_size = 20
 -- config.harfbuzz_features = { "calt=0", "dlig", }
 -- config.harfbuzz_features = { "zero", "ss01", "cv11", "cv08", "cv06" }
 -- config.harfbuzz_features = { "calt", "dlig", "ss02", "ss05", "ss09", "cv31", "cv27", }
-config.harfbuzz_features = { "calt=0", "dlig" }
+-- config.harfbuzz_features = { "calt=0", "dlig" }
 -- config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05" }
 -- config.harfbuzz_features = { "ss02", "calt", "dlig" }
 
