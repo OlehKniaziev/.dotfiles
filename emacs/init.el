@@ -124,6 +124,7 @@
   :hook
   ((c-mode . eglot-ensure)
    (js-mode . eglot-ensure)
+   (js-ts-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
    (go-mode . eglot-ensure))
 
@@ -187,31 +188,30 @@
 (use-package ligature
   :ensure t
   :config
-  (ligature-set-ligatures 'prog-mode '("-->" "->" "->>" "-<" "--<"
-				       "-~" "]#" ".-" "!=" "!=="
-				       "#(" "#{" "#[" "#_" "#_("
-				       "/=" "/==" "|||" "||" ;; "|"
-				       "==" "===" "==>" "=>" "=>>"
-				       "=<<" "=/" ">-" ">->" ">="
-				       ">=>" "<-" "<--" "<->" "<-<"
-				       "<!--" "<|" "<||" "<|||" "|>"
-				       "<|>" "<=" "<==" "<==>" "<=>"
-				       "<=<" "<<-" "<<=" "<~" "<~>"
-				       "<~~" "~-" "~@" "~=" "~>"
-				       "~~" "~~>" ".=" "..=" "---"
-				       "{|" "[|" ".."  "..."  "..<"
-				       ".?"  "::" ":::" "::=" ":="
-				       ":>" ":<" ";;" "!!"  "!!."
-				       "!!!"  "?."  "?:" "??"  "?="
-				       "**" "***" "*>" "*/" "#:"
-				       "#!"  "#?"  "##" "###" "####"
-				       "#=" "/*" "/>" "//" "///"
-				       "&&" "|}" "|]" "$>" "++"
-				       "+++" "+>" "=:=" "=!=" ">:"
-				       ">>" ">>>" "<:" "<*" "<*>"
-				       "<$" "<$>" "<+" "<+>" "<>"
-				       "<<" "<<<" "</" "</>" "^="
-				       "%%" "'''" "\"\"\"" ))
+(ligature-set-ligatures
+   'prog-mode
+   '(; Group A
+     ".." ".=" "..." "..<" "::" ":::" ":=" "::=" ";;" ";;;" "??" "???"
+     ".?" "?." ":?" "?:" "?=" "**" "***" "/*" "*/" "/**"
+     ; Group B
+     "<-" "->" "-<" ">-" "<--" "-->" "<<-" "->>" "-<<" ">>-" "<-<" ">->"
+     "<-|" "|->" "-|" "|-" "||-" "<!--" "<#--" "<=" "=>" ">=" "<==" "==>"
+     "<<=" "=>>" "=<<" ">>=" "<=<" ">=>" "<=|" "|=>" "<=>" "<==>" "||="
+     "|=" "//=" "/="
+     ; Group C
+     "<<" ">>" "<<<" ">>>" "<>" "<$" "$>" "<$>" "<+" "+>" "<+>" "<:" ":<"
+     "<:<" ">:" ":>" "<~" "~>" "<~>" "<<~" "<~~" "~~>" "~~" "<|" "|>"
+     "<|>" "<||" "||>" "<|||" "|||>" "</" "/>" "</>" "<*" "*>" "<*>" ":?>"
+     ; Group D
+     "#(" "#{" "#[" "]#" "#!" "#?" "#=" "#_" "#_(" "##" "###" "####"
+     ; Group E
+     "[|" "|]" "[<" ">]" "{!!" "!!}" "{|" "|}" "{{" "}}" "{{--" "--}}"
+     "{!--" "//" "///" "!!"
+     ; Group F
+     "www" "@_" "&&" "&&&" "&=" "~@" "++" "+++" "/\\" "\\/" "_|_" "||"
+     ; Group G
+     "=:" "=:=" "=!=" "==" "===" "=/=" "=~" "~-" "^=" "__" "!=" "!==" "-~"
+     "--" "---"))
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
@@ -234,8 +234,10 @@
 (load-theme 'dracula t)
 
 ;; faces
-(set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
+(set-face-attribute 'font-lock-type-face nil :weight 'bold :slant 'normal)
 (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+(set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :slant 'italic :inherit 'shadow)
 (set-face-underline 'eglot-highlight-symbol-face t)
 
 (setq indent-tabs-mode nil)
@@ -263,11 +265,17 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
-(set-frame-font "Cascadia Code 17" nil t)
+(set-frame-font "Berkeley Mono 16" nil t)
  
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
-(add-to-list 'auto-mode-alist '("\\rs\\'" . rust-ts-mode))
+(defvar auto-mode-pairs
+  '(("\\.rs\\'" . rust-ts-mode)
+    ("\\.yml\\'" . yaml-ts-mode)
+    ("\\.yaml\\'" . yaml-ts-mode)))
+
+(dolist (pair auto-mode-pairs)
+  (add-to-list 'auto-mode-alist pair))
 
 (setq major-mode-remap-alist
     '((javascript-mode . js-ts-mode)
