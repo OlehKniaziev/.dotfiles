@@ -44,10 +44,17 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(defmacro --evil-normal-bind (keys callback)
+(defvar leader-key "SPC")
+
+(defvar key-blacklist `(,leader-key))
+;; (add-to-list 'key-blacklist leader-key)
+
+(defun --evil-normal-bind (keys callback)
   "define the evil key binding in the normal mode"
-  `(evil-define-key nil evil-normal-state-map
-     (kbd ,keys) ',callback))
+  (evil-define-key nil evil-normal-state-map (kbd keys) callback)
+  (if (not (boundp 'evil-collection-key-blacklist))
+      (setq evil-collection-key-blacklist nil))
+  (add-to-list 'key-blacklist keys))
 
 (use-package evil
   :ensure t
@@ -62,34 +69,37 @@
  
   :config
   ;; bindings
-  (evil-set-leader 'normal (kbd "SPC"))
+  (evil-set-leader 'normal (kbd leader-key))
 
-  (--evil-normal-bind "K" eldoc-box-help-at-point)
-  (--evil-normal-bind "<leader>s" consult-imenu)
-  (--evil-normal-bind "<leader>S" consult-imenu-multi)
+  (--evil-normal-bind "K" 'eldoc-box-help-at-point)
+  (--evil-normal-bind "<leader>s" 'consult-imenu)
+  (--evil-normal-bind "<leader>S" 'consult-imenu-multi)
 
-  (--evil-normal-bind "<leader>fr" recentf-open)
-  (--evil-normal-bind "<leader>ff" consult-fd)
-  (--evil-normal-bind "<leader>fg" consult-ripgrep)
-  (--evil-normal-bind "<leader>fG" consult-git-grep)
-  (--evil-normal-bind "<leader>fb" consult-buffer)
+  (--evil-normal-bind "<leader>fr" 'recentf-open)
+  (--evil-normal-bind "<leader>ff" 'consult-fd)
+  (--evil-normal-bind "<leader>fg" 'consult-ripgrep)
+  (--evil-normal-bind "<leader>fG" 'consult-git-grep)
+  (--evil-normal-bind "<leader>fb" 'consult-buffer)
 
-  (--evil-normal-bind "<leader>ca" eglot-code-actions)
-  (--evil-normal-bind "<leader>cr" eglot-rename)
-  (--evil-normal-bind "<leader>cf" eglot-format)
+  (--evil-normal-bind "<leader>ca" 'eglot-code-actions)
+  (--evil-normal-bind "<leader>cr" 'eglot-rename)
+  (--evil-normal-bind "<leader>cf" 'eglot-format)
 
   (evil-mode 1))
  
 (use-package evil-collection
   :ensure t
- 
+
   :init
-  (setq evil-collection-key-blacklist '("K"))
-  
+  (setq evil-collection-key-blacklist key-blacklist)
+ 
   :config
   (evil-collection-init))
  
 (use-package magit
+  :ensure t)
+
+(use-package transient
   :ensure t)
 
 (use-package git-gutter
