@@ -85,6 +85,11 @@
   (--evil-normal-bind "<leader>cr" 'eglot-rename)
   (--evil-normal-bind "<leader>cf" 'eglot-format)
 
+  (--evil-normal-bind "<leader>cx" 'flycheck-list-errors)
+
+  (--evil-normal-bind "]d" 'flycheck-next-error)
+  (--evil-normal-bind "[d" 'flycheck-previous-error)
+
   (evil-mode 1))
  
 (use-package evil-collection
