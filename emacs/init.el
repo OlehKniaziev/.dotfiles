@@ -128,7 +128,11 @@
  
 ;; some lsp stuff
 (use-package flycheck
-  :ensure t)
+  :ensure t
+
+  :config
+  (setq flycheck-checker-error-threshold 9999) ;; give them all to me!
+  (global-flycheck-mode 1))
  
 (use-package markdown-mode
   :ensure t)
@@ -144,13 +148,13 @@
    (js-mode . eglot-ensure)
    (js-ts-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
-   (go-mode . eglot-ensure))
-
-  :config
-  (add-hook 'eglot-connect-hook 'flycheck-eglot-mode))
+   (go-mode . eglot-ensure)))
 
 (use-package flycheck-eglot
-  :ensure t)
+  :ensure t
+
+  :config
+  (global-flycheck-eglot-mode))
  
 (use-package orderless
   :ensure t
@@ -244,24 +248,29 @@
   :ensure t)
 
 (use-package catppuccin-theme
-  :ensure (:wait t)
-  :demand t
+  :ensure t
+  :defer t
  
   :init
   (setq catppuccin-flavor 'mocha))
 
 (use-package dracula-theme
-  :ensure (:wait t)
-  :demand t)
- 
-;; (load-theme 'catppuccin t)
-(load-theme 'dracula t)
+  :ensure t
+  :defer t)
 
+(use-package ef-themes
+  :ensure t
+
+  :config
+  (load-theme 'ef-cherie t))
+ 
 ;; faces
-(set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
-(set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
-(set-face-attribute 'font-lock-type-face nil :weight 'bold :slant 'normal)
-(set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
+;; (set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
+;; (set-face-attribute 'font-lock-type-face nil :weight 'bold :slant 'normal)
+;; (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+
+(elpaca-wait)
 
 (set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :slant 'italic :inherit 'shadow)
 (set-face-underline 'eglot-highlight-symbol-face t)
@@ -317,3 +326,5 @@
 
 (setq projectile-project-search-path
   '("~/personal"))
+
+(setq-default treesit-font-lock-level 4)
