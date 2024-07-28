@@ -35,12 +35,12 @@
     (require 'elpaca)
     (elpaca-generate-autoloads "elpaca" repo)
     (load "./elpaca-autoloads")))
- 
+
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
- 
+
 (elpaca-no-symlink-mode)
- 
+
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
@@ -58,15 +58,15 @@
 
 (use-package evil
   :ensure t
- 
+  
   :custom
   (evil-undo-system 'undo-redo)
- 
+  
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-want-keybinding nil)
   (setq evil-want-integration t)
- 
+  
   :config
   ;; bindings
   (evil-set-leader 'normal (kbd leader-key))
@@ -91,16 +91,16 @@
   (--evil-normal-bind "[d" 'flycheck-previous-error)
 
   (evil-mode 1))
- 
+
 (use-package evil-collection
   :ensure t
 
   :init
   (setq evil-collection-key-blacklist key-blacklist)
- 
+  
   :config
   (evil-collection-init))
- 
+
 (use-package magit
   :ensure t)
 
@@ -130,7 +130,7 @@
 (use-package consult
   :ensure t
   :demand t)
- 
+
 ;; some lsp stuff
 (use-package flycheck
   :ensure t
@@ -138,7 +138,7 @@
   :config
   (setq flycheck-checker-error-threshold 9999) ;; give them all to me!
   (global-flycheck-mode 1))
- 
+
 (use-package markdown-mode
   :ensure t)
 
@@ -153,57 +153,71 @@
    (js-mode . eglot-ensure)
    (js-ts-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
-   (go-mode . eglot-ensure)))
+   (go-mode . eglot-ensure))
+
+  :config
+  (advice-add 'eglot-completion-at-point :around #'cape-wrap-noninterruptible))
+  ;; (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster))
 
 (use-package flycheck-eglot
   :ensure t
 
   :config
   (global-flycheck-eglot-mode))
- 
+
 (use-package orderless
   :ensure t
- 
+  
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file styles basic partial-completion))))
- 
+
 (use-package vertico
   :ensure t
- 
+  
   :custom
   (vertico-scroll-margin 3)
   (vertico-cycle t)
- 
+  
   :init
   (vertico-mode))
- 
+
 (use-package corfu
   :ensure t
- 
+  
   :custom
+  (setq corfu-auto-delay 0.3)
   (corfu-cycle t)
   (corfu-auto t)
   (corfu-scroll-margin 3)
- 
+  
   :init
   (global-corfu-mode))
- 
+
 (use-package cape
   :ensure t
- 
+  
   :init
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-elisp-block))
+
+(use-package yasnippet
+  :ensure t
+
+  :config
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :ensure t)
 
 (use-package projectile
   :ensure t
 
   :bind
   (:map projectile-mode-map
-	("<leader>p" . projectile-command-map))
-    
+	    ("<leader>p" . projectile-command-map))
+  
   :init
   (projectile-mode 1))
 
@@ -215,34 +229,34 @@
 (use-package ligature
   :ensure t
   :config
-(ligature-set-ligatures
-   'prog-mode
+  (ligature-set-ligatures
+   't
    '(; Group A
      ".." ".=" "..." "..<" "::" ":::" ":=" "::=" ";;" ";;;" "??" "???"
      ".?" "?." ":?" "?:" "?=" "**" "***" "/*" "*/" "/**"
-     ; Group B
+                                        ; Group B
      "<-" "->" "-<" ">-" "<--" "-->" "<<-" "->>" "-<<" ">>-" "<-<" ">->"
      "<-|" "|->" "-|" "|-" "||-" "<!--" "<#--" "<=" "=>" ">=" "<==" "==>"
      "<<=" "=>>" "=<<" ">>=" "<=<" ">=>" "<=|" "|=>" "<=>" "<==>" "||="
      "|=" "//=" "/="
-     ; Group C
+                                        ; Group C
      "<<" ">>" "<<<" ">>>" "<>" "<$" "$>" "<$>" "<+" "+>" "<+>" "<:" ":<"
      "<:<" "<~" "~>" "<~>" "<<~" "<~~" "~~>" "~~" "<|" "|>"
      "<|>" "<||" "||>" "<|||" "|||>" "</" "/>" "</>" "<*" "*>" "<*>" ":?>"
-     ; Group D
+                                        ; Group D
      "#(" "#{" "#[" "]#" "#!" "#?" "#=" "#_" "#_(" "##" "###" "####"
-     ; Group E
+                                        ; Group E
      "[|" "|]" "[<" ">]" "{!!" "!!}" "{|" "|}" "{{" "}}" "{{--" "--}}"
      "{!--" "//" "///" "!!"
-     ; Group F
+                                        ; Group F
      "www" "@_" "&&" "&&&" "&=" "~@" "++" "+++" "/\\" "\\/" "_|_" "||"
-     ; Group G
+                                        ; Group G
      "=:" "=:=" "=!=" "==" "===" "=/=" "=~" "~-" "^=" "__" "!=" "!==" "-~"
      "--" "---"))
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
-    
+
 (use-package go-mode
   :ensure t)
 
@@ -255,7 +269,7 @@
 (use-package catppuccin-theme
   :ensure t
   :defer t
- 
+  
   :init
   (setq catppuccin-flavor 'mocha))
 
@@ -267,8 +281,8 @@
   :ensure t
 
   :config
-  (load-theme 'ef-cherie t))
- 
+  (load-theme 'ef-bio t))
+
 ;; faces
 ;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
 ;; (set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
@@ -291,18 +305,18 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
- 
+
 (setq ring-bell-function 'ignore)
- 
+
 (global-hl-line-mode)
- 
+
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
- 
+
 (setq inhibit-startup-screen t)
- 
+
 (column-number-mode)
- 
+
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
@@ -319,17 +333,17 @@
   (add-to-list 'auto-mode-alist pair))
 
 (setq major-mode-remap-alist
-    '((javascript-mode . js-ts-mode)
-      (js-mode . js-ts-mode)
-      (c-mode . c-ts-mode)))
+      '((javascript-mode . js-ts-mode)
+        (js-mode . js-ts-mode)
+        (c-mode . c-ts-mode)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
 
 (setq eglot-ignored-server-capabilities
-  '(:inlayHintProvider))
+      '(:inlayHintProvider))
 
 (setq projectile-project-search-path
-  '("~/personal"))
+      '("~/personal"))
 
 (setq-default treesit-font-lock-level 4)
