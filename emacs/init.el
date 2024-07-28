@@ -112,9 +112,10 @@
   :config
   (setq git-gutter:update-interval 0.2)
 
-  (pcase system-type
-    ('windows-nt nil)
-    (_ (global-git-gutter-mode 1))))
+  ;; disable the git-gutter mode on windows because the 'diff'
+  ;; command is very slow for whatever reason
+  (if (not (eq system-type 'windows-nt))
+      (global-git-gutter-mode 1)))
 
 (use-package git-gutter-fringe
   :ensure t
