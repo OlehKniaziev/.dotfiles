@@ -154,7 +154,12 @@
    (js-mode . eglot-ensure)
    (js-ts-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
-   (go-mode . eglot-ensure))
+   (go-ts-mode . eglot-ensure))
+
+  :init
+  (setq eglot-confirm-server-initiated-edits nil)
+  (setq eglot-ignored-server-capabilities
+        '(:inlayHintProvider))
 
   :config
   (advice-add 'eglot-completion-at-point :around #'cape-wrap-noninterruptible))
@@ -258,25 +263,11 @@
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
-(use-package go-mode
-  :ensure t)
-
 (use-package nix-mode
   :ensure t)
 
 (use-package cmake-mode
   :ensure t)
-
-(use-package catppuccin-theme
-  :ensure t
-  :defer t
-  
-  :init
-  (setq catppuccin-flavor 'mocha))
-
-(use-package dracula-theme
-  :ensure t
-  :defer t)
 
 (use-package ef-themes
   :ensure t
@@ -295,6 +286,9 @@
 (set-face-attribute 'eglot-diagnostic-tag-unnecessary-face nil :slant 'italic :inherit 'shadow)
 (set-face-underline 'eglot-highlight-symbol-face t)
 
+(set-face-attribute 'mode-line nil
+                    :box '(:color "#00c089" :line-width 2))
+
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default indent-line-function 'insert-tab)
@@ -302,6 +296,8 @@
 (setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
 (setq c-indentation-style "k&r")
+
+(setq-default go-ts-mode-indent-offset 4)
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -322,7 +318,8 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 
-(set-frame-font "Berkeley Mono 19" nil t)
+(set-frame-font "Berkeley Mono 19")
+
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
 (defvar auto-mode-pairs
@@ -340,9 +337,6 @@
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
-
-(setq eglot-ignored-server-capabilities
-      '(:inlayHintProvider))
 
 (setq projectile-project-search-path
       '("~/personal"))
