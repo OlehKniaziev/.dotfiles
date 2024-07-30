@@ -44,6 +44,8 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
+(set-face-attribute 'default nil :weight 'normal :family "Berkeley Mono" :height 180)
+
 (defvar leader-key "SPC")
 
 (defvar key-blacklist `(,leader-key))
@@ -150,7 +152,10 @@
   :ensure t)
 
 (use-package eldoc-box
-  :ensure t)
+  :ensure t
+
+  :custom-face
+  (eldoc-box-body ((t (:height 170 :inherit default)))))
 
 (use-package eglot
   :hook
@@ -331,8 +336,6 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
-
-(set-frame-font "Berkeley Mono 19")
 
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
