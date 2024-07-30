@@ -292,7 +292,10 @@
   :ensure t
 
   :config
-  (load-theme 'ef-bio t))
+  (load-theme 'ef-bio t)
+  (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
+  (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
+  (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
 
 ;; faces
 ;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
