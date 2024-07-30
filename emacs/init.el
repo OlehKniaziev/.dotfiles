@@ -101,6 +101,12 @@
   :config
   (evil-collection-init))
 
+(use-package org
+  :defer t
+
+  :config
+  (setq org-agenda-files '("~/notes/agenda")))
+
 (use-package magit
   :ensure t)
 
@@ -325,6 +331,8 @@
 (defvar auto-mode-pairs
   '(("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
+    ("\\.cjs\\'" . js-ts-mode)
+    ("\\.mjs\\'" . js-ts-mode)
     ("\\.yaml\\'" . yaml-ts-mode)))
 
 (dolist (pair auto-mode-pairs)
