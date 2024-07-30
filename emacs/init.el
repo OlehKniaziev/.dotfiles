@@ -235,7 +235,15 @@
 
 (use-package emacs
   :custom
-  (tab-always-indent 'complete))
+  (tab-always-indent 'complete)
+
+  :config
+  (setq-default mode-line-format '(" "
+                           mode-line-modified
+                           " %b "
+                           " (%l, %c) "
+                           " %m "
+                           (:eval (if flycheck-mode (number-to-string (flycheck-count-errors)) "")))))
 
 ;; theming
 (use-package ligature
@@ -293,7 +301,7 @@
 (set-face-underline 'eglot-highlight-symbol-face t)
 
 (set-face-attribute 'mode-line nil
-                    :box '(:color "#00c089" :line-width 2))
+                    :box '(:color "#403f3f" :line-width 2))
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
