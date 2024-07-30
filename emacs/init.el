@@ -243,12 +243,13 @@
   (tab-always-indent 'complete)
 
   :config
-  (setq-default mode-line-format '(" "
-                           mode-line-modified
-                           " %b "
-                           " (%l, %c) "
-                           " %m "
-                           (:eval (if flycheck-mode (number-to-string (flycheck-count-errors)) "")))))
+  (setq-default mode-line-format
+                '(" "
+                  mode-line-modified
+                  " %b "
+                  " (%l, %c) "
+                  " %m "
+                  (vc-mode vc-mode))))
 
 ;; theming
 (use-package ligature
