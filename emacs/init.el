@@ -85,7 +85,12 @@
   :defer t
 
   :config
-  (setq org-agenda-files '("~/notes/agenda")))
+  (setq org-directory "~/notes")
+  (setq org-default-notes-file (concat org-directory "/ideas.org"))
+  (setq org-agenda-files '("~/notes/agenda"))
+  (setq org-capture-templates
+        '(("i" "Idea" item (file+headline "~/notes/ideas.org" "Ideas")
+          "- [ ] %?\n"))))
 
 (use-package magit
   :ensure t)
