@@ -70,28 +70,6 @@
   (setq evil-want-integration t)
   
   :config
-  ;; bindings
-  (evil-set-leader 'normal (kbd leader-key))
-
-  (--evil-normal-bind "K" 'eldoc-box-help-at-point)
-  (--evil-normal-bind "<leader>s" 'consult-imenu)
-  (--evil-normal-bind "<leader>S" 'consult-imenu-multi)
-
-  (--evil-normal-bind "<leader>fr" 'recentf-open)
-  (--evil-normal-bind "<leader>ff" 'consult-fd)
-  (--evil-normal-bind "<leader>fg" 'consult-ripgrep)
-  (--evil-normal-bind "<leader>fG" 'consult-git-grep)
-  (--evil-normal-bind "<leader>fb" 'consult-buffer)
-
-  (--evil-normal-bind "<leader>ca" 'eglot-code-actions)
-  (--evil-normal-bind "<leader>cr" 'eglot-rename)
-  (--evil-normal-bind "<leader>cf" 'eglot-format)
-
-  (--evil-normal-bind "<leader>cx" 'flycheck-list-errors)
-
-  (--evil-normal-bind "]d" 'flycheck-next-error)
-  (--evil-normal-bind "[d" 'flycheck-previous-error)
-
   (evil-mode 1))
 
 (use-package evil-collection
@@ -243,6 +221,31 @@
   (tab-always-indent 'complete)
 
   :config
+  ;; bindings
+  (evil-set-leader 'normal (kbd leader-key))
+
+  (--evil-normal-bind "K" 'eldoc-box-help-at-point)
+  (--evil-normal-bind "<leader>s" 'consult-imenu)
+  (--evil-normal-bind "<leader>S" 'consult-imenu-multi)
+
+  (--evil-normal-bind "<leader>fr" 'recentf-open)
+  (--evil-normal-bind "<leader>ff" 'consult-fd)
+  (--evil-normal-bind "<leader>fg" 'consult-ripgrep)
+  (--evil-normal-bind "<leader>fG" 'consult-git-grep)
+  (--evil-normal-bind "<leader>fb" 'consult-buffer)
+
+  (--evil-normal-bind "<leader>ca" 'eglot-code-actions)
+  (--evil-normal-bind "<leader>cr" 'eglot-rename)
+  (--evil-normal-bind "<leader>cf" 'eglot-format)
+
+  (--evil-normal-bind "<leader>cx" 'flycheck-list-errors)
+
+  (--evil-normal-bind "]d" 'flycheck-next-error)
+  (--evil-normal-bind "[d" 'flycheck-previous-error)
+
+  (--evil-normal-bind "<leader>oc" 'org-capture)
+  (--evil-normal-bind "<leader>oa" 'org-agenda)
+
   (setq-default mode-line-format
                 '(" "
                   mode-line-modified
