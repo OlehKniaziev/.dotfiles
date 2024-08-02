@@ -12,6 +12,8 @@ vim.opt.scrolloff = 15
 vim.opt.listchars = [[eol:⤶,tab:» ]]
 vim.opt.list = true
 
+vim.opt.cursorline = true
+
 vim.opt.guifont = "Dank Mono:h20"
 vim.g.neovide_scale_factor = 0.7
 vim.g.neovide_cursor_animation_length = 0.05
