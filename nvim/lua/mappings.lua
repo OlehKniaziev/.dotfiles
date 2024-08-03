@@ -17,6 +17,6 @@ vim.keymap.set("n", "<leader>nh", function()
 	vim.cmd("noh")
 end)
 
-vim.keymap.set("n", "<A-d>", function()
+vim.keymap.set("n", "<leader>bd", function()
 	vim.cmd("bd")
 end)

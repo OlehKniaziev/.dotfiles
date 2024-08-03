@@ -9,5 +9,6 @@ return {
 	"zls",
 	"cmake",
 	"nil_ls",
-	"eslint"
+	"eslint",
+	"lua_ls",
 }

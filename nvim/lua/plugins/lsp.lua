@@ -12,7 +12,18 @@ return {
 					require("fidget").setup(opts)
 				end,
 			},
-			{ "folke/neodev.nvim", opts = {} },
+			{ "williamboman/mason.nvim", config = true },
+			{ "williamboman/mason-lspconfig.nvim", config = true },
+			{
+				"folke/lazydev.nvim",
+				ft = "lua",
+				opts = function()
+					return require("configs.lazydev")
+				end,
+				config = function(_, opts)
+					require("lazydev").setup(opts)
+				end
+			}
 		},
 
 		config = function()
