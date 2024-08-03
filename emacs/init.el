@@ -70,6 +70,31 @@
   (setq evil-want-integration t)
   
   :config
+  ;; bindings
+  (evil-set-leader 'normal (kbd leader-key))
+
+  (--evil-normal-bind "K" 'eldoc-box-help-at-point)
+  (--evil-normal-bind "<leader>s" 'consult-imenu)
+  (--evil-normal-bind "<leader>S" 'consult-imenu-multi)
+
+  (--evil-normal-bind "<leader>fr" 'recentf-open)
+  (--evil-normal-bind "<leader>ff" 'consult-fd)
+  (--evil-normal-bind "<leader>fg" 'consult-ripgrep)
+  (--evil-normal-bind "<leader>fG" 'consult-git-grep)
+  (--evil-normal-bind "<leader>fb" 'consult-buffer)
+
+  (--evil-normal-bind "<leader>ca" 'eglot-code-actions)
+  (--evil-normal-bind "<leader>cr" 'eglot-rename)
+  (--evil-normal-bind "<leader>cf" 'eglot-format)
+
+  (--evil-normal-bind "<leader>cx" 'flycheck-list-errors)
+
+  (--evil-normal-bind "]d" 'flycheck-next-error)
+  (--evil-normal-bind "[d" 'flycheck-previous-error)
+
+  (--evil-normal-bind "<leader>oc" 'org-capture)
+  (--evil-normal-bind "<leader>oa" 'org-agenda)
+
   (evil-mode 1))
 
 (use-package evil-collection
@@ -140,6 +165,9 @@
   :custom-face
   (eldoc-box-body ((t (:height 170 :inherit default)))))
 
+(use-package haskell-mode
+  :ensure t)
+
 (use-package eglot
   :hook
   ((c-mode . eglot-ensure)
@@ -147,6 +175,7 @@
    (c++-mode . eglot-ensure)
    (js-mode . eglot-ensure)
    (js-ts-mode . eglot-ensure)
+   (haskell-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
    (go-ts-mode . eglot-ensure))
 
@@ -226,31 +255,6 @@
   (tab-always-indent 'complete)
 
   :config
-  ;; bindings
-  (evil-set-leader 'normal (kbd leader-key))
-
-  (--evil-normal-bind "K" 'eldoc-box-help-at-point)
-  (--evil-normal-bind "<leader>s" 'consult-imenu)
-  (--evil-normal-bind "<leader>S" 'consult-imenu-multi)
-
-  (--evil-normal-bind "<leader>fr" 'recentf-open)
-  (--evil-normal-bind "<leader>ff" 'consult-fd)
-  (--evil-normal-bind "<leader>fg" 'consult-ripgrep)
-  (--evil-normal-bind "<leader>fG" 'consult-git-grep)
-  (--evil-normal-bind "<leader>fb" 'consult-buffer)
-
-  (--evil-normal-bind "<leader>ca" 'eglot-code-actions)
-  (--evil-normal-bind "<leader>cr" 'eglot-rename)
-  (--evil-normal-bind "<leader>cf" 'eglot-format)
-
-  (--evil-normal-bind "<leader>cx" 'flycheck-list-errors)
-
-  (--evil-normal-bind "]d" 'flycheck-next-error)
-  (--evil-normal-bind "[d" 'flycheck-previous-error)
-
-  (--evil-normal-bind "<leader>oc" 'org-capture)
-  (--evil-normal-bind "<leader>oa" 'org-agenda)
-
   (setq-default mode-line-format
                 '(" "
                   mode-line-modified
@@ -354,6 +358,8 @@
 (defvar auto-mode-pairs
   '(("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
+    ("\\.go\\'" . go-ts-mode)
+    ("\\.mod\\'" . go-mod-ts-mode)
     ("\\.cjs\\'" . js-ts-mode)
     ("\\.mjs\\'" . js-ts-mode)
     ("\\.yaml\\'" . yaml-ts-mode)))
