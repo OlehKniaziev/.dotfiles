@@ -61,13 +61,9 @@ return {
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				if luasnip.expandable() then
-					luasnip.expand()
-				else
-					cmp.confirm({
-						select = true,
-					})
-				end
+				cmp.confirm({
+					select = true,
+				})
 			else
 				fallback()
 			end
@@ -98,8 +94,8 @@ return {
 		end, { "i", "s" }),
 
 		["<C-j>"] = cmp.mapping(function(fallback)
-			if luasnip.locally_jumpable(1) then
-				luasnip.jump(1)
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			else
 				fallback()
 			end

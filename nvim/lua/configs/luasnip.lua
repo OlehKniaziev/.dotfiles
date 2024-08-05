@@ -7,12 +7,6 @@ local f = ls.function_node
 
 ls.add_snippets("all", {
 	s(
-		"calc",
-		f(function()
-			return "TODO"
-		end)
-	),
-	s(
 		"curtime",
 		f(function()
 			return os.date("%D - %H:%M")
@@ -44,6 +38,38 @@ ls.add_snippets("lua", {
 			end, { 1 }),
 			i(1),
 		})
+	),
+})
+
+ls.add_snippets("javascript", {
+	s(
+		"func",
+		fmt(
+			[[
+			function {}({}) {{
+			    {}
+			}}
+		]],
+			{
+				i(1),
+				i(2),
+				i(3),
+			}
+		)
+	),
+	s(
+		"lambda",
+		fmt(
+			[[
+			({}) => {{
+			    {}
+			}}
+		]],
+			{
+				i(1),
+				i(2),
+			}
+		)
 	),
 })
 
