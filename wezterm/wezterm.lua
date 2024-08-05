@@ -59,6 +59,10 @@ config.colors = {
 	background = "black",
 }
 
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "powershell.exe" }
+end
+
 -- config.window_background_opacity = 0.5
 
 -- This function returns the suggested title for a tab.
