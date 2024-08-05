@@ -59,7 +59,7 @@ return {
 		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
 		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<CR>"] = cmp.mapping(function(fallback)
+		["<C-y>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.confirm({
 					select = true,
