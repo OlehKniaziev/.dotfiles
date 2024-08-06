@@ -9,11 +9,11 @@ vim.wo.relativenumber = true
 
 vim.opt.scrolloff = 15
 
-vim.opt.listchars = [[eol:⤶,tab:» ]]
+vim.opt.listchars = [[eol:⤶,tab:» ,trail:\u2218]]
 vim.opt.list = true
 
 vim.opt.cursorline = true
 
-vim.opt.guifont = "Dank Mono:h20"
+vim.opt.guifont = "Berkeley Mono:h20"
 vim.g.neovide_scale_factor = 0.7
 vim.g.neovide_cursor_animation_length = 0.05
