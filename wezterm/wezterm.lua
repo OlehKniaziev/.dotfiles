@@ -59,6 +59,9 @@ config.colors = {
 	background = "black",
 }
 
+config.default_cursor_style = "BlinkingBlock"
+config.animation_fps = 1
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "powershell.exe" }
 end
