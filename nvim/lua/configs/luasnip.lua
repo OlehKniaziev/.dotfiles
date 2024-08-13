@@ -121,6 +121,42 @@ ls.add_snippets("javascript", {
 	),
 })
 
+ls.add_snippets("rust", {
+	s(
+		"test",
+		fmt(
+			[[
+		#[test]
+		fn {}() {{
+		    {}
+		}}
+		]],
+			{
+				i(1),
+				i(2),
+			}
+		)
+	),
+	s(
+		"tests",
+		fmt(
+			[[
+		#[cfg(test)]
+		mod tests {{
+		    #[test]
+		    fn {}() {{
+		        {}
+		    }}
+		}}
+		]],
+			{
+				i(1),
+				i(2),
+			}
+		)
+	),
+})
+
 return {
 	history = true,
 	enable_autosnippets = true,

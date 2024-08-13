@@ -16,7 +16,8 @@ return {
 		highlights["@function.builtin"] = { bold = true, fg = c.orange }
 		highlights["@variable.builtin"] = { italic = true, fg = c.red }
 		highlights["@module"] = { italic = true, fg = c.magenta }
-		highlights["@lsp.typemod.namespace"] = { italic = true, fg = c.blue2 }
+		highlights["@lsp.typemod.namespace"] = { italic = true, fg = c.purple }
+		highlights["@lsp.type.enumMember"] = { bold = true, fg = c.orange }
 
 		for _, value in pairs(highlights) do
 			if value.undercurl then
