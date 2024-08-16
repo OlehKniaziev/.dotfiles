@@ -18,6 +18,8 @@ return {
 		highlights["@module"] = { italic = true, fg = c.magenta }
 		highlights["@lsp.typemod.namespace"] = { italic = true, fg = c.purple }
 		highlights["@lsp.type.enumMember"] = { bold = true, fg = c.orange }
+		highlights["@lsp.type.interface"] = { fg = c.green1 }
+		highlights["@lsp.mod.trait"] = { fg = c.green }
 
 		for _, value in pairs(highlights) do
 			if value.undercurl then
