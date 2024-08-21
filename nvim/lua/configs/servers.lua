@@ -11,4 +11,5 @@ return {
 	"nil_ls",
 	"eslint",
 	"lua_ls",
+	"hls",
 }
