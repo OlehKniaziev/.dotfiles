@@ -44,7 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-face-attribute 'default nil :weight 'normal :family "Berkeley Mono" :height 180)
+(set-face-attribute 'default nil :weight 'normal :family "Berkeley Mono" :height 190)
 
 (defvar leader-key "SPC")
 
