@@ -52,8 +52,15 @@
 ;; (add-to-list 'key-blacklist leader-key)
 
 (defun --evil-normal-bind (keys callback)
-  "define the evil key binding in the normal mode"
+  "Define the evil key binding in the normal mode."
   (evil-define-key nil evil-normal-state-map (kbd keys) callback)
+  (if (not (boundp 'evil-collection-key-blacklist))
+      (setq evil-collection-key-blacklist nil))
+  (add-to-list 'key-blacklist keys))
+
+(defun --evil-insert-bind (keys callback)
+  "Define the evil key binding in the insert mode."
+  (evil-define-key nil evil-insert-state-map (kbd keys) callback)
   (if (not (boundp 'evil-collection-key-blacklist))
       (setq evil-collection-key-blacklist nil))
   (add-to-list 'key-blacklist keys))
@@ -94,6 +101,8 @@
 
   (--evil-normal-bind "<leader>oc" 'org-capture)
   (--evil-normal-bind "<leader>oa" 'org-agenda)
+
+  (--evil-insert-bind "C-y" 'corfu-send)
 
   (evil-mode 1))
 
@@ -166,7 +175,9 @@
   (eldoc-box-body ((t (:height 170 :inherit default)))))
 
 (use-package haskell-mode
-  :ensure t)
+  :ensure t
+  :hook
+  (haskell-mode . interactive-haskell-mode))
 
 (use-package eglot
   :hook
@@ -219,6 +230,10 @@
   (corfu-cycle t)
   (corfu-auto t)
   (corfu-scroll-margin 3)
+
+  :config
+  (keymap-unset corfu-map "RET")
+  (keymap-unset corfu-map "TAB")
   
   :init
   (global-corfu-mode))
@@ -251,9 +266,6 @@
   (projectile-mode 1))
 
 (use-package emacs
-  :custom
-  (tab-always-indent 'complete)
-
   :config
   (setq-default mode-line-format
                 '(" "
