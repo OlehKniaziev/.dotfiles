@@ -65,6 +65,10 @@
       (setq evil-collection-key-blacklist nil))
   (add-to-list 'key-blacklist keys))
 
+(defun kill-current-buffer ()
+  (interactive)
+  (kill-buffer (buffer-name)))
+
 (use-package evil
   :ensure t
   
@@ -103,6 +107,8 @@
   (--evil-normal-bind "<leader>oa" 'org-agenda)
 
   (--evil-insert-bind "C-y" 'corfu-send)
+
+  (--evil-normal-bind "<leader>bd" 'kill-current-buffer)
 
   (evil-mode 1))
 
