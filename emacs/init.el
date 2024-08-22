@@ -185,6 +185,9 @@
   :hook
   (haskell-mode . interactive-haskell-mode))
 
+(use-package tuareg
+  :ensure t)
+
 (use-package eglot
   :hook
   ((c-mode . eglot-ensure)
@@ -192,6 +195,7 @@
    (c++-mode . eglot-ensure)
    (js-mode . eglot-ensure)
    (js-ts-mode . eglot-ensure)
+   (tuareg-mode . eglot-ensure)
    (haskell-mode . eglot-ensure)
    (rust-ts-mode . eglot-ensure)
    (go-ts-mode . eglot-ensure))
