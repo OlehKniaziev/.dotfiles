@@ -317,7 +317,7 @@
   :ensure t
 
   :config
-  (load-theme 'ef-dream t)
+  (load-theme 'ef-summer t)
   (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
   (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
@@ -386,6 +386,7 @@
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
+(setq eldoc-documentation-strategy #'eldoc-documentation-compose)
 
 (setq projectile-project-search-path
       '("~/personal"))
