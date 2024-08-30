@@ -12,4 +12,5 @@ return {
 	"eslint",
 	"lua_ls",
 	"hls",
+	"jdtls",
 }
