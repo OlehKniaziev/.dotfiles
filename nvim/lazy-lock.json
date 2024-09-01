@@ -22,7 +22,7 @@
   "lush.nvim": { "branch": "main", "commit": "45a79ec4acb5af783a6a29673a999ce37f00497e" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "482350b050bd413931c2cdd4857443c3da7d57cb" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
-  "melange-nvim": { "branch": "master", "commit": "e84f8bc2abc5d6edaa7bd48a16c3078504ecb713" },
+  "melange-nvim": { "branch": "master", "commit": "36d02139979f840a170de8c19a72beaae2ef1741" },
   "modus-themes.nvim": { "branch": "master", "commit": "f978043c34f4e967a5496b4fa78c2ad092315b00" },
   "moonfly": { "branch": "master", "commit": "4f7d18cb471ede7407dd966c7563868cae7f4f99" },
   "nordic.nvim": { "branch": "main", "commit": "03fcff3c8d68049b8118047784746048b4a08049" },
