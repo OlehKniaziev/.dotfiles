@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 vim.opt.signcolumn = "yes"
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.wo.conceallevel = 3
 
 vim.opt.scrolloff = 15
 
