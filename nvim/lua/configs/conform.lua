@@ -18,5 +18,6 @@ return {
 		ocaml = { "ocamlformat" },
 		python = { "black" },
 		zig = { "zigfmt" },
+		clojure = { "cljfmt" },
 	},
 }
