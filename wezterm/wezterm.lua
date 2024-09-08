@@ -2,7 +2,9 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-local font_name = "Iosevka Classy"
+-- local font_name = "Iosevka Classy"
+local font_name = "Berkeley Mono"
+
 -- config.font = wezterm.font_with_fallback({ font_name, "CascadiaCode NF" })
 config.font = wezterm.font(font_name)
 config.font_rules = {
