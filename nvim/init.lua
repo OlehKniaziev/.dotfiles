@@ -38,4 +38,4 @@ require("misc")
 -- vim.cmd("let g:gruvbox_material_better_performance=1")
 
 -- vim.cmd.colorscheme("tokyonight")
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("kanagawa")

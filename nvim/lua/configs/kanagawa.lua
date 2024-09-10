@@ -8,5 +8,5 @@ return {
 			},
 		},
 	},
-	transparent = true,
+	-- transparent = true,
 }
