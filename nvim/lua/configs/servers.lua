@@ -2,7 +2,7 @@ return {
 	"clangd",
 	"rust_analyzer",
 	"pyright",
-	"ts_ls",
+	"tsserver",
 	"gopls",
 	"ols",
 	"ocamllsp",
