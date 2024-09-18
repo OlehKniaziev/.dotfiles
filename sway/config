@@ -64,6 +64,13 @@ input "1133:49977:Logitech_PRO_Gaming_Keyboard" {
     xkb_options grp:alt_shift_toggle
 }
 
+input "1267:12423:ELAN1300:00_04F3:3087_Touchpad" {
+    tap enabled
+    dwt enabled
+    middle_emulation enabled
+    natural_scroll disabled
+}
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
