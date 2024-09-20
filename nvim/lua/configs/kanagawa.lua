@@ -35,7 +35,7 @@ return {
 
 			["@lsp.type.macro"] = { bold = true, fg = p.peachRed },
 
-			["@lsp.type.decorator"] = { fg = p.sakuraPink },
+			["@lsp.type.decorator"] = { fg = p.peachRed },
 		}
 	end,
 }

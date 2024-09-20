@@ -13,4 +13,6 @@ return {
 	"lua_ls",
 	"hls",
 	"jdtls",
+	"svelte",
+	"cssls",
 }
