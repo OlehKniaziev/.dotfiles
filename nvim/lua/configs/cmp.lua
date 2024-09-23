@@ -10,6 +10,31 @@ local source_map = {
 	text = "TEXT",
 	path = "PATH",
 	luasnip = "SNIP",
+	neorg = "NORG",
+}
+
+local icons = {
+	Class = "τ",
+	Color = "",
+	Constant = "π",
+	Constructor = "σ",
+	Enum = "Δ",
+	EnumMember = "Δ",
+	Field = "Ξ",
+	File = "",
+	Folder = "",
+	Function = "λ",
+	Interface = "ω",
+	Keyword = "κ",
+	Method = "ƒ",
+	Module = "󰏗",
+	Property = "ψ",
+	Snippet = "󰘍",
+	Struct = "τ",
+	Text = "",
+	Unit = "",
+	Value = "β",
+	Variable = "α",
 }
 
 return {
@@ -25,32 +50,8 @@ return {
 	formatting = {
 		fields = { "abbr", "menu", "kind" },
 		format = function(entry, item)
-			-- local icons = {
-			-- 	Class = "τ",
-			-- 	Color = "",
-			-- 	Constant = "π",
-			-- 	Constructor = "σ",
-			-- 	Enum = "Δ",
-			-- 	EnumMember = "Δ",
-			-- 	Field = "Ξ",
-			-- 	File = "",
-			-- 	Folder = "",
-			-- 	Function = "λ",
-			-- 	Interface = "ω",
-			-- 	Keyword = "κ",
-			-- 	Method = "ƒ",
-			-- 	Module = "󰏗",
-			-- 	Property = "ψ",
-			-- 	Snippet = "󰘍",
-			-- 	Struct = "τ",
-			-- 	Text = "",
-			-- 	Unit = "",
-			-- 	Value = "β",
-			-- 	Variable = "α",
-			-- }
-
 			local source = source_map[entry.source.name]
-			item.kind = string.format("[%s] %s", source or "", item.kind)
+			item.kind = string.format("[%s] %s %s", source or "", icons[item.kind], item.kind)
 
 			return item
 		end,
