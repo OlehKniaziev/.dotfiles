@@ -14,11 +14,11 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term wezterm
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu wofi --show drun
 
 ### Output configuration
 #
@@ -86,6 +86,8 @@ input "1267:12423:ELAN1300:00_04F3:3087_Touchpad" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym $mod+p exec slurp | grim -g - - | wl-copy
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
