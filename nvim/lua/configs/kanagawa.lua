@@ -19,7 +19,8 @@ return {
 			-- Special = { bold = true, fg = c.magenta },
 
 			["@keyword.modifier"] = { fg = p.peachRed },
-			["@lsp.type.modifier"] = { fg = p.peachRed },
+			["@keyword.coroutine"] = { link = "@keyword.modifier" },
+			["@lsp.type.modifier"] = { link = "@keyword.modifier" },
 
 			["@function.builtin"] = { bold = true, fg = p.surimiOrange },
 			["@variable.builtin"] = { italic = true, fg = p.waveRed },
