@@ -41,7 +41,7 @@ return {
 			-- 	style = { "italic" },
 			-- },
 
-			["@module"] = { fg = colors.sky },
+			["@module"] = { fg = colors.sapphire },
 			["@function.builtin"] = { style = { "bold" } },
 			["@constant.builtin"] = { style = { "bold" } },
 			["@keyword.operator"] = { fg = colors.maroon, style = { "bold" } },
