@@ -41,9 +41,12 @@ return {
 			-- 	style = { "italic" },
 			-- },
 
+			["@module"] = { fg = colors.sky },
 			["@function.builtin"] = { style = { "bold" } },
 			["@constant.builtin"] = { style = { "bold" } },
 			["@keyword.operator"] = { fg = colors.maroon, style = { "bold" } },
+			["@keyword.modifier"] = { fg = colors.pink },
+			["@keyword.coroutine"] = { link = "@keyword.modifier" },
 			["@lsp.type.decorator"] = { link = "@function.macro" },
 		}
 	end,
