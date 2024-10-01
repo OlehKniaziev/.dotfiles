@@ -46,6 +46,8 @@ return {
 			["@constant.builtin"] = { style = { "bold" } },
 			["@keyword.operator"] = { fg = colors.maroon, style = { "bold" } },
 			["@keyword.modifier"] = { fg = colors.pink },
+			["@keyword.import"] = { link = "PreProc" },
+			["@keyword.export"] = { link = "PreProc" },
 			["@keyword.coroutine"] = { link = "@keyword.modifier" },
 			["@lsp.type.decorator"] = { link = "@function.macro" },
 		}
