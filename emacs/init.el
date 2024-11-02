@@ -44,7 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-face-attribute 'default nil :weight 'normal :family "Iosevka Classy" :height 210)
+(set-frame-font "Iosevka Classy 22" nil t)
 
 (use-package org
   :defer t
@@ -71,14 +71,6 @@
   :ensure t
   :demand t)
 
-;; some lsp stuff
-(use-package flycheck
-  :ensure t
-
-  :config
-  (setq flycheck-checker-error-threshold 9999) ;; give them all to me!
-  (global-flycheck-mode 1))
-
 (use-package markdown-mode
   :ensure t)
 
@@ -89,23 +81,6 @@
 
 (use-package tuareg
   :ensure t)
-
-(use-package orderless
-  :ensure t
-  
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file styles basic partial-completion))))
-
-(use-package vertico
-  :ensure t
-  
-  :custom
-  (vertico-scroll-margin 3)
-  (vertico-cycle t)
-  
-  :init
-  (vertico-mode))
 
 (use-package yasnippet
   :ensure t
@@ -128,6 +103,12 @@
 
 (use-package emacs
   :config
+  ;; Ido mode
+  (setq ido-enable-flex-matching t)
+  (ido-mode 1)
+  (ido-everywhere 1)
+
+  ;; Mode line
   (setq-default mode-line-format
                 '(" "
                   mode-line-modified
@@ -176,11 +157,16 @@
 
 (use-package ef-themes
   :ensure t
-
+  :defer t
+  
   :config
   (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
   (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
+
+(use-package doom-themes
+  :ensure t
+  :defer t)
 
 ;; faces
 ;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
@@ -190,7 +176,7 @@
 
 (elpaca-wait)
 
-(load-theme 'modus-operandi t)
+(load-theme 'doom-oksolar-light t)
 
 (set-face-attribute 'mode-line nil
                     :box '(:color "#403f3f" :line-width 2))
@@ -202,6 +188,7 @@
 (setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
 (setq c-indentation-style "k&r")
+(setq c-ts-mode-indent-style "k&r")
 
 (setq-default go-ts-mode-indent-offset 4)
 
@@ -241,7 +228,9 @@
 (setq major-mode-remap-alist
       '((javascript-mode . js-ts-mode)
         (js-mode . js-ts-mode)
-        (c-mode . c-ts-mode)))
+        (c-mode . c-ts-mode)
+        (c++-mode . c++-ts-mode)
+        (c-or-c++-mode . c-or-c++-ts-mode)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
@@ -251,3 +240,9 @@
       '("~/personal"))
 
 (setq-default treesit-font-lock-level 4)
+
+(setq scroll-step 1)
+
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+
+(require 'keys)
