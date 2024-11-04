@@ -44,12 +44,16 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "Iosevka Classy 22" nil t)
+(set-frame-font "Iosevka Classy 20" nil t)
 
 (use-package org
   :defer t
 
+  :hook
+  (org-mode . visual-line-mode)
+
   :config
+  (setq org-startup-indented t)
   (setq org-directory "~/notes")
   (setq org-default-notes-file (concat org-directory "/ideas.org"))
   (setq org-agenda-files '("~/notes/agenda"))
@@ -107,6 +111,8 @@
   (setq ido-enable-flex-matching t)
   (ido-mode 1)
   (ido-everywhere 1)
+
+  (global-goto-address-mode 1)
 
   ;; Mode line
   (setq-default mode-line-format
@@ -176,7 +182,7 @@
 
 (elpaca-wait)
 
-(load-theme 'doom-oksolar-light t)
+(load-theme 'doom-one t)
 
 (set-face-attribute 'mode-line nil
                     :box '(:color "#403f3f" :line-width 2))
