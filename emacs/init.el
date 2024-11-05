@@ -118,8 +118,6 @@
   (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
   (global-whitespace-mode 1)
 
-  (add-to-list 'write-file-functions 'delete-trailing-whitespace)
-
   ;; Mode line
   (setq-default mode-line-format
                 '(" "
@@ -243,6 +241,10 @@
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
 (setq eldoc-documentation-strategy #'eldoc-documentation-compose)
+(add-hook 'prog-mode-hook (lambda ()
+                            (interactive)
+                            (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
 
 (setq projectile-project-search-path
       '("~/personal"))
