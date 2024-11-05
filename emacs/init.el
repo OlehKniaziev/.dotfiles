@@ -44,7 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "Iosevka Classy 20" nil t)
+(set-frame-font "JetBrains Mono 21" nil t)
 
 (use-package org
   :defer t
@@ -101,7 +101,7 @@
   :bind
   (:map projectile-mode-map
 	    ("C-c p" . projectile-command-map))
-  
+
   :init
   (projectile-mode 1))
 
@@ -113,6 +113,12 @@
   (ido-everywhere 1)
 
   (global-goto-address-mode 1)
+
+  ;; Whitespace mode
+  (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
+  (global-whitespace-mode 1)
+
+  (add-to-list 'write-file-function 'delete-trailing-whitespace)
 
   ;; Mode line
   (setq-default mode-line-format
@@ -164,7 +170,7 @@
 (use-package ef-themes
   :ensure t
   :defer t
-  
+
   :config
   (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
   (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
@@ -234,6 +240,7 @@
 (setq major-mode-remap-alist
       '((javascript-mode . js-ts-mode)
         (js-mode . js-ts-mode)
+        (python-mode . python-ts-mode)
         (c-mode . c-ts-mode)
         (c++-mode . c++-ts-mode)
         (c-or-c++-mode . c-or-c++-ts-mode)))
@@ -247,7 +254,9 @@
 
 (setq-default treesit-font-lock-level 4)
 
-(setq scroll-step 1)
+(setq
+ scroll-step 1
+ scroll-conservatively 999)
 
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
