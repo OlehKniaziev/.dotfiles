@@ -118,7 +118,7 @@
   (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
   (global-whitespace-mode 1)
 
-  (add-to-list 'write-file-function 'delete-trailing-whitespace)
+  (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 
   ;; Mode line
   (setq-default mode-line-format
