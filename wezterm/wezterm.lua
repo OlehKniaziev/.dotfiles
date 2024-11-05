@@ -3,8 +3,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- local font_name = "Cascadia Code"
--- local font_name = "Iosevka Classy"
-local font_name = "MonoLisa"
+local font_name = "Iosevka Classy"
+-- local font_name = "MonoLisa"
 -- local font_name = "Berkeley Mono"
 
 -- config.font = wezterm.font_with_fallback({ font_name, "CascadiaCode NF" })
@@ -35,7 +35,7 @@ config.font_rules = {
 config.freetype_load_flags = "NO_HINTING"
 config.front_end = "WebGpu"
 
-config.font_size = 20
+config.font_size = 22
 -- config.harfbuzz_features =
 -- 	{ "calt", "liga", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "zero" }
 -- config.harfbuzz_features = { "ss01", "zero" }
