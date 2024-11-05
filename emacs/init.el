@@ -190,17 +190,12 @@
 
 (load-theme 'doom-one t)
 
-(set-face-attribute 'mode-line nil
-                    :box '(:color "#403f3f" :line-width 2))
-
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default indent-line-function 'insert-tab)
 
 (setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
-(setq c-indentation-style "k&r")
-(setq c-ts-mode-indent-style "k&r")
 
 (setq-default go-ts-mode-indent-offset 4)
 
