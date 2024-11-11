@@ -44,7 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "JetBrains Mono 21" nil t)
+(set-frame-font "Iosevka Classy 22" nil t)
 
 (use-package org
   :defer t
@@ -186,7 +186,7 @@
 
 (elpaca-wait)
 
-(load-theme 'doom-one t)
+(load-theme 'doom-old-hope t)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
