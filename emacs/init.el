@@ -44,7 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "Iosevka Classy 22" nil t)
+(set-frame-font "Iosevka Classy 24" nil t)
 
 (use-package org
   :defer t
@@ -71,10 +71,6 @@
   :ensure t
   :defer t)
 
-(use-package consult
-  :ensure t
-  :demand t)
-
 (use-package markdown-mode
   :ensure t)
 
@@ -95,22 +91,19 @@
 (use-package yasnippet-snippets
   :ensure t)
 
-(use-package projectile
-  :ensure t
-
-  :bind
-  (:map projectile-mode-map
-	    ("C-c p" . projectile-command-map))
-
-  :init
-  (projectile-mode 1))
-
 (use-package emacs
   :config
   ;; Ido mode
-  (setq ido-enable-flex-matching t)
-  (ido-mode 1)
-  (ido-everywhere 1)
+  ;; (setq ido-enable-flex-matching t)
+  ;; (ido-mode 1)
+  ;; (ido-everywhere 1)
+  (require 'icomplete)
+
+  (defun fido-hook ()
+    (setq-local completion-styles '(initials substring flex)))
+
+  (add-hook 'icomplete-minibuffer-setup-hook 'fido-hook)
+  (fido-vertical-mode)
 
   (global-goto-address-mode 1)
 
@@ -158,9 +151,6 @@
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
-
-(use-package nix-mode
-  :ensure t)
 
 (use-package cmake-mode
   :ensure t)
