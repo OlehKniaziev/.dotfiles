@@ -100,7 +100,7 @@
   (require 'icomplete)
 
   (defun fido-hook ()
-    (setq-local completion-styles '(initials substring flex)))
+    (setq-local completion-styles '(substring)))
 
   (add-hook 'icomplete-minibuffer-setup-hook 'fido-hook)
   (fido-vertical-mode)
