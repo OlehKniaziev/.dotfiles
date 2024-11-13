@@ -117,6 +117,7 @@
                   mode-line-modified
                   " %b "
                   " (%l, %c) "
+                  " %p "
                   " %m "
                   (vc-mode vc-mode))))
 
