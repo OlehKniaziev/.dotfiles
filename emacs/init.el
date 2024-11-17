@@ -111,6 +111,9 @@
   (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
   (global-whitespace-mode 1)
 
+  ;; Misc
+  (setq-default cursor-type 'bar)
+
   ;; Mode line
   (setq-default mode-line-format
                 '(" "
@@ -165,10 +168,6 @@
   (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
 
-(use-package doom-themes
-  :ensure t
-  :defer t)
-
 ;; faces
 ;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
 ;; (set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
@@ -176,8 +175,6 @@
 ;; (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 
 (elpaca-wait)
-
-(load-theme 'doom-old-hope t)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -249,3 +246,6 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'keys)
+(require 'didko-theme)
+
+(load-theme 'didko t)
