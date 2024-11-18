@@ -9,13 +9,13 @@
 (deftheme didko
   "Didko theme for Emacs 24.")
 
-(let ((didko-fg "#EDEADE")
-      (didko-bg "#1C1D20")
+(let ((didko-fg "#E4E4E4")
+      (didko-bg "#353535")
       (didko-bg2 "#5A616A")
       (didko-bg3 "#2F3136")
       (didko-gray "#505050")
       (didko-yellow "#FFDF00")
-      (didko-quartz "#AF79A5")
+      (didko-quartz "#F4ABFF")
       (didko-light-quartz "#AA6B9D")
       (didko-pink "#FF66D8")
       (didko-pink2 "#AC80A0")
@@ -24,6 +24,7 @@
       (didko-green "#659157")
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
+      (didko-pumpkin2 "#FCAC32")
       (didko-cocoa "#C96F36")
       (didko-mustard "#FFDF5F")
       (didko-alice "#E3F2FD")
@@ -99,7 +100,11 @@
    `(eshell-ls-executable ((t ,(list :foreground didko-blue
                                      :bold t))))
    `(eshell-ls-directory ((t ,(list :foreground didko-cocoa
-                                     :bold t))))
+                                    :bold t))))
+
+   ;; Compilation mode
+   `(compilation-info ((t ,(list :foreground didko-dark-blue
+                                 :bold t))))
 
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-yellow
@@ -111,7 +116,7 @@
    `(font-lock-string-face ((t ,(list :foreground didko-green))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
-   `(font-lock-variable-name-face ((t ,(list :foreground didko-mustard))))
+   `(font-lock-variable-name-face ((t ,(list :foreground didko-pumpkin2))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
    `(font-lock-type-face ((t ,(list :foreground didko-indigo))))
    `(font-lock-number-face ((t ,(list :foreground didko-alice))))
@@ -126,6 +131,14 @@
    `(show-paren-match ((t ,(list :background didko-blue))))
    `(show-paren-mismatch ((t ,(list :background didko-red
                                     :bold t))))
+   `(outline-1 ((t ,(list :foreground didko-quartz))))
+   `(outline-2 ((t ,(list :foreground didko-pumpkin2))))
+   `(outline-3 ((t ,(list :foreground didko-blue))))
+   `(outline-4 ((t ,(list :foreground didko-light-blue))))
+   `(outline-5 ((t ,(list :foreground didko-pumpkin))))
+   `(outline-6 ((t ,(list :foreground didko-green))))
+   `(outline-7 ((t ,(list :foreground didko-cacao))))
+   `(outline-8 ((t ,(list :foreground didko-dark-blue))))
    ))
 
 ;;;###autoload
