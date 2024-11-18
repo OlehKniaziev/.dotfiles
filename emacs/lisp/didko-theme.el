@@ -99,7 +99,7 @@
                               :bold t))))
    `(eshell-ls-executable ((t ,(list :foreground didko-blue
                                      :bold t))))
-   `(eshell-ls-directory ((t ,(list :foreground didko-cocoa
+   `(eshell-ls-directory ((t ,(list :foreground didko-cacao
                                     :bold t))))
 
    ;; Compilation mode
