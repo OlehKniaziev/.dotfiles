@@ -99,7 +99,7 @@
                               :bold t))))
    `(eshell-ls-executable ((t ,(list :foreground didko-blue
                                      :bold t))))
-   `(eshell-ls-directory ((t ,(list :foreground didko-cacao
+   `(eshell-ls-directory ((t ,(list :foreground didko-cocoa
                                     :bold t))))
 
    ;; Compilation mode
@@ -137,7 +137,7 @@
    `(outline-4 ((t ,(list :foreground didko-light-blue))))
    `(outline-5 ((t ,(list :foreground didko-pumpkin))))
    `(outline-6 ((t ,(list :foreground didko-green))))
-   `(outline-7 ((t ,(list :foreground didko-cacao))))
+   `(outline-7 ((t ,(list :foreground didko-cocoa))))
    `(outline-8 ((t ,(list :foreground didko-dark-blue))))
    ))
 
