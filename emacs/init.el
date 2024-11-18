@@ -56,7 +56,7 @@
   (setq org-startup-indented t)
   (setq org-directory "~/notes")
   (setq org-default-notes-file (concat org-directory "/ideas.org"))
-  (setq org-agenda-files '("~/notes/agenda"))
+  (setq org-agenda-files '("~/notes"))
   (setq org-capture-templates
         '(("i" "Idea" item (file+headline "~/notes/ideas.org" "Ideas")
           "- [ ] %?\n"))))
