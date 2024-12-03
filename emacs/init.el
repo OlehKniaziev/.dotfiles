@@ -44,7 +44,23 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "Iosevka Classy 24" nil t)
+(set-frame-font "Iosevka Cozy 17" nil t)
+
+;; (use-package evil
+;;   :ensure t
+
+;;   :init
+;;   (setq evil-want-integration t)
+;;   (setq evil-want-keybinding nil)
+
+;;   :config
+;;   (evil-mode 1))
+
+;; (use-package evil-collection
+;;   :after evil
+;;   :ensure t
+;;   :config
+;;   (evil-collection-init))
 
 (use-package org
   :defer t
@@ -108,8 +124,8 @@
   (global-goto-address-mode 1)
 
   ;; Whitespace mode
-  (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
-  (global-whitespace-mode 1)
+  ;; (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
+  ;; (global-whitespace-mode 1)
 
   ;; Misc
   (setq-default cursor-type 'bar)
@@ -233,7 +249,6 @@
                             (interactive)
                             (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
-
 (setq projectile-project-search-path
       '("~/personal"))
 
@@ -246,6 +261,11 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'keys)
-(require 'didko-theme)
+;; (require 'didko-theme)
+;;
+;; (load-theme 'didko t)
 
-(load-theme 'didko t)
+(require 'ef-themes)
+;; (load-theme 'ef-kassio t)
+;; (load-theme 'ef-tritanopia-dark t)
+(load-theme 'ef-elea-dark t)
