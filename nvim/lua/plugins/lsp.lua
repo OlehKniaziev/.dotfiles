@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufRead", "BufNewFile" },
+		-- event = { "BufRead", "BufNewFile" },
 		dependencies = {
 			{
 				"j-hui/fidget.nvim",
@@ -22,8 +22,8 @@ return {
 				end,
 				config = function(_, opts)
 					require("lazydev").setup(opts)
-				end
-			}
+				end,
+			},
 		},
 
 		config = function()
@@ -32,7 +32,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		-- event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -60,7 +60,7 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
-		-- event = "InsertEnter",
+		event = "InsertEnter",
 		config = true,
 	},
 	{
@@ -73,13 +73,4 @@ return {
 		end,
 	},
 	"Hoffs/omnisharp-extended-lsp.nvim",
-	{
-		"rebelot/kanagawa.nvim",
-		opts = function()
-			return require("configs.kanagawa")
-		end,
-		config = function(_, opts)
-			require("kanagawa").setup(opts)
-		end,
-	},
 }

@@ -39,8 +39,11 @@ return {
 	},
 	{
 		"ribru17/bamboo.nvim",
-		config = function()
-			require("bamboo").setup({})
+		opts = function()
+			return require("configs.bamboo")
+		end,
+		config = function(_, opts)
+			require("bamboo").setup(opts)
 		end,
 	},
 	{ "mcchrish/zenbones.nvim", dependencies = { "rktjmp/lush.nvim" } },
@@ -63,6 +66,20 @@ return {
 		end,
 		config = function(_, opts)
 			require("onedark").setup(opts)
-		end
+		end,
 	},
+	"projekt0n/github-nvim-theme",
+	{
+		"rebelot/kanagawa.nvim",
+		opts = function()
+			return require("configs.kanagawa")
+		end,
+		config = function(_, opts)
+			require("kanagawa").setup(opts)
+		end,
+	},
+	"junegunn/seoul256.vim",
+	"zootedb0t/citruszest.nvim",
+	"maxmx03/solarized.nvim",
+	"craftzdog/solarized-osaka.nvim",
 }
