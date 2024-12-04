@@ -46,22 +46,6 @@
 
 (set-frame-font "Iosevka Cozy 17" nil t)
 
-;; (use-package evil
-;;   :ensure t
-
-;;   :init
-;;   (setq evil-want-integration t)
-;;   (setq evil-want-keybinding nil)
-
-;;   :config
-;;   (evil-mode 1))
-
-;; (use-package evil-collection
-;;   :after evil
-;;   :ensure t
-;;   :config
-;;   (evil-collection-init))
-
 (use-package org
   :defer t
 
@@ -124,11 +108,8 @@
   (global-goto-address-mode 1)
 
   ;; Whitespace mode
-  ;; (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
-  ;; (global-whitespace-mode 1)
-
-  ;; Misc
-  (setq-default cursor-type 'bar)
+  (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
+  (global-whitespace-mode 1)
 
   ;; Mode line
   (setq-default mode-line-format
@@ -268,4 +249,4 @@
 (require 'ef-themes)
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
-(load-theme 'ef-elea-dark t)
+(load-theme 'ef-melissa-light t)
