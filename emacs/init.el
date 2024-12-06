@@ -82,14 +82,15 @@
 (use-package tuareg
   :ensure t)
 
-(use-package yasnippet
+(use-package paredit
   :ensure t
+  :defer t)
 
-  :config
-  (yas-global-mode 1))
-
-(use-package yasnippet-snippets
-  :ensure t)
+;; This procedure was shamelessly stolen from internet
+(defun mode-line-render (left right)
+  "Return a string of `window-width' length containing LEFT and RIGHT aligned respectively."
+  (let* ((available-width (- (window-width) (length left) 3)))
+    (format (format " %%s %%%ds " available-width) left right)))
 
 (use-package emacs
   :config
@@ -113,13 +114,17 @@
 
   ;; Mode line
   (setq-default mode-line-format
-                '(" "
-                  mode-line-modified
-                  " %b "
-                  " (%l, %c) "
-                  " %p "
-                  " %m "
-                  (vc-mode vc-mode))))
+                '((:eval
+                   (mode-line-render
+                    (format-mode-line
+                     '(" "
+                       mode-line-modified
+                       " %b "
+                       " (%l, %c) "))
+                    (format-mode-line
+                     '(" %p%% "
+                       (vc-mode vc-mode)
+                       " %m ")))))))
 
 ;; theming
 (use-package ligature
@@ -230,6 +235,12 @@
                             (interactive)
                             (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
+(autoload 'enable-paredit-mode "paredit")
+
+(add-hook 'lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'scheme-mode-hook 'enable-paredit-mode)
+
 (setq projectile-project-search-path
       '("~/personal"))
 
@@ -249,4 +260,4 @@
 (require 'ef-themes)
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
-(load-theme 'ef-melissa-light t)
+(load-theme 'ef-night t)
