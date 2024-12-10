@@ -92,12 +92,14 @@
   (let* ((available-width (- (window-width) (length left) 3)))
     (format (format " %%s %%%ds " available-width) left right)))
 
+(use-package eshell
+  :defer t
+  :config
+  (add-to-list 'eshell-modules-list 'eshell-smart))
+
 (use-package emacs
   :config
-  ;; Ido mode
-  ;; (setq ido-enable-flex-matching t)
-  ;; (ido-mode 1)
-  ;; (ido-everywhere 1)
+  ;; Fido
   (require 'icomplete)
 
   (defun fido-hook ()
@@ -106,10 +108,14 @@
   (add-hook 'icomplete-minibuffer-setup-hook 'fido-hook)
   (fido-vertical-mode)
 
+  ;; Address mode
   (global-goto-address-mode 1)
 
+  ;; Fonts
+  (set-face-attribute 'fixed-pitch nil :family "Iosevka Cozy")
+
   ;; Whitespace mode
-  (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))
+  (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
   (global-whitespace-mode 1)
 
   ;; Mode line
@@ -119,10 +125,12 @@
                     (format-mode-line
                      '(" "
                        mode-line-modified
-                       " %b "
-                       " (%l, %c) "))
+                       (:propertize "  %b " face bold)
+                       " (%l, %c) "
+                       " %@ "))
                     (format-mode-line
-                     '(" %p%% "
+                     '(" %I "
+                       " %p%% "
                        (vc-mode vc-mode)
                        " %m ")))))))
 
@@ -132,7 +140,7 @@
   :config
   (ligature-set-ligatures
    't
-   '(; Group A
+   '(                                   ; Group A
      ".." ".=" "..." "..<" "::" ":::" ":=" "::=" ";;" ";;;" "??" "???"
      ".?" "?." ":?" "?:" "?=" "**" "***" "/*" "*/" "/**"
                                         ; Group B
@@ -169,6 +177,10 @@
   (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
   (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
+
+(use-package monokai-theme
+  :ensure t
+  :defer t)
 
 ;; faces
 ;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
@@ -261,3 +273,5 @@
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
 (load-theme 'ef-night t)
+;; (load-theme 'ef-elea-dark t)
+;; (load-theme 'monokai t)
