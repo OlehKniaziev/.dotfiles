@@ -196,6 +196,7 @@
 
 (setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
+(setq-default c-ts-mode-indent-style 'k&r)
 
 (setq-default go-ts-mode-indent-offset 4)
 
