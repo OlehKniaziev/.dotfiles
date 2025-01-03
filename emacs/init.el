@@ -59,7 +59,7 @@
   (setq org-agenda-files '("~/notes"))
   (setq org-capture-templates
         '(("i" "Idea" item (file+headline "~/notes/ideas.org" "Ideas")
-          "- [ ] %?\n"))))
+           "- [ ] %?\n"))))
 
 (use-package magit
   :ensure t)
@@ -78,6 +78,9 @@
   :ensure t
   :hook
   (haskell-mode . interactive-haskell-mode))
+
+(use-package elixir-ts-mode
+  :ensure t)
 
 (use-package tuareg
   :ensure t)
@@ -178,6 +181,14 @@
   (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
 
+(use-package doom-themes
+  :ensure t
+  :defer t
+
+  :config
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+
 (use-package monokai-theme
   :ensure t
   :defer t)
@@ -191,14 +202,14 @@
 (elpaca-wait)
 
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 8)
 (setq-default indent-line-function 'insert-tab)
 
 (setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
 (setq-default c-ts-mode-indent-style 'k&r)
 
-(setq-default go-ts-mode-indent-offset 4)
+(setq-default go-ts-mode-indent-offset 8)
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -270,9 +281,13 @@
 ;;
 ;; (load-theme 'didko t)
 
-(require 'ef-themes)
+;; (require 'ef-themes)
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
-(load-theme 'ef-night t)
+;; (load-theme 'ef-eagle t)
+;; (load-theme 'ef-trio-dark t)
 ;; (load-theme 'ef-elea-dark t)
 ;; (load-theme 'monokai t)
+
+(require 'doom-themes)
+(load-theme 'doom-zenburn t)
