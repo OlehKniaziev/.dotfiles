@@ -61,6 +61,14 @@
         '(("i" "Idea" item (file+headline "~/notes/ideas.org" "Ideas")
            "- [ ] %?\n"))))
 
+(use-package org-roam
+  :ensure t
+
+  :config
+
+  (setq org-roam-directory (concat org-directory "/roam"))
+  (org-roam-db-autosync-mode))
+
 (use-package magit
   :ensure t)
 
@@ -80,6 +88,9 @@
   (haskell-mode . interactive-haskell-mode))
 
 (use-package elixir-ts-mode
+  :ensure t)
+
+(use-package php-mode
   :ensure t)
 
 (use-package tuareg
