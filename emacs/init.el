@@ -136,7 +136,7 @@
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
-  (global-whitespace-mode 1)
+  (global-whitespace-mode)
 
   ;; Mode line
   (setq-default mode-line-format
@@ -252,6 +252,7 @@
 (defvar auto-mode-pairs
   '(("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
+    ("\\(Dockerfile\\|Containerfile\\)" . dockerfile-ts-mode)
     ("\\.go\\'" . go-ts-mode)
     ("\\.mod\\'" . go-mod-ts-mode)
     ("\\.cjs\\'" . js-ts-mode)
@@ -268,6 +269,9 @@
         (c-mode . c-ts-mode)
         (c++-mode . c++-ts-mode)
         (c-or-c++-mode . c-or-c++-ts-mode)))
+
+(add-hook 'yaml-ts-mode-hook (lambda ()
+                               (setq tab-width 2)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
@@ -294,10 +298,6 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'keys)
-;; (require 'didko-theme)
-;;
-;; (load-theme 'didko t)
-
 ;; (require 'ef-themes)
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
