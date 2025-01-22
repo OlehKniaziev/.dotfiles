@@ -16,9 +16,9 @@
     (make-directory repo t)
     (when (< emacs-major-version 28) (require 'subr-x))
     (condition-case-unless-debug err
-        (if-let ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+        (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
                  ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
-                                                 ,@(when-let ((depth (plist-get order :depth)))
+                                                 ,@(when-let* ((depth (plist-get order :depth)))
                                                      (list (format "--depth=%d" depth) "--no-single-branch"))
                                                  ,(plist-get order :repo) ,repo))))
                  ((zerop (call-process "git" nil buffer t "checkout"
@@ -44,7 +44,12 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "Iosevka Cozy 17" nil t)
+;; (set-frame-font "Berkeley Mono 16" nil t)
+;; (set-frame-font "Cascadia Code 16" nil t)
+;; (set-frame-font "Iosevka Classy 17" nil t)
+;; (set-frame-font "Iosevka Cozy 17" nil t)
+(set-frame-font "Iosevka 17" nil t)
+;; (set-frame-font "JetBrains Mono 16" nil t)
 
 (use-package org
   :defer t
@@ -109,6 +114,7 @@
 (use-package eshell
   :defer t
   :config
+  (add-hook 'eshell-load-hook #'eat-eshell-mode)
   (add-to-list 'eshell-modules-list 'eshell-smart))
 
 (use-package emacs
@@ -126,7 +132,7 @@
   (global-goto-address-mode 1)
 
   ;; Fonts
-  (set-face-attribute 'fixed-pitch nil :family "Iosevka Cozy")
+  (set-face-attribute 'fixed-pitch nil :family "Iosevka")
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
@@ -299,6 +305,10 @@
 ;; (load-theme 'ef-trio-dark t)
 ;; (load-theme 'ef-elea-dark t)
 ;; (load-theme 'monokai t)
+;; (load-theme 'ef-autumn t)
 
 (require 'doom-themes)
-(load-theme 'doom-zenburn t)
+(load-theme 'doom-gruvbox t)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
