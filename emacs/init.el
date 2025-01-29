@@ -46,10 +46,11 @@
 
 ;; (set-frame-font "Berkeley Mono 16" nil t)
 ;; (set-frame-font "Cascadia Code 16" nil t)
-;; (set-frame-font "Iosevka Classy 17" nil t)
-;; (set-frame-font "Iosevka Cozy 17" nil t)
-(set-frame-font "Iosevka 17" nil t)
+(set-frame-font "Iosevka Classy 15" nil t)
+;; (set-frame-font "Iosevka Cozy 15" nil t)
+;; (set-frame-font "Iosevka 15" nil t)
 ;; (set-frame-font "JetBrains Mono 16" nil t)
+;; (set-frame-font "MonoLisa 14" nil t)
 
 (use-package org
   :defer t
@@ -82,7 +83,10 @@
 
 (use-package eat
   :ensure t
-  :defer t)
+  :defer t
+
+  :config
+  (setq eat-term-name "xterm"))
 
 (use-package markdown-mode
   :ensure t)
@@ -118,6 +122,10 @@
   (add-to-list 'eshell-modules-list 'eshell-smart))
 
 (use-package emacs
+  :custom
+  (frame-resize-pixelwise t)
+  (enable-recursive-minibuffers t)
+
   :config
   ;; Fido
   (require 'icomplete)
@@ -132,7 +140,7 @@
   (global-goto-address-mode 1)
 
   ;; Fonts
-  (set-face-attribute 'fixed-pitch nil :family "Iosevka")
+  (set-face-attribute 'fixed-pitch nil :family "Iosevka Classy")
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
@@ -152,7 +160,10 @@
                      '(" %I "
                        " %p%% "
                        (vc-mode vc-mode)
-                       " %m ")))))))
+                       " %m "))))))
+
+  ;; Misc
+  (setq echo-keystrokes 0.001))
 
 ;; theming
 (use-package ligature
