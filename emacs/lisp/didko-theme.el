@@ -9,27 +9,34 @@
 (deftheme didko
   "Didko theme for Emacs 24.")
 
-(let ((didko-fg "#E4E4E4")
-      (didko-bg "#353535")
+(let (;; (didko-fg "#E4E4E4")
+      (didko-fg "#FFFFD7")
+      (didko-bg "#0F0F0F")
       (didko-bg2 "#5A616A")
       (didko-bg3 "#2F3136")
-      (didko-gray "#505050")
-      (didko-yellow "#FFDF00")
+      (didko-gray "#828282")
+      (didko-yellow "#FFD700")
       (didko-quartz "#F4ABFF")
       (didko-light-quartz "#AA6B9D")
       (didko-pink "#FF66D8")
-      (didko-pink2 "#AC80A0")
+      (didko-pink3 "#DB6079")
+      ;; (didko-coral "#FA3E42")
+      ;; (didko-coral "#FC4A32")
+      ;; (didko-coral "#FA5F69")
+      (didko-coral "#FC5661")
       (didko-red "#DE1A1A")
+      (didko-red2 "#FC2856")
       (didko-brown "#A77464")
+      (didko-light-brown "#C79484")
       (didko-green "#659157")
+      (didko-olive "#84AB5B")
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
       (didko-pumpkin2 "#FCAC32")
       (didko-cocoa "#C96F36")
-      (didko-mustard "#FFDF5F")
       (didko-alice "#E3F2FD")
-      (didko-dark-blue "#3F88C5")
       (didko-blue "#42CAFD")
+      (didko-dark-blue "#3F88C5")
       (didko-light-blue "#ACD7EC"))
 
   (custom-theme-set-variables
@@ -42,13 +49,15 @@
    ;; Basic
    `(default ((t ,(list :background didko-bg
                         :foreground didko-fg))))
-   `(cursor ((t ,(list :background didko-yellow))))
-   `(link ((t ,(list :foreground didko-yellow
+   `(cursor ((t ,(list :background didko-coral))))
+   `(link ((t ,(list :foreground didko-coral
                      :underline t))))
    `(region ((t ,(list :background didko-bg2))))
    `(hl-line ((t ,(list :background didko-bg3))))
-   `(minibuffer-prompt ((t ,(list :foreground didko-yellow
+   `(minibuffer-prompt ((t ,(list :foreground didko-coral
                                   :bold t))))
+   `(highlight ((t ,(list :background didko-pink3))))
+   `(match ((t ,(list :background didko-pink3))))
 
    ;; Magit related
    `(diff-removed ((t ,(list :foreground didko-red
@@ -57,10 +66,9 @@
                            :background nil))))
 
    ;; Mode line
-   `(mode-line ((t ,(list :backround didko-bg3
+   `(mode-line ((t ,(list :background didko-bg3
                          :foreground didko-fg))))
-   `(mode-line-inactive ((t ,(list :background didko-bg3
-                                  :foreground didko-quartz))))
+   `(mode-line-inactive ((t ,(list :background didko-bg))))
 
    ;; Whitespace
    `(whitespace-space ((t ,(list :background didko-bg
@@ -73,12 +81,12 @@
                                    :foreground didko-bg2))))
    `(whitespace-trailing ((t ,(list :background didko-red
                                     :foreground didko-red))))
-   `(whitespace-empty ((t ,(list :background didko-yellow
-                                 :foreground didko-yellow))))
-   `(whitespace-indentation ((t ,(list :background didko-yellow
+   `(whitespace-empty ((t ,(list :background didko-coral
+                                 :foreground didko-coral))))
+   `(whitespace-indentation ((t ,(list :background didko-coral
                                        :foreground didko-red))))
-   `(whitespace-space-after-tab ((t ,(list :background didko-yellow
-                                           :foreground didko-yellow))))
+   `(whitespace-space-after-tab ((t ,(list :background didko-coral
+                                           :foreground didko-coral))))
    `(whitespace-space-before-tab ((t ,(list :background didko-brown
                                             :foreground didko-brown))))
 
@@ -93,9 +101,11 @@
    `(org-todo ((t ,(list :foreground didko-red
                          :bold t))))
    `(org-headline-done ((t ,(list :foreground didko-gray))))
+   `(org-code ((t ,(list :foreground didko-coral))))
+   `(org-verbatim ((t ,(list :foreground didko-green))))
 
    ;; Eshell
-   `(eshell-prompt ((t ,(list :foreground didko-yellow
+   `(eshell-prompt ((t ,(list :foreground didko-coral
                               :bold t))))
    `(eshell-ls-executable ((t ,(list :foreground didko-blue
                                      :bold t))))
@@ -105,27 +115,34 @@
    ;; Compilation mode
    `(compilation-info ((t ,(list :foreground didko-dark-blue
                                  :bold t))))
+   `(compilation-error ((t ,(list :foreground didko-coral
+                                 :bold t))))
+   `(compilation-warning ((t ,(list :foreground didko-pumpkin
+                                  :bold t))))
+   `(compilation-line-number ((t ,(list :foreground didko-quartz
+                                        :bold t))))
+   `(compilation-column-number ((t ,(list :foreground didko-light-quartz
+                                        :bold t))))
 
    ;; Font lock
-   `(font-lock-keyword-face ((t ,(list :foreground didko-yellow
+   `(font-lock-keyword-face ((t ,(list :foreground didko-coral
                                        :bold t))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-quartz))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-gray))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
-   `(font-lock-doc-face ((t ,(list :foreground didko-green))))
-   `(font-lock-doc-string-face ((t ,(list :foreground didko-green))))
+   `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
+   `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-string-face ((t ,(list :foreground didko-green))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
-   `(font-lock-variable-name-face ((t ,(list :foreground didko-pumpkin2))))
+   `(font-lock-variable-name-face ((t ,(list :foreground didko-light-quartz))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-indigo))))
+   `(font-lock-type-face ((t ,(list :foreground didko-pink3))))
    `(font-lock-number-face ((t ,(list :foreground didko-alice))))
-   `(font-lock-escape-face ((t ,(list :foreground didko-blue
+   `(font-lock-escape-face ((t ,(list :foreground didko-pumpkin
                                       :bold t))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-dark-blue
-                                        :bold t))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-quartz))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-light-blue))))
-   `(font-lock-builtin-face ((t ,(list :foreground didko-light-quartz))))
+   `(font-lock-builtin-face ((t ,(list :foreground didko-blue))))
 
    ;; Misc
    `(show-paren-match ((t ,(list :background didko-blue))))

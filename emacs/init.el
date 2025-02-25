@@ -146,6 +146,9 @@
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
   (global-whitespace-mode)
 
+  ;; Electric
+  (electric-indent-mode -1)
+
   ;; Mode line
   (setq-default mode-line-format
                 '((:eval
@@ -196,9 +199,6 @@
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
-
-(use-package cmake-mode
-  :ensure t)
 
 (use-package ef-themes
   :ensure t
@@ -279,6 +279,8 @@
         (python-mode . python-ts-mode)
         (c-mode . c-ts-mode)
         (c++-mode . c++-ts-mode)
+        (mhtml-mode . html-ts-mode)
+        (html-mode . html-ts-mode)
         (c-or-c++-mode . c-or-c++-ts-mode)))
 
 (add-hook 'yaml-ts-mode-hook (lambda ()
@@ -289,6 +291,7 @@
 (setq eldoc-documentation-strategy #'eldoc-documentation-compose)
 (add-hook 'prog-mode-hook (lambda ()
                             (interactive)
+                            (electric-indent-local-mode +1)
                             (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 (autoload 'enable-paredit-mode "paredit")
@@ -318,8 +321,11 @@
 ;; (load-theme 'monokai t)
 ;; (load-theme 'ef-autumn t)
 
-(require 'doom-themes)
-(load-theme 'doom-gruvbox t)
+(require 'didko-theme)
+(load-theme 'didko t)
+
+;; (require 'doom-themes)
+;; (load-theme 'doom-one t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
