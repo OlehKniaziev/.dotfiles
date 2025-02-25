@@ -6,6 +6,7 @@
 
 ;; Mappings
 (keymap-global-set "C-c f r" 'recentf-open)
+(keymap-global-set "C-c f p" 'find-file-at-point)
 (keymap-global-set "C-c s g" 'rgrep)
 (keymap-global-set "C-c s G" 'vc-git-grep)
 
