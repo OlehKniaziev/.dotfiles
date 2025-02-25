@@ -64,10 +64,14 @@
                              :background nil))))
    `(diff-added ((t ,(list :foreground didko-green
                            :background nil))))
+   `(git-commit-overlong-summary ((t ,(list :foreground didko-pumpkin
+                                            :italic t
+                                            :bold t
+                                            :background nil))))
 
    ;; Mode line
    `(mode-line ((t ,(list :background didko-bg3
-                         :foreground didko-fg))))
+                          :foreground didko-fg))))
    `(mode-line-inactive ((t ,(list :background didko-bg))))
 
    ;; Whitespace
