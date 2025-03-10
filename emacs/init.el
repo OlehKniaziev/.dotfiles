@@ -235,7 +235,6 @@
 
 (setq-default c-ts-mode-indent-offset 4)
 (setq-default c-basic-offset 4)
-(setq-default c-ts-mode-indent-style 'k&r)
 
 (setq-default go-ts-mode-indent-offset 8)
 
@@ -268,6 +267,9 @@
     ("\\.mod\\'" . go-mod-ts-mode)
     ("\\.cjs\\'" . js-ts-mode)
     ("\\.mjs\\'" . js-ts-mode)
+    ("\\.ts\\'" . typescript-ts-mode)
+    ("\\.mts\\'" . typescript-ts-mode)
+    ("\\.tsx\\'" . tsx-ts-mode)
     ("\\.yaml\\'" . yaml-ts-mode)))
 
 (dolist (pair auto-mode-pairs)
@@ -284,7 +286,17 @@
         (c-or-c++-mode . c-or-c++-ts-mode)))
 
 (add-hook 'yaml-ts-mode-hook (lambda ()
-                               (setq tab-width 2)))
+                               (setq-local tab-width 2)))
+
+(add-hook 'typescript-ts-mode-hook (lambda ()
+                                     (setq-local typescript-ts-mode-indent-offset 4)))
+
+(defun atm-c++-ts-mode-indent-style ()
+  `(
+    ((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
+    ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
+
+(setq-default c-ts-mode-indent-style #'atm-c++-ts-mode-indent-style)
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
@@ -322,7 +334,9 @@
 ;; (load-theme 'ef-autumn t)
 
 (require 'didko-theme)
-(load-theme 'didko t)
+(require 'hmm-theme)
+;; (load-theme 'didko t)
+(load-theme 'hmm t)
 
 ;; (require 'doom-themes)
 ;; (load-theme 'doom-one t)
