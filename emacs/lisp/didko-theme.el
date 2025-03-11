@@ -11,12 +11,10 @@
 
 (let (;; (didko-fg "#E4E4E4")
       (didko-fg "#FFFFD7")
-      (didko-bg "#0D0D0D")
+      (didko-bg "#181818")
       (didko-bg2 "#5A616A")
       (didko-bg3 "#2F3136")
       (didko-gray "#828282")
-      ;; (didko-yellow "#FCDA2B")
-      ;; (didko-yellow "#FFDE0A")
       (didko-yellow "#FFDD33")
       (didko-quartz "#F4ABFF")
       (didko-grape "#B65DE3")
@@ -32,6 +30,8 @@
       (didko-light-brown "#C79484")
       (didko-olive "#B8C480")
       (didko-green "#84AB5B")
+      ;; (didko-forest-green "#55AB6C")
+      (didko-forest-green "#82BD92")
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
       (didko-pumpkin2 "#FCAC32")
@@ -168,7 +168,7 @@
    `(font-lock-number-face ((t ,(list :foreground didko-alice))))
    `(font-lock-escape-face ((t ,(list :foreground didko-pumpkin
                                       :bold t))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-yellow
+   `(font-lock-constant-face ((t ,(list :foreground didko-forest-green
                                         :bold t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-blue))))

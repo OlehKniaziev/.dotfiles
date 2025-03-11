@@ -21,7 +21,8 @@
       (hmm-grape "#dd64f5")
       (hmm-pink "#FF66D8")
       (hmm-pink3 "#FF5B4D")
-      (hmm-red "#FC2856")
+      ;; (hmm-red "#FC2856")
+      (hmm-red "#FF426B")
       (hmm-brown "#A77464")
       (hmm-green "#84AB5B")
       (hmm-indigo "#9740D9")
@@ -146,7 +147,7 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground hmm-red
                                        :bold t))))
-   `(font-lock-function-name-face ((t ,(list :foreground hmm-grape))))
+   `(font-lock-function-name-face ((t ,(list :foreground hmm-dark-blue))))
    `(font-lock-comment-face ((t ,(list :foreground hmm-brown))))
    `(font-lock-doc-face ((t ,(list :foreground hmm-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground hmm-brown))))
@@ -155,7 +156,7 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground hmm-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground hmm-fg))))
-   `(font-lock-type-face ((t ,(list :foreground hmm-dark-blue))))
+   `(font-lock-type-face ((t ,(list :foreground hmm-grape))))
    `(font-lock-number-face ((t ,(list :foreground hmm-alice))))
    `(font-lock-escape-face ((t ,(list :foreground hmm-pumpkin
                                       :bold t))))
