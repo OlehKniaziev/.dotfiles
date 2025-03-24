@@ -67,14 +67,6 @@
         '(("i" "Idea" item (file+headline "~/notes/ideas.org" "Ideas")
            "- [ ] %?\n"))))
 
-(use-package org-roam
-  :ensure t
-
-  :config
-
-  (setq org-roam-directory (concat org-directory "/roam"))
-  (org-roam-db-autosync-mode))
-
 (use-package magit
   :ensure t)
 
@@ -335,8 +327,8 @@
 
 (require 'didko-theme)
 (require 'hmm-theme)
-;; (load-theme 'didko t)
-(load-theme 'hmm t)
+(load-theme 'didko t)
+;; (load-theme 'hmm t)
 
 ;; (require 'doom-themes)
 ;; (load-theme 'doom-one t)
