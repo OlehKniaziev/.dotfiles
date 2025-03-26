@@ -14,7 +14,7 @@
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
       (didko-gray "#828282")
-      (didko-yellow "#FFDD33")
+      (didko-yellow "#fec746")
       (didko-quartz "#F4ABFF")
       (didko-grape "#B65DE3")
       (didko-pink "#FF66D8")
@@ -37,6 +37,7 @@
       (didko-snow "#F0F8FC")
       (didko-blue "#42CAFD")
       (didko-dark-blue "#3F88C5")
+      (didko-acid "#9AFE22")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1"))
 
@@ -164,7 +165,7 @@
    `(font-lock-type-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-pumpkin))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-blue))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-acid))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-red2))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-blue))))
 

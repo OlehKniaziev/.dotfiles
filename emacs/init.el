@@ -44,13 +44,15 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-;; (set-frame-font "Berkeley Mono 16" nil t)
+;; (set-frame-font "TX-02 16" nil t)
 ;; (set-frame-font "Cascadia Code 16" nil t)
-(set-frame-font "Iosevka Classy 15" nil t)
+;; (set-frame-font "Iosevka Classy 15" nil t)
 ;; (set-frame-font "Iosevka Cozy 15" nil t)
-;; (set-frame-font "Iosevka 15" nil t)
+;; (set-frame-font "Iosevka 16" nil t)
 ;; (set-frame-font "JetBrains Mono 16" nil t)
-;; (set-frame-font "MonoLisa 14" nil t)
+;; (set-frame-font "MonoLisa 15" nil t)
+;; (set-frame-font "Consolas 16" nil t)
+(set-frame-font "CommitMono 17" nil t)
 
 (use-package org
   :defer t
@@ -157,6 +159,8 @@
                        (vc-mode vc-mode)
                        " %m "))))))
 
+  ;; Dired
+  (setq dired-dwim-target t)
   ;; Misc
   (setq echo-keystrokes 0.001))
 
@@ -255,6 +259,7 @@
   '(("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
     ("\\(Dockerfile\\|Containerfile\\)" . dockerfile-ts-mode)
+    ("\\(CMakeLists\\.txt\\|\\.cmake\\)" . cmake-ts-mode)
     ("\\.go\\'" . go-ts-mode)
     ("\\.mod\\'" . go-mod-ts-mode)
     ("\\.cjs\\'" . js-ts-mode)

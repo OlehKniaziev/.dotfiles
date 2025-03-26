@@ -160,7 +160,7 @@
    `(font-lock-number-face ((t ,(list :foreground hmm-alice))))
    `(font-lock-escape-face ((t ,(list :foreground hmm-pumpkin
                                       :bold t))))
-   `(font-lock-constant-face ((t ,(list :foreground hmm-peach
+   `(font-lock-constant-face ((t ,(list :foreground hmm-quartz
                                         :bold t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground hmm-light-blue))))
    `(font-lock-builtin-face ((t ,(list :foreground hmm-blue))))
