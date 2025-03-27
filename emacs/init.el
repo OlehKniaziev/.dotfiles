@@ -288,20 +288,24 @@
 (add-hook 'typescript-ts-mode-hook (lambda ()
                                      (setq-local typescript-ts-mode-indent-offset 4)))
 
-(defun atm-c++-ts-mode-indent-style ()
+(defun atm/c++-ts-mode-indent-style ()
   `(
     ((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
     ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
 
-(setq-default c-ts-mode-indent-style #'atm-c++-ts-mode-indent-style)
+(setq-default c-ts-mode-indent-style #'atm/c++-ts-mode-indent-style)
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
 (setq eldoc-documentation-strategy #'eldoc-documentation-compose)
-(add-hook 'prog-mode-hook (lambda ()
-                            (interactive)
-                            (electric-indent-local-mode +1)
-                            (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
+(defun atm/prog-mode-hook ()
+  (interactive)
+  (electric-indent-local-mode +1)
+  (add-to-list 'write-file-functions 'delete-trailing-whitespace))
+
+(add-hook 'prog-mode-hook #'atm/prog-mode-hook)
+(add-hook 'html-mode-hook #'atm/prog-mode-hook)
 
 (autoload 'enable-paredit-mode "paredit")
 
