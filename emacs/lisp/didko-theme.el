@@ -38,6 +38,8 @@
       (didko-blue "#42CAFD")
       (didko-dark-blue "#3F88C5")
       (didko-acid "#9AFE22")
+      ;; (didko-swamp "#91c928")
+      (didko-swamp "#7fb023")
       (didko-blueish "#6dafce")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1"))
@@ -154,11 +156,11 @@
 
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-pale-yellow))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
-   `(font-lock-string-face ((t ,(list :foreground didko-blueish))))
+   `(font-lock-string-face ((t ,(list :foreground didko-swamp))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
@@ -166,7 +168,7 @@
    `(font-lock-type-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-pumpkin))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-acid))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-red2))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-blue))))
 
