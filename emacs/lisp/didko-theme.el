@@ -13,7 +13,7 @@
       (didko-bg "#000000")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
-      (didko-gray "#828282")
+      (didko-gray "#b3b3b3")
       (didko-yellow "#f2de4b")
       (didko-quartz "#F4ABFF")
       (didko-grape "#B65DE3")
@@ -39,7 +39,7 @@
       (didko-dark-blue "#3F88C5")
       (didko-acid "#9AFE22")
       ;; (didko-swamp "#91c928")
-      (didko-swamp "#7fb023")
+      (didko-swamp "#77b500")
       (didko-blueish "#6dafce")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1"))
@@ -171,6 +171,8 @@
    `(font-lock-constant-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-red2))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-blue))))
+   `(font-lock-operator-face ((t ,(list :foreground didko-gray))))
+   `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
 
    ;; Misc
    `(show-paren-match ((t ,(list :background didko-blue))))
