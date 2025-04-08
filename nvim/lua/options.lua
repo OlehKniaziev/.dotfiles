@@ -10,7 +10,7 @@ vim.opt.smartcase = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 0
 
 vim.opt.listchars = [[eol:⤶,tab:» ,trail:\u2218]]
 vim.opt.list = true

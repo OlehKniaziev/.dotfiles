@@ -4,20 +4,24 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family BlexMono Nerd Font Mono
-# font_family Input Mono Narrow
-# font_family Iosevka Nerd Font Mono
-# font_family Iosevka Custom
-# font_family Hack Nerd Font Mono
-# font_family Lilex Nerd Font Mono
-# font_family Geist Mono
-# font_family CaskaydiaCove Nerd Font Mono
-# font_family mononoki
 
-font_family JetBrains Mono Medium
-bold_font    JetBrains Mono Bold
-italic_font    JetBrains Mono Medium Italic
-bold_italic_font JetBrains Mono Bold Italic
+# font_family MapleMono NF
+# font_family BlexMono Nerd Font Mono
+# font_family FantasqueSansM Nerd Font Mono
+
+# font_family Iosevka Nerd Font Mono
+# font_family MonaspiceNe Nerd Font Mono
+# font_family Iosevka Classy
+# font_family Input Mono
+# font_family BlexMono Nerd Font
+# font_family JuliaMono Regular
+# bold_font    JuliaMono ExtraBold
+# italic_font    JuliaMono RegularItalic
+# bold_italic_font JuliaMono ExtraBoldItalic
+
+# font_family FiraCode Nerd Font Mono Ret
+# bold_font    FiraCode Nerd Font Mono Bold
+
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
 #: +list-fonts` command. By default they are derived automatically, by
@@ -31,11 +35,11 @@ bold_italic_font JetBrains Mono Bold Italic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 16
+font_size 20
 
 #: Font size (in pts)
 
-force_ltr yes
+# force_ltr yes
 
 #: kitty does not support BIDI (bidirectional text), however, for RTL
 #: scripts, words are automatically displayed in RTL. That is to say,
@@ -99,19 +103,16 @@ force_ltr yes
 #: implemented using the calt OpenType feature. For disabling general
 #: ligatures, use the font_features option.
 
-font_features JetBrainsMono-Regular      +zero
-font_features JetBrainsMono-Medium       +zero
-font_features JetBrainsMono-SemiBold      +zero
-font_features JetBrainsMono-Italic      +zero
-font_features JetBrainsMono-Bold         +zero
-font_features JetBrainsMono-MediumItalic +zero
-font_features JetBrainsMono-BoldItalic   +zero
-
-#: E.g. font_features none
-
-#: Choose exactly which OpenType features to enable or disable. This
-#: is useful as some fonts might have features worthwhile in a
-#: terminal. For example, Fira Code includes a discretionary feature,
+# font_features BlexMonoNFM +zero
+# font_features BlexMonoNFM-Italic +zero
+# font_features BlexMonoNFM-Bold +zero
+# font_features BlexMonoNFM-BoldItalic +zero
+font_features JuliaMono-Regular            +calt +ss03 +ss12 +ss13 +ss14 -ss16 +cv03 +cv04 +ss05
+font_features JuliaMono-RegularItalic      +calt +ss03 +ss12 +ss13 +ss14 -ss16 +cv03 +cv04 +ss05
+font_features JuliaMono-ExtraBold          +calt +ss03 +ss12 +ss13 +ss14 -ss16 +cv03 +cv04 +ss05
+font_features JuliaMono-ExtraBoldItalic    +calt +ss03 +ss12 +ss13 +ss14 -ss16 +cv03 +cv04 +ss05
+font_features JuliaMono-Medium             +calt +ss03 +ss12 +ss13 +ss14 -ss16 +cv03 +cv04 +ss05
+font_features JuliaMono-MediumItalic       +calt +ss03 +ss12 +ss13 +ss14 -ss16 +cv03 +cv04 +ss05
 #: zero, which in that font changes the appearance of the zero (0), to
 #: make it more easily distinguishable from Ø. Fira Code also includes
 #: other discretionary features known as Stylistic Sets which have the
@@ -179,7 +180,7 @@ font_features JetBrainsMono-BoldItalic   +zero
 #: font glyph is rendered and the baseline at which the glyph is
 #: placed in the cell. For example::
 
-#:     modify_font cell_width 80%
+modify_font cell_width 100%
 #:     modify_font cell_height -2px
 #:     modify_font baseline 3
 
@@ -732,7 +733,7 @@ font_features JetBrainsMono-BoldItalic   +zero
 
 #: Terminal bell {{{
 
-# enable_audio_bell yes
+enable_audio_bell no
 
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
@@ -846,7 +847,7 @@ window_border_width 0
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-window_padding_width 0
+window_padding_width 1
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
@@ -1139,7 +1140,7 @@ window_padding_width 0
 
 #: The foreground and background colors.
 
-# background_opacity 1.0
+background_opacity 0.75
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1753,7 +1754,7 @@ window_padding_width 0
 #: configuration will change this value only for newly created OS
 #: windows.
 
-# linux_display_server auto
+linux_display_server X11
 
 #: Choose between Wayland and X11 backends. By default, an appropriate
 #: backend based on the system state is chosen automatically. Set it
@@ -2482,6 +2483,14 @@ window_padding_width 0
 
 
 # BEGIN_KITTY_THEME
-# Ayu
+# Default
 include current-theme.conf
 # END_KITTY_THEME
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="Comic Code Demo"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS

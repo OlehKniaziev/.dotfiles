@@ -3,9 +3,14 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- local font_name = "Cascadia Code"
-local font_name = "Iosevka Classy"
--- local font_name = "MonoLisa"
+-- local font_name = "JetBrains Mono"
+-- local font_name = "Iosevka Classy"
+-- local font_name = "Iosevka"
+-- local font_name = "Iosevka Cozy"
 -- local font_name = "Berkeley Mono"
+-- local font_name = "IBM Plex Mono"
+local font_name = "MonoLisa"
+-- local font_name = "Terminus"
 
 -- config.font = wezterm.font_with_fallback({ font_name, "CascadiaCode NF" })
 config.font = wezterm.font(font_name)
@@ -35,12 +40,13 @@ config.font_rules = {
 config.freetype_load_flags = "NO_HINTING"
 config.front_end = "WebGpu"
 
-config.font_size = 22
+config.font_size = 13
+-- config.harfbuzz_features = { "ss01" }
 -- config.harfbuzz_features =
 -- 	{ "calt", "liga", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "zero" }
 -- config.harfbuzz_features = { "ss01", "zero" }
 -- config.harfbuzz_features = { "zero", "ss01", "cv11", "cv08", "cv06" }
--- config.harfbuzz_features = { "calt", "dlig", "ss02", "ss05", "ss09", "cv31", "cv27", }
+-- config.harfbuzz_features = { "calt", "dlig", "ss02", "ss05", "ss09", "ss03", "cv28", "cv25", "cv26", "ss07" }
 -- config.harfbuzz_features = { "calt=0", "dlig" }
 -- config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05" }
 -- config.harfbuzz_features = { "ss02", "calt", "dlig" }
@@ -57,9 +63,10 @@ config.tab_bar_at_bottom = true
 config.enable_tab_bar = true
 
 -- config.color_scheme = "tokyonight_day"
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "Campbell (Gogh)"
 config.colors = {
 	background = "black",
+    foreground = "#FFFFFF",
 }
 
 config.default_cursor_style = "BlinkingBlock"

@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -54,15 +54,24 @@ set $menu wofi --show drun
 #       natural_scroll enabled
 #       middle_emulation enabled
 #   }
-input "1:1:AT_Translated_Set_2_keyboard" {
+input * {
     xkb_layout pl,ua
-    xkb_options grp:alt_shift_toggle
+    xkb_options grp:shifts_toggle,ctrl:nocaps
 }
-
-input "1133:49977:Logitech_PRO_Gaming_Keyboard" {
-    xkb_layout pl,ua
-    xkb_options grp:alt_shift_toggle
-}
+# input "1:1:AT_Translated_Set_2_keyboard" {
+#     xkb_layout pl,ua
+#     xkb_options grp:shifts_toggle,ctrl:nocaps
+# }
+#
+# input "1133:49977:Logitech_PRO_Gaming_Keyboard" {
+#     xkb_layout pl,ua
+#     xkb_options grp:shifts_toggle,ctrl:nocaps
+# }
+#
+# input "3652:63490:Compx_Gaming_Keyboard" {
+#     xkb_layout pl,ua
+#     xkb_options grp:shifts_toggle,ctrl:nocaps
+# }
 
 input "1267:12423:ELAN1300:00_04F3:3087_Touchpad" {
     tap enabled
@@ -235,10 +244,25 @@ default_floating_border pixel 3
 
 client.focused #7a44c2 #285577 #ffffff
 
-font pango:MonoLisa 10
+exec xrdb -merge ~/.Xresources
+
+font pango:Iosevka Classy 12
 
 gaps inner 6
 
 # output * bg ~/Wallpapers/sky.jpg fill
+
+output HDMI-A-1 mode 1920x1080@120Hz
+
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 5 output HDMI-A-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output eDP-1
 
 include /etc/sway/config.d/*
