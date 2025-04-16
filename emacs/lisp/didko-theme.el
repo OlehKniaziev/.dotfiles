@@ -45,10 +45,10 @@
       (didko-ash "#ACC3A6")
       (didko-rose "#CA2E55")
       (didko-blueish "#6dafce")
-      (didko-vista "#91A6FF")
+      (didko-vista "#10A6FF")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-vista))
+      (didko-main didko-dark-blue))
 
   (custom-theme-set-variables
    'didko
@@ -171,12 +171,12 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-azure))))
+   `(font-lock-type-face ((t ,(list :foreground didko-vista))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-azure))))
    `(font-lock-constant-face ((t ,(list :foreground didko-pumpkin2))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-red2))))
-   `(font-lock-builtin-face ((t ,(list :foreground didko-dark-blue))))
+   `(font-lock-builtin-face ((t ,(list :foreground didko-vista))))
    `(font-lock-operator-face ((t ,(list :foreground didko-gray))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
 
