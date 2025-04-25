@@ -48,7 +48,7 @@
       (didko-vista "#10A6FF")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-yellow))
+      (didko-main didko-pale-yellow))
 
   (custom-theme-set-variables
    'didko
@@ -175,7 +175,7 @@
    `(font-lock-type-face ((t ,(list :foreground didko-ash))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-vista))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-dark-blue
+   `(font-lock-constant-face ((t ,(list :foreground didko-green
                                         :bold t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-red2))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-azure))))
