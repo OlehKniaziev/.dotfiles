@@ -10,7 +10,7 @@
   "Didko theme for Emacs 24.")
 
 (let* ((didko-fg "#FFFFE7")
-      (didko-bg "#151515")
+      (didko-bg "#181818")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
       (didko-gray "#b3b3b3")
