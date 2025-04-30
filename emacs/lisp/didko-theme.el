@@ -10,11 +10,12 @@
   "Didko theme for Emacs 24.")
 
 (let* ((didko-fg "#FFFFE7")
-      (didko-bg "#181818")
+      (didko-bg "#151514")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
       (didko-gray "#b3b3b3")
       (didko-yellow "#f2de4b")
+      (didko-blue "#208FD0")
       (didko-quartz "#F4ABFF")
       (didko-pink "#FF66D8")
       (didko-pink3 "#FF5B4D")
@@ -34,7 +35,6 @@
       (didko-coral "#FC573A")
       (didko-cocoa "#C96F36")
       (didko-snow "#F0F8FC")
-      (didko-blue "#42CAFD")
       (didko-dark-blue "#3F88C5")
       (didko-acid "#9AFE22")
       (didko-very-green "#108040")
@@ -49,7 +49,7 @@
       (didko-vista "#10A6FF")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-yellow))
+      (didko-main didko-blue))
 
   (custom-theme-set-variables
    'didko
@@ -164,7 +164,7 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold t))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-green))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-olive))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
