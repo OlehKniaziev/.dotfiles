@@ -50,9 +50,9 @@
 ;; (set-frame-font "Iosevka Cozy 15" nil t)
 ;; (set-frame-font "Iosevka 16" nil t)
 ;; (set-frame-font "JetBrains Mono 16" nil t)
-;; (set-frame-font "MonoLisa 15" nil t)
+(set-frame-font "MonoLisa 15" nil t)
 ;; (set-frame-font "Consolas 16" nil t)
-(set-frame-font "CommitMono 17" nil t)
+;; (set-frame-font "CommitMono 17" nil t)
 
 (use-package org
   :defer t

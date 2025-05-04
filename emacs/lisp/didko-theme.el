@@ -11,6 +11,7 @@
 
 (let* ((didko-fg "#FFFFE7")
       (didko-bg "#151514")
+      ;; (didko-bg "#101012")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
       (didko-gray "#b3b3b3")
@@ -19,8 +20,6 @@
       (didko-quartz "#F4ABFF")
       (didko-pink "#FF66D8")
       (didko-pink3 "#FF5B4D")
-      ;; (didko-main "#b38d4c")
-      ;; (didko-pale-yellow "#fff389")
       (didko-pale-yellow "#fff7b3")
       (didko-red "#DE1A1A")
       (didko-red2 "#FC2856")
@@ -49,7 +48,7 @@
       (didko-vista "#10A6FF")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-blue))
+      (didko-main didko-pumpkin))
 
   (custom-theme-set-variables
    'didko
@@ -163,8 +162,8 @@
 
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
-                                       :bold t))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-olive))))
+                                       :bold nil))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-green))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
@@ -173,12 +172,12 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-gray))))
+   `(font-lock-type-face ((t ,(list :foreground didko-blueish))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-vista))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-rose
-                                        :bold t))))
-   `(font-lock-preprocessor-face ((t ,(list :foreground didko-red2))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-red2
+                                        :bold nil))))
+   `(font-lock-preprocessor-face ((t ,(list :foreground didko-vista))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-azure))))
    `(font-lock-operator-face ((t ,(list :foreground didko-ash))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-ash))))
