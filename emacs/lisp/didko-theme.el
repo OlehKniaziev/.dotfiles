@@ -170,14 +170,14 @@
    `(font-lock-string-face ((t ,(list :foreground didko-swamp))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
-   `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
+   `(font-lock-variable-name-face ((t ,(list :foreground didko-quartz))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
    `(font-lock-type-face ((t ,(list :foreground didko-blueish))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-vista))))
    `(font-lock-constant-face ((t ,(list :foreground didko-red2
                                         :bold nil))))
-   `(font-lock-preprocessor-face ((t ,(list :foreground didko-vista))))
+   `(font-lock-preprocessor-face ((t ,(list :foreground didko-yellow))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-azure))))
    `(font-lock-operator-face ((t ,(list :foreground didko-ash))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-ash))))
