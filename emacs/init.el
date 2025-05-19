@@ -44,15 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-;; (set-frame-font "TX-02 16" nil t)
-;; (set-frame-font "Cascadia Code 16" nil t)
-;; (set-frame-font "Iosevka Classy 15" nil t)
-;; (set-frame-font "Iosevka Cozy 15" nil t)
-;; (set-frame-font "Iosevka 16" nil t)
-;; (set-frame-font "JetBrains Mono 16" nil t)
-(set-frame-font "MonoLisa 15" nil t)
-;; (set-frame-font "Consolas 16" nil t)
-;; (set-frame-font "CommitMono 17" nil t)
+(set-frame-font "Hack 14" nil t)
 
 (use-package org
   :defer t
@@ -134,7 +126,7 @@
   (global-goto-address-mode 1)
 
   ;; Fonts
-  (set-face-attribute 'fixed-pitch nil :family "Iosevka Classy")
+  (set-face-attribute 'fixed-pitch nil :family "Hack")
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))

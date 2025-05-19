@@ -46,6 +46,7 @@
       (didko-rose "#CA2E55")
       (didko-blueish "#6dafce")
       (didko-vista "#10A6FF")
+      (didko-salmon "#FF7E70")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
       (didko-main didko-pumpkin))
@@ -167,7 +168,7 @@
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
-   `(font-lock-string-face ((t ,(list :foreground didko-swamp))))
+   `(font-lock-string-face ((t ,(list :foreground didko-salmon))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-quartz))))
