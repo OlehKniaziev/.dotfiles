@@ -34,4 +34,4 @@ vim.cmd("let g:gruvbox_material_disable_italic_comment=0")
 vim.cmd("let g:gruvbox_material_diagnostic_virtual_text='colored'")
 vim.cmd("let g:gruvbox_material_better_performance=1")
 
-vim.cmd.colorscheme("tokyonight");
+vim.cmd.colorscheme("didko");
