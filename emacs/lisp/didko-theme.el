@@ -9,7 +9,7 @@
 (deftheme didko
   "Didko theme for Emacs 24.")
 
-(let* ((didko-fg "#FFFFDD")
+(let* ((didko-fg "#FFFFEE")
       (didko-bg "#0A0A0A")
       ;; (didko-bg "#101012")
       (didko-bg2 "#303030")
@@ -26,7 +26,9 @@
       (didko-brown "#A77464")
       (didko-light-brown "#C79484")
       (didko-olive "#B8C480")
-      (didko-green "#84AB5B")
+      (didko-green "#50ff7b")
+      ;; (didko-green "#00FF00")
+      (didko-purple "#bd93f9")
       (didko-forest-green "#82BD92")
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
@@ -35,7 +37,7 @@
       (didko-cocoa "#C96F36")
       (didko-snow "#F0F8FC")
       (didko-dark-blue "#3F88C5")
-      (didko-acid "#9AFE22")
+      (didko-acid "#BDFE22")
       (didko-very-green "#108040")
       ;; (didko-swamp "#91c928")
       (didko-night-blue "#4059AD")
@@ -93,7 +95,7 @@
                                    :foreground didko-snow
                                    :extend t))))
 
-   `(magit-diff-added-highlight ((t ,(list :background didko-green
+   `(magit-diff-added-highlight ((t ,(list :background didko-very-green
                                            :foreground didko-fg
                                            :bold t
                                            :extend t))))
@@ -164,16 +166,16 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold nil))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-pomidor))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-purple))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-string-face ((t ,(list :foreground didko-blue))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
-   `(font-lock-variable-name-face ((t ,(list :foreground didko-ash))))
+   `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-blueish))))
+   `(font-lock-type-face ((t ,(list :foreground didko-green))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-vista))))
    `(font-lock-constant-face ((t ,(list :foreground didko-yellow
