@@ -44,7 +44,7 @@
 (elpaca elpaca-use-package
   (elpaca-use-package-mode))
 
-(set-frame-font "Hack 14" nil t)
+(set-frame-font "Berkeley Mono Condensed 17" nil t)
 
 (use-package org
   :defer t
@@ -60,6 +60,13 @@
   (setq org-capture-templates
         '(("i" "Idea" item (file+headline "~/notes/ideas.org" "Ideas")
            "- [ ] %?\n"))))
+
+(use-package org-roam
+  :ensure t
+  :config
+  (make-directory "~/notes/roam" t)
+  (setq org-roam-directory (file-truename "~/notes/roam"))
+  (org-roam-db-autosync-mode))
 
 (use-package magit
   :ensure t)
@@ -126,7 +133,7 @@
   (global-goto-address-mode 1)
 
   ;; Fonts
-  (set-face-attribute 'fixed-pitch nil :family "Hack")
+  (set-face-attribute 'fixed-pitch nil :family "Berkeley Mono Condensed")
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))

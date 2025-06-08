@@ -142,6 +142,8 @@
    `(org-headline-done ((t ,(list :foreground didko-gray))))
    `(org-code ((t ,(list :foreground didko-main))))
    `(org-verbatim ((t ,(list :foreground didko-green))))
+   `(org-document-title ((t ,(list :foreground didko-green
+                                   :bold t))))
 
    ;; Eshell
    `(eshell-prompt ((t ,(list :foreground didko-main
@@ -189,13 +191,13 @@
    `(show-paren-match ((t ,(list :background didko-blue))))
    `(show-paren-mismatch ((t ,(list :background didko-red
                                     :bold t))))
-   `(outline-1 ((t ,(list :foreground didko-quartz))))
-   `(outline-2 ((t ,(list :foreground didko-pumpkin2))))
+   `(outline-1 ((t ,(list :foreground didko-main))))
+   `(outline-2 ((t ,(list :foreground didko-purple))))
    `(outline-3 ((t ,(list :foreground didko-blue))))
    `(outline-4 ((t ,(list :foreground didko-light-blue))))
    `(outline-5 ((t ,(list :foreground didko-pumpkin))))
    `(outline-6 ((t ,(list :foreground didko-green))))
-   `(outline-7 ((t ,(list :foreground didko-cocoa))))
+   `(outline-7 ((t ,(list :foreground didko-vista))))
    `(outline-8 ((t ,(list :foreground didko-dark-blue))))
    ))
 
