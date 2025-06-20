@@ -29,6 +29,7 @@
       (didko-green "#50ff7b")
       ;; (didko-green "#00FF00")
       (didko-purple "#bd93f9")
+      (didko-purple2 "#9d93d9")
       (didko-forest-green "#82BD92")
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
@@ -51,7 +52,7 @@
       (didko-salmon "#FF7E70")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-pink))
+      (didko-main didko-red2))
 
   (custom-theme-set-variables
    'didko
@@ -105,7 +106,7 @@
                                              :extend t))))
 
    ;; Mode line
-   `(mode-line ((t ,(list :background didko-bg2
+   `(mode-line ((t ,(list :background didko-purple2
                           :foreground didko-fg))))
    `(mode-line-inactive ((t ,(list :background didko-bg))))
 
@@ -168,7 +169,7 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold nil))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-purple))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-purple2))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
@@ -177,7 +178,7 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-green))))
+   `(font-lock-type-face ((t ,(list :foreground didko-pale-yellow))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-vista))))
    `(font-lock-constant-face ((t ,(list :foreground didko-yellow
