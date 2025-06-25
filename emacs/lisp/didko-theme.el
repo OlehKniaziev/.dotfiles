@@ -16,11 +16,11 @@
       (didko-bg3 "#505050")
       (didko-gray "#b3b3b3")
       (didko-yellow "#f2de4b")
-      (didko-blue "#208FD0")
+      (didko-blue "#166FD0")
       (didko-quartz "#F4ABFF")
       (didko-pink "#FF66D8")
       (didko-pomidor "#FF5B4D")
-      (didko-pale-yellow "#fff7b3")
+      (didko-pale-yellow "#dff7a3")
       (didko-red "#DE1A1A")
       (didko-red2 "#FC2856")
       (didko-brown "#A77464")
@@ -52,7 +52,7 @@
       (didko-salmon "#FF7E70")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-red2))
+      (didko-main didko-purple2))
 
   (custom-theme-set-variables
    'didko
@@ -169,7 +169,7 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold nil))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-purple2))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-red2))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
@@ -180,11 +180,11 @@
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
    `(font-lock-type-face ((t ,(list :foreground didko-pale-yellow))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
-   `(font-lock-escape-face ((t ,(list :foreground didko-vista))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-yellow
+   `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-acid
                                         :bold nil))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-yellow))))
-   `(font-lock-builtin-face ((t ,(list :foreground didko-azure))))
+   `(font-lock-builtin-face ((t ,(list :foreground didko-vista))))
    `(font-lock-operator-face ((t ,(list :foreground didko-gray))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
 
