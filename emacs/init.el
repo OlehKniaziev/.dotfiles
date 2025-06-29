@@ -1,50 +1,8 @@
-;; elpaca setup
-(defvar elpaca-installer-version 0.7)
-(defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
-(defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
-(defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
-(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
-                              :ref nil :depth 1
-                              :files (:defaults "elpaca-test.el" (:exclude "extensions"))
-                              :build (:not elpaca--activate-package)))
-(let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
-       (build (expand-file-name "elpaca/" elpaca-builds-directory))
-       (order (cdr elpaca-order))
-       (default-directory repo))
-  (add-to-list 'load-path (if (file-exists-p build) build repo))
-  (unless (file-exists-p repo)
-    (make-directory repo t)
-    (when (< emacs-major-version 28) (require 'subr-x))
-    (condition-case-unless-debug err
-        (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
-                 ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
-                                                 ,@(when-let* ((depth (plist-get order :depth)))
-                                                     (list (format "--depth=%d" depth) "--no-single-branch"))
-                                                 ,(plist-get order :repo) ,repo))))
-                 ((zerop (call-process "git" nil buffer t "checkout"
-                                       (or (plist-get order :ref) "--"))))
-                 (emacs (concat invocation-directory invocation-name))
-                 ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
-                                       "--eval" "(byte-recompile-directory \".\" 0 'force)")))
-                 ((require 'elpaca))
-                 ((elpaca-generate-autoloads "elpaca" repo)))
-            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
-          (error "%s" (with-current-buffer buffer (buffer-string))))
-      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
-  (unless (require 'elpaca-autoloads nil t)
-    (require 'elpaca)
-    (elpaca-generate-autoloads "elpaca" repo)
-    (load "./elpaca-autoloads")))
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
-(add-hook 'after-init-hook #'elpaca-process-queues)
-(elpaca `(,@elpaca-order))
-
-(elpaca-no-symlink-mode)
-
-(elpaca elpaca-use-package
-  (elpaca-use-package-mode))
-
-(set-frame-font "Berkeley Mono Condensed 17" nil t)
+(set-frame-font "Iosevka Cozy 17" nil t)
 
 (use-package org
   :defer t
@@ -92,6 +50,11 @@
 (use-package elixir-ts-mode
   :ensure t)
 
+(use-package odin-mode
+  :vc (:url "https://git.sr.ht/~mgmarlow/odin-mode"
+            :rev :newest)
+  :ensure t)
+
 (use-package php-mode
   :ensure t)
 
@@ -133,7 +96,7 @@
   (global-goto-address-mode 1)
 
   ;; Fonts
-  (set-face-attribute 'fixed-pitch nil :family "Berkeley Mono Condensed")
+  (set-face-attribute 'fixed-pitch nil :family "Iosevka Cozy")
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
@@ -222,8 +185,6 @@
 ;; (set-face-attribute 'font-lock-type-face nil :weight 'bold :slant 'normal)
 ;; (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 
-(elpaca-wait)
-
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
 (setq-default indent-line-function 'insert-tab)
@@ -266,6 +227,7 @@
     ("\\.ts\\'" . typescript-ts-mode)
     ("\\.mts\\'" . typescript-ts-mode)
     ("\\.tsx\\'" . tsx-ts-mode)
+    ("\\.odin\\'" . odin-mode)
     ("\\.yaml\\'" . yaml-ts-mode)))
 
 (dolist (pair auto-mode-pairs)
@@ -343,3 +305,16 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil)
+ '(package-vc-selected-packages '((odin-mode :url "https://git.sr.ht/~mgmarlow/odin-mode"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
