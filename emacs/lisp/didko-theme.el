@@ -178,10 +178,10 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-pale-yellow))))
+   `(font-lock-type-face ((t ,(list :foreground didko-swamp))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-acid
+   `(font-lock-constant-face ((t ,(list :foreground didko-rose
                                         :bold nil))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-yellow))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-vista))))
