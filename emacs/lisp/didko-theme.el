@@ -168,9 +168,10 @@
 
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
-                                       :bold nil))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-red2))))
-   `(font-lock-comment-face ((t ,(list :foreground didko-brown))))
+                                       :bold t))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-salmon))))
+   `(font-lock-comment-face ((t ,(list :foreground didko-brown
+                                       :italic t))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-string-face ((t ,(list :foreground didko-blue))))
