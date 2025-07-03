@@ -183,7 +183,7 @@
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
    `(font-lock-constant-face ((t ,(list :foreground didko-rose
-                                        :bold nil))))
+                                        :italic t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-yellow))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-vista))))
    `(font-lock-operator-face ((t ,(list :foreground didko-gray))))
