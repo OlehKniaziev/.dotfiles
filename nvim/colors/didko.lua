@@ -75,6 +75,7 @@ vim.api.nvim_set_hl(0, "DiffAdd", { bg = green })
 vim.api.nvim_set_hl(0, "DiffDelete", { fg = coral })
 vim.api.nvim_set_hl(0, "DiffChange", { bg = blue })
 vim.api.nvim_set_hl(0, "DiffText", { bg = blue })
+vim.api.nvim_set_hl(0, "Title", { fg = salmon, bold = true })
 -- vim.api.nvim_set_hl(0, "StatusLineNC", { bg = bg1, fg = fg_inactive })
 
 vim.api.nvim_set_hl(0, "@lsp.type.macro", { fg = green, bold = true })
@@ -83,3 +84,9 @@ vim.api.nvim_set_hl(0, "@module", { fg = dark_blue })
 vim.api.nvim_set_hl(0, "DiagnosticError", { fg = coral })
 vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = vista })
 vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = pumpkin2 })
+
+vim.api.nvim_set_hl(0, "@markup.link.label", { italic = true, underline = true })
+vim.api.nvim_set_hl(0, "@tag.html", { fg = main });
+vim.api.nvim_set_hl(0, "@tag.attribute.html", { fg = swamp });
+
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = bg2 });

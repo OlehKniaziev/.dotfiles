@@ -2,7 +2,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(set-frame-font "MonoLisa 15" nil t)
+(set-frame-font "Input Mono 15" nil t)
 
 (use-package org
   :defer t
@@ -112,6 +112,7 @@
      '("'" . repeat)
      '("<escape>" . ignore)))
   (meow-setup)
+  (setq meow-use-clipboard t)
   (meow-global-mode 1))
 
 (use-package magit
@@ -191,7 +192,8 @@
   (global-goto-address-mode 1)
 
   ;; Fonts
-  (set-face-attribute 'fixed-pitch nil :family "MonoLisa")
+
+  (set-face-attribute 'fixed-pitch nil :family "Input Mono Narrow")
 
   ;; Whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
@@ -210,7 +212,9 @@
                     (format-mode-line
                      '(" "
                        mode-line-modified
-                       (:propertize "  %b " face bold)
+                       " "
+                       (:propertize (:eval (meow-indicator)) face italic)
+                       (:propertize " %b " face bold)
                        " (%l, %c) "
                        " %@ "))
                     (format-mode-line
