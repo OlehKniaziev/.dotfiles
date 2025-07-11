@@ -31,6 +31,7 @@
       (didko-purple "#bd93f9")
       (didko-purple2 "#9d93d9")
       (didko-magenta "#FD3DB5")
+      (didko-magenta-dimmed "#451131")
       (didko-forest-green "#82BD92")
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
@@ -109,7 +110,7 @@
    ;; Mode line
    `(mode-line ((t ,(list :background didko-main
                           :foreground didko-fg))))
-   `(mode-line-inactive ((t ,(list :background didko-bg))))
+   `(mode-line-inactive ((t ,(list :background didko-magenta-dimmed))))
 
    ;; Whitespace
    `(whitespace-space ((t ,(list :background didko-bg
@@ -180,7 +181,7 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-green))))
+   `(font-lock-type-face ((t ,(list :foreground didko-dark-blue))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
    `(font-lock-constant-face ((t ,(list :foreground didko-rose
