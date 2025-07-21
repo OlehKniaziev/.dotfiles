@@ -9,8 +9,8 @@
 (deftheme didko
   "Didko theme for Emacs 24.")
 
-(let* ((didko-fg "#FFFFEE")
-      (didko-bg "#0A0A0A")
+(let* ((didko-fg "#BCBCBC")
+      (didko-bg "#1C1C1C")
       ;; (didko-bg "#101012")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
@@ -54,7 +54,7 @@
       (didko-salmon "#FF7E70")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98abb1")
-      (didko-main didko-magenta))
+      (didko-main didko-night-blue))
 
   (custom-theme-set-variables
    'didko
@@ -73,7 +73,7 @@
    `(hl-line ((t ,(list :background didko-bg2))))
    `(minibuffer-prompt ((t ,(list :foreground didko-main
                                   :bold t))))
-   `(highlight ((t ,(list :background didko-pomidor))))
+   `(highlight ((t ,(list :background didko-night-blue))))
    `(match ((t ,(list :background didko-pomidor))))
 
    ;; Magit related
@@ -91,7 +91,7 @@
    `(magit-branch-local ((t ,(list :foreground didko-light-blue))))
    `(magit-branch-current ((t ,(list :box 1
                                      :inherit 'magit-branch-local))))
-   `(magit-diff-added ((t ,(list :background didko-green
+   `(magit-diff-added ((t ,(list :background didko-very-green
                                  :foreground didko-snow
                                  :extend t))))
    `(magit-diff-removed ((t ,(list :background didko-coral
@@ -108,9 +108,9 @@
                                              :extend t))))
 
    ;; Mode line
-   `(mode-line ((t ,(list :background didko-main
+   `(mode-line ((t ,(list :background didko-blue
                           :foreground didko-fg))))
-   `(mode-line-inactive ((t ,(list :background didko-magenta-dimmed))))
+   `(mode-line-inactive ((t ,(list :background didko-dark-blue))))
 
    ;; Whitespace
    `(whitespace-space ((t ,(list :background didko-bg
@@ -171,7 +171,7 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold t))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-salmon))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-pumpkin))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown
                                        :italic t))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
@@ -181,15 +181,15 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-dark-blue))))
+   `(font-lock-type-face ((t ,(list :foreground didko-swamp))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
    `(font-lock-constant-face ((t ,(list :foreground didko-rose
                                         :italic t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-yellow))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-vista))))
-   `(font-lock-operator-face ((t ,(list :foreground didko-gray))))
-   `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
+   `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
+   `(font-lock-delimiter-face ((t ,(list :foreground didko-fg))))
 
    ;; Misc
    `(show-paren-match ((t ,(list :background didko-blue))))
