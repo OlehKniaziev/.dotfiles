@@ -1,9 +1,8 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Iosevka';
+    font-family: 'Iosevka Classy';
     font-size: 15px;
     border: none;
-    border-radius: 20px;
 }
 
 window#waybar {
@@ -43,11 +42,11 @@ button:hover {
 #workspaces button {
     padding: 0 7px;
     background-color: transparent;
-    border-radius: 50%;
+    color: black;
 }
 
 #workspaces button.active {
-    background-color: #8bd5ca;
+    background-color: salmon;
 }
 
 #workspaces button.urgent {
@@ -81,7 +80,7 @@ button:hover {
 }
 
 #workspaces {
-    background-color: #a6da95;
+    background-color: #8bd5ca;
 }
 
 #window {
