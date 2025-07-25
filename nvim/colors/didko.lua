@@ -1,5 +1,5 @@
-local fg = "#FFFFEE"
-local bg = "#0A0A0A"
+local fg = "#BCBCBC"
+local bg = "#1C1C1C"
 local bg2 = "#303030"
 local bg3 = "#505050"
 local gray = "#b3b3b3"
@@ -17,6 +17,8 @@ local olive = "#B8C480"
 local green = "#50ff7b"
 local purple = "#bd93f9"
 local purple2 = "#9d93d9"
+local magenta = "#FD3DB5"
+local magenta_dimmed = "#451131"
 local forest_green = "#82BD92"
 local indigo = "#9740D9"
 local pumpkin = "#FF8C42"
@@ -36,14 +38,14 @@ local rose = "#CA2E55"
 local blueish = "#6dafce"
 local vista = "#10A6FF"
 local salmon = "#FF7E70"
-local light_blue = "#98abb1"
-local main = purple2
+local light_blue = "#98bfb1"
+local main = night_blue
 
 vim.api.nvim_set_hl(0, "Normal", { bg = bg, fg = fg })
 vim.api.nvim_set_hl(0, "Cursor", { fg = main, bg = bg })
 vim.api.nvim_set_hl(0, "Comment", { fg = brown, italic = true })
 vim.api.nvim_set_hl(0, "Keyword", { fg = main, bold = true })
-vim.api.nvim_set_hl(0, "String", { fg = blue })
+vim.api.nvim_set_hl(0, "String", { fg = olive })
 vim.api.nvim_set_hl(0, "Identifier", { fg = fg })
 vim.api.nvim_set_hl(0, "@variable", { fg = fg })
 vim.api.nvim_set_hl(0, "Function", { fg = salmon })
@@ -60,7 +62,7 @@ vim.api.nvim_set_hl(0, "Type", { fg = swamp })
 vim.api.nvim_set_hl(0, "Todo", { fg = main, bold = true })
 vim.api.nvim_set_hl(0, "Delimiter", { fg = gray })
 vim.api.nvim_set_hl(0, "Operator", { fg = gray })
-vim.api.nvim_set_hl(0, "Special", { fg = vista })
+vim.api.nvim_set_hl(0, "Special", { fg = light_blue })
 vim.api.nvim_set_hl(0, "Visual", { bg = bg3 })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = bg2 })
 vim.api.nvim_set_hl(0, "CurSearch", { fg = bg, bg = yellow })
