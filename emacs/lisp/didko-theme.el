@@ -54,7 +54,7 @@
       (didko-salmon "#FF7E70")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98bfb1")
-      (didko-main didko-night-blue))
+      (didko-main didko-yellow))
 
   (custom-theme-set-variables
    'didko
@@ -186,13 +186,13 @@
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
    `(font-lock-constant-face ((t ,(list :foreground didko-rose
                                         :italic t))))
-   `(font-lock-preprocessor-face ((t ,(list :foreground didko-yellow))))
+   `(font-lock-preprocessor-face ((t ,(list :foreground didko-night-blue))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-fg))))
 
    ;; Misc
-   `(show-paren-match ((t ,(list :background didko-blue))))
+   `(show-paren-match ((t ,(list :background didko-night-blue))))
    `(show-paren-mismatch ((t ,(list :background didko-red
                                     :bold t))))
    `(outline-1 ((t ,(list :foreground didko-main))))
