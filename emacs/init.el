@@ -139,10 +139,11 @@
 (use-package elixir-ts-mode
   :ensure t)
 
-(use-package odin-mode
-  :vc (:url "https://git.sr.ht/~mgmarlow/odin-mode"
+(use-package odin-ts-mode
+  :vc (:url "https://github.com/Sampie159/odin-ts-mode"
             :rev :newest)
-  :ensure t)
+  :ensure t
+  :mode "\\.odin\\'")
 
 (use-package php-mode
   :ensure t)
