@@ -12,7 +12,7 @@ vim.wo.relativenumber = true
 
 vim.opt.scrolloff = 0
 
-vim.opt.listchars = [[eol:↩,tab:» ,trail:\u2218]]
+vim.opt.listchars = [[tab:» ,trail:\u2218]]
 vim.opt.list = true
 
 vim.opt.cursorline = true
