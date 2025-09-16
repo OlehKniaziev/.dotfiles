@@ -42,6 +42,10 @@
     //         "default": ""
     //     }
     // },
+    "hyprland/language": {
+        "format": "{}",
+        "keyboard-name": "compx-gaming-keyboard"
+    },
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
     },
