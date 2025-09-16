@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 vim.opt.signcolumn = "yes"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.exrc = true
 
 vim.wo.number = true
 vim.wo.relativenumber = true
