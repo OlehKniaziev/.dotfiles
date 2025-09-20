@@ -6,3 +6,9 @@ vim.filetype.add({
 		xaml = "xml",
 	},
 })
+
+vim.filetype.add({
+	extension = {
+		tf = "terraform",
+	},
+})
