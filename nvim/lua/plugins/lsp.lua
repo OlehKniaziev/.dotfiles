@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		-- event = { "BufRead", "BufNewFile" },
+		event = { "BufReadPre" },
 		dependencies = {
 			{
 				"j-hui/fidget.nvim",
@@ -32,7 +32,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		-- event = "InsertEnter",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
