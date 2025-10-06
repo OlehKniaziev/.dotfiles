@@ -19,6 +19,8 @@ vim.opt.list = true
 
 vim.opt.cursorline = true
 
+vim.opt.guicursor = "n-v-i:block-blinkon0,r-o:hor100"
+
 vim.opt.guifont = "Iosevka Cozy:h22"
 vim.g.neovide_scale_factor = 0.7
 vim.g.neovide_cursor_animation_length = 0.05
