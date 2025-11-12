@@ -46,7 +46,7 @@ return {
 			require("bamboo").setup(opts)
 		end,
 	},
-	{ "mcchrish/zenbones.nvim", dependencies = { "rktjmp/lush.nvim" } },
+	{ "mcchrish/zenbones.nvim",    dependencies = { "rktjmp/lush.nvim" } },
 	{ "bluz71/vim-moonfly-colors", name = "moonfly" },
 	{
 		"catppuccin/nvim",
@@ -82,4 +82,18 @@ return {
 	"zootedb0t/citruszest.nvim",
 	"maxmx03/solarized.nvim",
 	"craftzdog/solarized-osaka.nvim",
+    {
+	"rose-pine/neovim",
+	name = "rose-pine",
+	config = function(_, _)
+	    require("rose-pine").setup({
+		dim_inactive_windows = true,
+		highlight_groups = {
+		    ["@function"] = { italic = false },
+		    ["@variable"] = { italic = false },
+		    ["@constant"] = { bold = true },
+		},
+	    })
+	end,
+    }
 }
