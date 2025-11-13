@@ -82,18 +82,20 @@ return {
 	"zootedb0t/citruszest.nvim",
 	"maxmx03/solarized.nvim",
 	"craftzdog/solarized-osaka.nvim",
-    {
-	"rose-pine/neovim",
-	name = "rose-pine",
-	config = function(_, _)
-	    require("rose-pine").setup({
-		dim_inactive_windows = true,
-		highlight_groups = {
-		    ["@function"] = { italic = false },
-		    ["@variable"] = { italic = false },
-		    ["@constant"] = { bold = true },
-		},
-	    })
-	end,
-    }
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function(_, _)
+			require("rose-pine").setup({
+				dim_inactive_windows = true,
+				highlight_groups = {
+					["@function"] = { italic = false },
+					["@variable"] = { italic = false },
+					["@constant"] = { bold = true },
+					["@constant.builtin"] = { link = "@variable.builtin" },
+					Boolean = { link = "@constant" },
+				},
+			})
+		end,
+	}
 }
