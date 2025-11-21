@@ -1,8 +1,9 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
 (package-initialize)
 
-(set-frame-font "Input Mono 15" nil t)
+(set-frame-font "Codelia Ligatures 17" nil t)
 
 (use-package org
   :defer t
@@ -26,100 +27,143 @@
   (setq org-roam-directory (file-truename "~/notes/roam"))
   (org-roam-db-autosync-mode))
 
-(use-package meow
-  :ensure t
-  :config
-  (defun meow-setup ()
-    (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
-    (meow-motion-define-key
-     '("j" . meow-next)
-     '("k" . meow-prev)
-     '("<escape>" . ignore))
-    (meow-leader-define-key
-     ;; Use SPC (0-9) for digit arguments.
-     '("1" . meow-digit-argument)
-     '("2" . meow-digit-argument)
-     '("3" . meow-digit-argument)
-     '("4" . meow-digit-argument)
-     '("5" . meow-digit-argument)
-     '("6" . meow-digit-argument)
-     '("7" . meow-digit-argument)
-     '("8" . meow-digit-argument)
-     '("9" . meow-digit-argument)
-     '("0" . meow-digit-argument)
-     '("/" . meow-keypad-describe-key)
-     '("?" . meow-cheatsheet))
-    (meow-normal-define-key
-     '("0" . meow-expand-0)
-     '("9" . meow-expand-9)
-     '("8" . meow-expand-8)
-     '("7" . meow-expand-7)
-     '("6" . meow-expand-6)
-     '("5" . meow-expand-5)
-     '("4" . meow-expand-4)
-     '("3" . meow-expand-3)
-     '("2" . meow-expand-2)
-     '("1" . meow-expand-1)
-     '("-" . negative-argument)
-     '(";" . meow-reverse)
-     '("," . meow-inner-of-thing)
-     '("." . meow-bounds-of-thing)
-     '("[" . meow-beginning-of-thing)
-     '("]" . meow-end-of-thing)
-     '("a" . meow-append)
-     '("A" . meow-open-below)
-     '("b" . meow-back-word)
-     '("B" . meow-back-symbol)
-     '("c" . meow-change)
-     '("d" . meow-delete)
-     '("D" . meow-backward-delete)
-     '("e" . meow-next-word)
-     '("E" . meow-next-symbol)
-     '("f" . meow-find)
-     '("g" . meow-cancel-selection)
-     '("G" . meow-grab)
-     '("h" . meow-left)
-     '("H" . meow-left-expand)
-     '("i" . meow-insert)
-     '("I" . meow-open-above)
-     '("j" . meow-next)
-     '("J" . meow-next-expand)
-     '("k" . meow-prev)
-     '("K" . meow-prev-expand)
-     '("l" . meow-right)
-     '("L" . meow-right-expand)
-     '("m" . meow-join)
-     '("n" . meow-search)
-     '("o" . meow-block)
-     '("O" . meow-to-block)
-     '("p" . meow-yank)
-     '("q" . meow-quit)
-     '("Q" . meow-goto-line)
-     '("r" . meow-replace)
-     '("R" . meow-swap-grab)
-     '("s" . meow-kill)
-     '("t" . meow-till)
-     '("u" . meow-undo)
-     '("U" . meow-undo-in-selection)
-     '("v" . meow-visit)
-     '("w" . meow-mark-word)
-     '("W" . meow-mark-symbol)
-     '("x" . meow-line)
-     '("X" . meow-goto-line)
-     '("y" . meow-save)
-     '("Y" . meow-sync-grab)
-     '("z" . meow-pop-selection)
-     '("'" . repeat)
-     '("<escape>" . ignore)))
-  (meow-setup)
-  (setq meow-use-clipboard t)
-  (meow-global-mode 1))
+;; (use-package meow
+;;   :ensure t
+;;   :config
+;;   (defun meow-setup ()
+;;     (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+;;     (meow-motion-define-key
+;;      '("j" . meow-next)
+;;      '("k" . meow-prev)
+;;      '("<escape>" . ignore))
+;;     (meow-leader-define-key
+;;      ;; Use SPC (0-9) for digit arguments.
+;;      '("1" . meow-digit-argument)
+;;      '("2" . meow-digit-argument)
+;;      '("3" . meow-digit-argument)
+;;      '("4" . meow-digit-argument)
+;;      '("5" . meow-digit-argument)
+;;      '("6" . meow-digit-argument)
+;;      '("7" . meow-digit-argument)
+;;      '("8" . meow-digit-argument)
+;;      '("9" . meow-digit-argument)
+;;      '("0" . meow-digit-argument)
+;;      '("/" . meow-keypad-describe-key)
+;;      '("?" . meow-cheatsheet))
+;;     (meow-normal-define-key
+;;      '("0" . meow-expand-0)
+;;      '("9" . meow-expand-9)
+;;      '("8" . meow-expand-8)
+;;      '("7" . meow-expand-7)
+;;      '("6" . meow-expand-6)
+;;      '("5" . meow-expand-5)
+;;      '("4" . meow-expand-4)
+;;      '("3" . meow-expand-3)
+;;      '("2" . meow-expand-2)
+;;      '("1" . meow-expand-1)
+;;      '("-" . negative-argument)
+;;      '(";" . meow-reverse)
+;;      '("," . meow-inner-of-thing)
+;;      '("." . meow-bounds-of-thing)
+;;      '("[" . meow-beginning-of-thing)
+;;      '("]" . meow-end-of-thing)
+;;      '("a" . meow-append)
+;;      '("A" . meow-open-below)
+;;      '("b" . meow-back-word)
+;;      '("B" . meow-back-symbol)
+;;      '("c" . meow-change)
+;;      '("d" . meow-delete)
+;;      '("D" . meow-backward-delete)
+;;      '("e" . meow-next-word)
+;;      '("E" . meow-next-symbol)
+;;      '("f" . meow-find)
+;;      '("g" . meow-cancel-selection)
+;;      '("G" . meow-grab)
+;;      '("h" . meow-left)
+;;      '("H" . meow-left-expand)
+;;      '("i" . meow-insert)
+;;      '("I" . meow-open-above)
+;;      '("j" . meow-next)
+;;      '("J" . meow-next-expand)
+;;      '("k" . meow-prev)
+;;      '("K" . meow-prev-expand)
+;;      '("l" . meow-right)
+;;      '("L" . meow-right-expand)
+;;      '("m" . meow-join)
+;;      '("n" . meow-search)
+;;      '("o" . meow-block)
+;;      '("O" . meow-to-block)
+;;      '("p" . meow-yank)
+;;      '("q" . meow-quit)
+;;      '("Q" . meow-goto-line)
+;;      '("r" . meow-replace)
+;;      '("R" . meow-swap-grab)
+;;      '("s" . meow-kill)
+;;      '("t" . meow-till)
+;;      '("u" . meow-undo)
+;;      '("U" . meow-undo-in-selection)
+;;      '("v" . meow-visit)
+;;      '("w" . meow-mark-word)
+;;      '("W" . meow-mark-symbol)
+;;      '("x" . meow-line)
+;;      '("X" . meow-goto-line)
+;;      '("y" . meow-save)
+;;      '("Y" . meow-sync-grab)
+;;      '("z" . meow-pop-selection)
+;;      '("'" . repeat)
+;;      '("<escape>" . ignore)))
+;;   (meow-setup)
+;;   (setq meow-use-clipboard t)
+;;   (meow-global-mode 1))
 
 (use-package magit
   :ensure t)
 
 (use-package transient
   :ensure t)
+
+(use-package flycheck
+  :ensure t)
+
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((go-mode . lsp)
+         (c-ts-mode . lsp)
+         (c++-ts-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :config
+  (setq lsp-go-hover-kind "FullDocumentation")
+  :commands lsp)
+
+(use-package lsp-ui
+  :ensure t
+  :config
+  (setq lsp-ui-sideline-show-diagnostics t)
+  (setq lsp-ui-sideline-show-hover t)
+  (setq lsp-ui-peek-enable t)
+
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  :commands lsp-ui-mode)
+
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-cycle t)
+  :init
+  (global-corfu-mode)
+  :config
+  (setq corfu-auto t
+        corfu-auto-delay 0.2
+        corfu-quit-no-match t)
+  (add-hook 'corfu-mode-hook
+          (lambda ()
+            ;; Settings only for Corfu
+            (setq-local completion-styles '(basic)
+                        completion-category-overrides nil
+                        completion-category-defaults nil))))
 
 (use-package eat
   :ensure t
@@ -146,6 +190,9 @@
   :mode "\\.odin\\'")
 
 (use-package php-mode
+  :ensure t)
+
+(use-package go-mode
   :ensure t)
 
 (use-package tuareg
@@ -178,6 +225,7 @@
   :custom
   (frame-resize-pixelwise t)
   (enable-recursive-minibuffers t)
+  (tab-always-indent 'complete)
 
   :config
   ;; Fido
@@ -326,7 +374,7 @@
     ("\\.yml\\'" . yaml-ts-mode)
     ("\\(Dockerfile\\|Containerfile\\)" . dockerfile-ts-mode)
     ("\\(CMakeLists\\.txt\\|\\.cmake\\)" . cmake-ts-mode)
-    ("\\.go\\'" . go-ts-mode)
+    ("\\.go\\'" . go-mode)
     ("\\.mod\\'" . go-mod-ts-mode)
     ("\\.cjs\\'" . js-ts-mode)
     ("\\.mjs\\'" . js-ts-mode)
@@ -392,18 +440,16 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'keys)
-;; (require 'ef-themes)
+(require 'ef-themes)
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
 ;; (load-theme 'ef-eagle t)
 ;; (load-theme 'ef-trio-dark t)
-;; (load-theme 'ef-elea-dark t)
+(load-theme 'ef-elea-dark t)
 ;; (load-theme 'monokai t)
 ;; (load-theme 'ef-autumn t)
 
-(require 'didko-theme)
-(require 'hmm-theme)
-(load-theme 'didko t)
+;; (load-theme 'ef-eagle t)
 ;; (load-theme 'hmm t)
 
 ;; (require 'doom-themes)
@@ -413,3 +459,16 @@
 (put 'downcase-region 'disabled nil)
 
 (load custom-file)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-vc-selected-packages
+   '((odin-ts-mode :url "https://github.com/Sampie159/odin-ts-mode"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
