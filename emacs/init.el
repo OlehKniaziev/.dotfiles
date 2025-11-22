@@ -135,12 +135,15 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook ((go-mode . lsp)
-         (go-ts-mode)
+         (go-ts-mode . lsp)
          (c-ts-mode . lsp)
          (c++-ts-mode . lsp)
+         (rust-ts-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :config
   (setq lsp-go-hover-kind "fulldocumentation")
+  (setq lsp-modeline-diagnostics-enable t)
+  (setq lsp-enable-on-type-formatting nil)
   :commands lsp)
 
 (use-package lsp-ui
