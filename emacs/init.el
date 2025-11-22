@@ -1,3 +1,8 @@
+;; Custom
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
@@ -130,11 +135,12 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook ((go-mode . lsp)
+         (go-ts-mode)
          (c-ts-mode . lsp)
          (c++-ts-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :config
-  (setq lsp-go-hover-kind "FullDocumentation")
+  (setq lsp-go-hover-kind "fulldocumentation")
   :commands lsp)
 
 (use-package lsp-ui
@@ -148,6 +154,12 @@
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
   :commands lsp-ui-mode)
 
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion)))))
+
 (use-package corfu
   :ensure t
   :custom
@@ -159,11 +171,11 @@
         corfu-auto-delay 0.2
         corfu-quit-no-match t)
   (add-hook 'corfu-mode-hook
-          (lambda ()
-            ;; Settings only for Corfu
-            (setq-local completion-styles '(basic)
-                        completion-category-overrides nil
-                        completion-category-defaults nil))))
+            (lambda ()
+              ;; settings only for corfu
+              (setq-local completion-styles '(orderless basic)
+                          completion-category-overrides nil
+                          completion-category-defaults nil))))
 
 (use-package eat
   :ensure t
@@ -184,7 +196,7 @@
   :ensure t)
 
 (use-package odin-ts-mode
-  :vc (:url "https://github.com/Sampie159/odin-ts-mode"
+  :vc (:url "https://github.com/sampie159/odin-ts-mode"
             :rev :newest)
   :ensure t
   :mode "\\.odin\\'")
@@ -204,14 +216,14 @@
 
 (use-package which-key
   :config
-  (setq which-key-show-eary-on-C-h t)
+  (setq which-key-show-eary-on-c-h t)
   (setq which-key-idle-delay 1)
   (setq which-key-idle-secondary-delay 0.05)
   (which-key-mode))
 
-;; This procedure was shamelessly stolen from internet
+;; this procedure was shamelessly stolen from internet
 (defun mode-line-render (left right)
-  "Return a string of `window-width' length containing LEFT and RIGHT aligned respectively."
+  "return a string of `window-width' length containing left and right aligned respectively."
   (let* ((available-width (- (window-width) (length left) 3)))
     (format (format " %%s %%%ds " available-width) left right)))
 
@@ -228,33 +240,33 @@
   (tab-always-indent 'complete)
 
   :config
-  ;; Fido
+  ;; fido
   (require 'icomplete)
 
   (defun fido-hook ()
-    (setq-local completion-styles '(substring)))
+    (setq-local completion-styles '(orderless basic)))
 
   (add-hook 'icomplete-minibuffer-setup-hook 'fido-hook)
   (fido-vertical-mode)
 
-  ;; Address mode
+  ;; address mode
   (global-goto-address-mode 1)
 
-  ;; Fonts
+  ;; fonts
 
-  (set-face-attribute 'fixed-pitch nil :family "Input Mono Narrow")
+  (set-face-attribute 'fixed-pitch nil :family "input mono narrow")
 
-  ;; Whitespace mode
+  ;; whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
   (global-whitespace-mode)
 
-  ;; Electric
+  ;; electric
   (electric-indent-mode -1)
 
-  ;; Minibuffer size
+  ;; minibuffer size
   (setq max-mini-window-height 0.35)
 
-  ;; Mode line
+  ;; mode line
   (setq-default mode-line-format
                 '((:eval
                    (mode-line-render
@@ -267,17 +279,14 @@
                        " (%l, %c) "
                        " %@ "))
                     (format-mode-line
-                     '(" %I "
+                     '(" %i "
                        " %p%% "
                        (vc-mode vc-mode)
                        " %m "))))))
 
-  ;; Custom
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-  ;; Dired
+  ;; dired
   (setq dired-dwim-target t)
-  ;; Misc
+  ;; misc
   (setq echo-keystrokes 0.001))
 
 ;; theming
@@ -286,29 +295,29 @@
   :config
   (ligature-set-ligatures
    't
-   '(                                   ; Group A
+   '(                                   ; group a
      ".." ".=" "..." "..<" "::" ":::" ":=" "::=" ";;" ";;;" "??" "???"
      ".?" "?." ":?" "?:" "?=" "**" "***" "/*" "*/" "/**"
-                                        ; Group B
+                                        ; group b
      "<-" "->" "-<" ">-" "<--" "-->" "<<-" "->>" "-<<" ">>-" "<-<" ">->"
      "<-|" "|->" "-|" "|-" "||-" "<!--" "<#--" "<=" "=>" ">=" "<==" "==>"
      "<<=" "=>>" "=<<" ">>=" "<=<" ">=>" "<=|" "|=>" "<=>" "<==>" "||="
      "|=" "//=" "/="
-                                        ; Group C
+                                        ; group c
      "<<" ">>" "<<<" ">>>" "<>" "<$" "$>" "<$>" "<+" "+>" "<+>" "<:" ":<"
      "<:<" "<~" "~>" "<~>" "<<~" "<~~" "~~>" "~~" "<|" "|>"
      "<|>" "<||" "||>" "<|||" "|||>" "</" "/>" "</>" "<*" "*>" "<*>" ":?>"
-                                        ; Group D
+                                        ; group d
      "#(" "#{" "#[" "]#" "#!" "#?" "#=" "#_" "#_(" "##" "###" "####"
-                                        ; Group E
+                                        ; group e
      "[|" "|]" "[<" ">]" "{!!" "!!}" "{|" "|}" "{{" "}}" "{{--" "--}}"
      "{!--" "//" "///" "!!"
-                                        ; Group F
+                                        ; group f
      "www" "@_" "&&" "&&&" "&=" "~@" "++" "+++" "/\\" "\\/" "_|_" "||"
-                                        ; Group G
+                                        ; group g
      "=:" "=:=" "=!=" "==" "===" "=/=" "=~" "~-" "^=" "__" "!=" "!==" "-~"
      "--" "---"))
-  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; enables ligature checks globally in all buffers. you can also do it
   ;; per mode with `ligature-mode'.
   (global-ligature-mode t))
 
@@ -317,10 +326,10 @@
   :defer t
 
   :config
-  (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
-  (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
-  (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022")))
-
+  ;; (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
+  ;; (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
+  ;; (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022"))
+  )
 (use-package doom-themes
   :ensure t
   :defer t
@@ -372,8 +381,8 @@
 (defvar auto-mode-pairs
   '(("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
-    ("\\(Dockerfile\\|Containerfile\\)" . dockerfile-ts-mode)
-    ("\\(CMakeLists\\.txt\\|\\.cmake\\)" . cmake-ts-mode)
+    ("\\(dockerfile\\|containerfile\\)" . dockerfile-ts-mode)
+    ("\\(cmakelists\\.txt\\|\\.cmake\\)" . cmake-ts-mode)
     ("\\.go\\'" . go-mode)
     ("\\.mod\\'" . go-mod-ts-mode)
     ("\\.cjs\\'" . js-ts-mode)
@@ -440,35 +449,23 @@
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 (require 'keys)
-(require 'ef-themes)
+;; (require 'ef-themes)
 ;; (load-theme 'ef-kassio t)
 ;; (load-theme 'ef-tritanopia-dark t)
 ;; (load-theme 'ef-eagle t)
 ;; (load-theme 'ef-trio-dark t)
-(load-theme 'ef-elea-dark t)
+;; (load-theme 'ef-elea-dark t)
 ;; (load-theme 'monokai t)
 ;; (load-theme 'ef-autumn t)
 
 ;; (load-theme 'ef-eagle t)
 ;; (load-theme 'hmm t)
 
+(require 'didko-theme)
+(load-theme 'didko t)
+
 ;; (require 'doom-themes)
 ;; (load-theme 'doom-one t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
-(load custom-file)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-vc-selected-packages
-   '((odin-ts-mode :url "https://github.com/Sampie159/odin-ts-mode"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

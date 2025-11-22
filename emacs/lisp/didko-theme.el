@@ -73,7 +73,7 @@
    `(hl-line ((t ,(list :background didko-bg2))))
    `(minibuffer-prompt ((t ,(list :foreground didko-main
                                   :bold t))))
-   `(highlight ((t ,(list :background didko-night-blue))))
+   `(highlight ((t ,(list :background didko-bg3))))
    `(match ((t ,(list :background didko-pomidor))))
 
    ;; Magit related
@@ -171,7 +171,7 @@
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold t))))
-   `(font-lock-function-name-face ((t ,(list :foreground didko-pomidor))))
+   `(font-lock-function-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-comment-face ((t ,(list :foreground didko-brown
                                        :italic t))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
@@ -189,7 +189,7 @@
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-night-blue))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-azure))))
    `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-delimiter-face ((t ,(list :foreground didko-fg))))
+   `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
 
    ;; Misc
    `(show-paren-match ((t ,(list :background didko-night-blue))))
