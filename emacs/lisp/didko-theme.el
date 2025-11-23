@@ -10,7 +10,7 @@
   "Didko theme for Emacs 24.")
 
 (let* ((didko-fg "#BCBCBC")
-      (didko-bg "#1B1B1B")
+      (didko-bg "#181818")
       ;; (didko-bg "#101012")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
@@ -47,7 +47,7 @@
       (didko-azure "#007FFF")
       (didko-grape "#665687")
       (didko-swamp "#77b500")
-      (didko-ash "#c3c3c3")
+      (didko-ash "#808080")
       (didko-rose "#CA2E55")
       (didko-blueish "#6dafce")
       (didko-vista "#10A6FF")
@@ -181,13 +181,13 @@
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
    `(font-lock-variable-use-face ((t ,(list :foreground didko-fg))))
-   `(font-lock-type-face ((t ,(list :foreground didko-night-blue))))
+   `(font-lock-type-face ((t ,(list :foreground didko-ash))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
    `(font-lock-constant-face ((t ,(list :foreground didko-rose
                                         :italic t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-night-blue))))
-   `(font-lock-builtin-face ((t ,(list :foreground didko-azure))))
+   `(font-lock-builtin-face ((t ,(list :foreground didko-swamp))))
    `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
 

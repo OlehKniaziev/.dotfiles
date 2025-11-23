@@ -130,6 +130,11 @@
 (use-package flycheck
   :ensure t)
 
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
 (use-package lsp-mode
   :ensure t
   :init
@@ -141,9 +146,13 @@
          (rust-ts-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :config
+  (setq lsp-completion-provider :none)
   (setq lsp-go-hover-kind "fulldocumentation")
   (setq lsp-modeline-diagnostics-enable t)
   (setq lsp-enable-on-type-formatting nil)
+  (add-hook 'lsp-completion-mode-hook (lambda ()
+                             (setq-local completion-styles '(orderless)
+                                         completion-category-defaults nil)))
   :commands lsp)
 
 (use-package lsp-ui
@@ -160,7 +169,7 @@
 (use-package orderless
   :ensure t
   :custom
-  (completion-styles '(orderless basic))
+  (completion-styles '(orderless))
   (completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package corfu
@@ -170,7 +179,9 @@
   :init
   (global-corfu-mode)
   :config
-  (setq corfu-auto t
+  (setq corfu-auto-prefix 1
+   corfu-auto t
+        corfu-auto-trigger "."
         corfu-auto-delay 0.2
         corfu-quit-no-match t)
   (add-hook 'corfu-mode-hook
