@@ -20,7 +20,7 @@
       (didko-quartz "#F4ABFF")
       (didko-pink "#FF66D8")
       (didko-pomidor "#FF5B4D")
-      (didko-pale-yellow "#dff7a3")
+      (didko-pale-yellow "#ffff88")
       (didko-red "#DE1A1A")
       (didko-red2 "#FC2856")
       (didko-brown "#A77464")
@@ -36,7 +36,6 @@
       (didko-indigo "#9740D9")
       (didko-pumpkin "#FF8C42")
       (didko-pumpkin2 "#FCAC32")
-      (didko-coral "#FC573A")
       (didko-cocoa "#C96F36")
       (didko-snow "#F0F8FC")
       (didko-dark-blue "#3F88C5")
@@ -51,10 +50,10 @@
       (didko-rose "#CA2E55")
       (didko-blueish "#6dafce")
       (didko-vista "#10A6FF")
-      (didko-salmon "#FF7E70")
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98bfb1")
-      (didko-main didko-yellow))
+      (didko-hl didko-bg3)
+      (didko-main didko-pale-yellow))
 
   (custom-theme-set-variables
    'didko
@@ -73,7 +72,8 @@
    `(hl-line ((t ,(list :background didko-bg2))))
    `(minibuffer-prompt ((t ,(list :foreground didko-main
                                   :bold t))))
-   `(highlight ((t ,(list :background didko-bg3))))
+   `(highlight ((t ,(list :background didko-hl
+                          :underline t))))
    `(match ((t ,(list :background didko-pomidor))))
 
    ;; Magit related
@@ -94,7 +94,7 @@
    `(magit-diff-added ((t ,(list :background didko-very-green
                                  :foreground didko-snow
                                  :extend t))))
-   `(magit-diff-removed ((t ,(list :background didko-coral
+   `(magit-diff-removed ((t ,(list :background didko-pomidor
                                    :foreground didko-snow
                                    :extend t))))
 
@@ -102,7 +102,7 @@
                                            :foreground didko-fg
                                            :bold t
                                            :extend t))))
-   `(magit-diff-removed-highlight ((t ,(list :background didko-coral
+   `(magit-diff-removed-highlight ((t ,(list :background didko-pomidor
                                              :foreground didko-fg
                                              :bold t
                                              :extend t))))
@@ -163,7 +163,7 @@
    ;; Compilation mode
    `(compilation-info ((t ,(list :foreground didko-dark-blue
                                  :bold t))))
-   `(compilation-error ((t ,(list :foreground didko-coral
+   `(compilation-error ((t ,(list :foreground didko-pomidor
                                  :bold t))))
    `(compilation-warning ((t ,(list :foreground didko-pumpkin
                                   :bold t))))
