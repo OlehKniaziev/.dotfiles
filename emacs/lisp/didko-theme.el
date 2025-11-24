@@ -156,6 +156,10 @@
    `(eshell-ls-directory ((t ,(list :foreground didko-cocoa
                                     :bold t))))
 
+   ;; Dired
+   `(dired-directory ((t ,(list :foreground didko-ash))))
+   `(dired-flagged ((t ,(list :foreground didko-pomidor
+                                :bold t))))
    ;; Compilation mode
    `(compilation-info ((t ,(list :foreground didko-dark-blue
                                  :bold t))))
@@ -176,7 +180,7 @@
                                        :italic t))))
    `(font-lock-doc-face ((t ,(list :foreground didko-light-brown))))
    `(font-lock-doc-string-face ((t ,(list :foreground didko-light-brown))))
-   `(font-lock-string-face ((t ,(list :foreground didko-olive))))
+   `(font-lock-string-face ((t ,(list :foreground didko-swamp))))
    `(font-lock-warning-face ((t ,(list :foreground didko-pumpkin
                                        :bold t))))
    `(font-lock-variable-name-face ((t ,(list :foreground didko-fg))))
@@ -187,7 +191,7 @@
    `(font-lock-constant-face ((t ,(list :foreground didko-rose
                                         :italic t))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-night-blue))))
-   `(font-lock-builtin-face ((t ,(list :foreground didko-swamp))))
+   `(font-lock-builtin-face ((t ,(list :foreground didko-pomidor))))
    `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
    `(font-lock-delimiter-face ((t ,(list :foreground didko-gray))))
 

@@ -147,7 +147,7 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :config
   (setq lsp-completion-provider :none)
-  (setq lsp-go-hover-kind "fulldocumentation")
+  (setq lsp-go-hover-kind "FullDocumentation")
   (setq lsp-modeline-diagnostics-enable t)
   (setq lsp-enable-on-type-formatting nil)
   (add-hook 'lsp-completion-mode-hook (lambda ()
@@ -161,6 +161,7 @@
   (setq lsp-ui-sideline-show-diagnostics t)
   (setq lsp-ui-sideline-show-hover t)
   (setq lsp-ui-peek-enable t)
+  (setq lsp-ui-doc-show-with-mouse nil)
 
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
@@ -205,9 +206,6 @@
   :ensure t
   :hook
   (haskell-mode . interactive-haskell-mode))
-
-(use-package elixir-ts-mode
-  :ensure t)
 
 (use-package odin-ts-mode
   :vc (:url "https://github.com/sampie159/odin-ts-mode"
