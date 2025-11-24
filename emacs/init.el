@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; Custom
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
@@ -9,6 +11,9 @@
 (package-initialize)
 
 (set-frame-font "Codelia Ligatures 17" nil t)
+
+(custom-set-faces
+ `(markdown-code-face ((t :inherit default))))
 
 (use-package org
   :defer t
