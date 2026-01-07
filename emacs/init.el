@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Codelia Ligatures 17" nil t)
+(set-frame-font "Iosevka Classy 21" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -37,95 +37,6 @@
   (setq org-roam-directory (file-truename "~/notes/roam"))
   (org-roam-db-autosync-mode))
 
-;; (use-package meow
-;;   :ensure t
-;;   :config
-;;   (defun meow-setup ()
-;;     (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
-;;     (meow-motion-define-key
-;;      '("j" . meow-next)
-;;      '("k" . meow-prev)
-;;      '("<escape>" . ignore))
-;;     (meow-leader-define-key
-;;      ;; Use SPC (0-9) for digit arguments.
-;;      '("1" . meow-digit-argument)
-;;      '("2" . meow-digit-argument)
-;;      '("3" . meow-digit-argument)
-;;      '("4" . meow-digit-argument)
-;;      '("5" . meow-digit-argument)
-;;      '("6" . meow-digit-argument)
-;;      '("7" . meow-digit-argument)
-;;      '("8" . meow-digit-argument)
-;;      '("9" . meow-digit-argument)
-;;      '("0" . meow-digit-argument)
-;;      '("/" . meow-keypad-describe-key)
-;;      '("?" . meow-cheatsheet))
-;;     (meow-normal-define-key
-;;      '("0" . meow-expand-0)
-;;      '("9" . meow-expand-9)
-;;      '("8" . meow-expand-8)
-;;      '("7" . meow-expand-7)
-;;      '("6" . meow-expand-6)
-;;      '("5" . meow-expand-5)
-;;      '("4" . meow-expand-4)
-;;      '("3" . meow-expand-3)
-;;      '("2" . meow-expand-2)
-;;      '("1" . meow-expand-1)
-;;      '("-" . negative-argument)
-;;      '(";" . meow-reverse)
-;;      '("," . meow-inner-of-thing)
-;;      '("." . meow-bounds-of-thing)
-;;      '("[" . meow-beginning-of-thing)
-;;      '("]" . meow-end-of-thing)
-;;      '("a" . meow-append)
-;;      '("A" . meow-open-below)
-;;      '("b" . meow-back-word)
-;;      '("B" . meow-back-symbol)
-;;      '("c" . meow-change)
-;;      '("d" . meow-delete)
-;;      '("D" . meow-backward-delete)
-;;      '("e" . meow-next-word)
-;;      '("E" . meow-next-symbol)
-;;      '("f" . meow-find)
-;;      '("g" . meow-cancel-selection)
-;;      '("G" . meow-grab)
-;;      '("h" . meow-left)
-;;      '("H" . meow-left-expand)
-;;      '("i" . meow-insert)
-;;      '("I" . meow-open-above)
-;;      '("j" . meow-next)
-;;      '("J" . meow-next-expand)
-;;      '("k" . meow-prev)
-;;      '("K" . meow-prev-expand)
-;;      '("l" . meow-right)
-;;      '("L" . meow-right-expand)
-;;      '("m" . meow-join)
-;;      '("n" . meow-search)
-;;      '("o" . meow-block)
-;;      '("O" . meow-to-block)
-;;      '("p" . meow-yank)
-;;      '("q" . meow-quit)
-;;      '("Q" . meow-goto-line)
-;;      '("r" . meow-replace)
-;;      '("R" . meow-swap-grab)
-;;      '("s" . meow-kill)
-;;      '("t" . meow-till)
-;;      '("u" . meow-undo)
-;;      '("U" . meow-undo-in-selection)
-;;      '("v" . meow-visit)
-;;      '("w" . meow-mark-word)
-;;      '("W" . meow-mark-symbol)
-;;      '("x" . meow-line)
-;;      '("X" . meow-goto-line)
-;;      '("y" . meow-save)
-;;      '("Y" . meow-sync-grab)
-;;      '("z" . meow-pop-selection)
-;;      '("'" . repeat)
-;;      '("<escape>" . ignore)))
-;;   (meow-setup)
-;;   (setq meow-use-clipboard t)
-;;   (meow-global-mode 1))
-
 (use-package magit
   :ensure t)
 
@@ -140,62 +51,11 @@
   :config
   (yas-global-mode 1))
 
-(use-package lsp-mode
-  :ensure t
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook ((go-mode . lsp)
-         (go-ts-mode . lsp)
-         (c-ts-mode . lsp)
-         (c++-ts-mode . lsp)
-         (rust-ts-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :config
-  (setq lsp-completion-provider :none)
-  (setq lsp-go-hover-kind "FullDocumentation")
-  (setq lsp-modeline-diagnostics-enable t)
-  (setq lsp-enable-on-type-formatting nil)
-  (add-hook 'lsp-completion-mode-hook (lambda ()
-                             (setq-local completion-styles '(orderless)
-                                         completion-category-defaults nil)))
-  :commands lsp)
-
-(use-package lsp-ui
-  :ensure t
-  :config
-  (setq lsp-ui-sideline-show-diagnostics t)
-  (setq lsp-ui-sideline-show-hover t)
-  (setq lsp-ui-peek-enable t)
-  (setq lsp-ui-doc-show-with-mouse nil)
-
-  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-  :commands lsp-ui-mode)
-
 (use-package orderless
   :ensure t
   :custom
   (completion-styles '(orderless))
   (completion-category-overrides '((file (styles partial-completion)))))
-
-(use-package corfu
-  :ensure t
-  :custom
-  (corfu-cycle t)
-  :init
-  (global-corfu-mode)
-  :config
-  (setq corfu-auto-prefix 1
-   corfu-auto t
-        corfu-auto-trigger "."
-        corfu-auto-delay 0.2
-        corfu-quit-no-match t)
-  (add-hook 'corfu-mode-hook
-            (lambda ()
-              ;; settings only for corfu
-              (setq-local completion-styles '(orderless basic)
-                          completion-category-overrides nil
-                          completion-category-defaults nil))))
 
 (use-package eat
   :ensure t
@@ -300,6 +160,9 @@
                        " %p%% "
                        (vc-mode vc-mode)
                        " %m "))))))
+  ;; scratch buffer
+  (setq initial-major-mode 'fundamental-mode)
+  (setq initial-scratch-message nil)
 
   ;; dired
   (setq dired-dwim-target t)
@@ -307,37 +170,6 @@
   (setq echo-keystrokes 0.001))
 
 ;; theming
-(use-package ligature
-  :ensure t
-  :config
-  (ligature-set-ligatures
-   't
-   '(                                   ; group a
-     ".." ".=" "..." "..<" "::" ":::" ":=" "::=" ";;" ";;;" "??" "???"
-     ".?" "?." ":?" "?:" "?=" "**" "***" "/*" "*/" "/**"
-                                        ; group b
-     "<-" "->" "-<" ">-" "<--" "-->" "<<-" "->>" "-<<" ">>-" "<-<" ">->"
-     "<-|" "|->" "-|" "|-" "||-" "<!--" "<#--" "<=" "=>" ">=" "<==" "==>"
-     "<<=" "=>>" "=<<" ">>=" "<=<" ">=>" "<=|" "|=>" "<=>" "<==>" "||="
-     "|=" "//=" "/="
-                                        ; group c
-     "<<" ">>" "<<<" ">>>" "<>" "<$" "$>" "<$>" "<+" "+>" "<+>" "<:" ":<"
-     "<:<" "<~" "~>" "<~>" "<<~" "<~~" "~~>" "~~" "<|" "|>"
-     "<|>" "<||" "||>" "<|||" "|||>" "</" "/>" "</>" "<*" "*>" "<*>" ":?>"
-                                        ; group d
-     "#(" "#{" "#[" "]#" "#!" "#?" "#=" "#_" "#_(" "##" "###" "####"
-                                        ; group e
-     "[|" "|]" "[<" ">]" "{!!" "!!}" "{|" "|}" "{{" "}}" "{{--" "--}}"
-     "{!--" "//" "///" "!!"
-                                        ; group f
-     "www" "@_" "&&" "&&&" "&=" "~@" "++" "+++" "/\\" "\\/" "_|_" "||"
-                                        ; group g
-     "=:" "=:=" "=!=" "==" "===" "=/=" "=~" "~-" "^=" "__" "!=" "!==" "-~"
-     "--" "---"))
-  ;; enables ligature checks globally in all buffers. you can also do it
-  ;; per mode with `ligature-mode'.
-  (global-ligature-mode t))
-
 (use-package ef-themes
   :ensure t
   :defer t
@@ -463,7 +295,7 @@
  scroll-step 1
  scroll-conservatively 999)
 
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
+(add-to-list 'load-path (concat user-emacs-directory "atm"))
 
 (require 'keys)
 ;; (require 'ef-themes)
@@ -476,13 +308,9 @@
 ;; (load-theme 'ef-autumn t)
 
 ;; (load-theme 'ef-eagle t)
-;; (load-theme 'hmm t)
 
 (require 'didko-theme)
 (load-theme 'didko t)
-
-;; (require 'doom-themes)
-;; (load-theme 'doom-one t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

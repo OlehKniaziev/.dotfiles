@@ -9,14 +9,14 @@
 (deftheme didko
   "Didko theme for Emacs 24.")
 
-(let* ((didko-fg "#BCBCBC")
-      (didko-bg "#181818")
+(let* ((didko-fg "#FFFFFF")
+      (didko-bg "#000000")
       ;; (didko-bg "#101012")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
       (didko-gray "#b3b3b3")
       (didko-yellow "#f2de4b")
-      (didko-blue "#166FD0")
+      (didko-blue "#0000FF")
       (didko-quartz "#F4ABFF")
       (didko-pink "#FF66D8")
       (didko-pomidor "#FF5B4D")
@@ -26,8 +26,7 @@
       (didko-brown "#A77464")
       (didko-light-brown "#C79484")
       (didko-olive "#B8C480")
-      (didko-green "#50ff7b")
-      ;; (didko-green "#00FF00")
+      (didko-green "#00FF00")
       (didko-purple "#bd93f9")
       (didko-purple2 "#9d93d9")
       (didko-magenta "#FD3DB5")
@@ -53,7 +52,7 @@
       ;; (didko-light-blue "#ABE4FF")
       (didko-light-blue "#98bfb1")
       (didko-hl didko-bg3)
-      (didko-main didko-pale-yellow))
+      (didko-main didko-yellow))
 
   (custom-theme-set-variables
    'didko
@@ -65,7 +64,7 @@
    ;; Basic
    `(default ((t ,(list :background didko-bg
                         :foreground didko-fg))))
-   `(cursor ((t ,(list :background didko-main))))
+   `(cursor ((t ,(list :background didko-green))))
    `(link ((t ,(list :foreground didko-main
                      :underline t))))
    `(region ((t ,(list :background didko-bg3))))
@@ -108,7 +107,7 @@
                                              :extend t))))
 
    ;; Mode line
-   `(mode-line ((t ,(list :background didko-blue
+   `(mode-line ((t ,(list :background didko-night-blue
                           :foreground didko-fg))))
    `(mode-line-inactive ((t ,(list :background didko-dark-blue))))
 
@@ -188,8 +187,7 @@
    `(font-lock-type-face ((t ,(list :foreground didko-ash))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-rose
-                                        :italic t))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-ash))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-night-blue))))
    `(font-lock-builtin-face ((t ,(list :foreground didko-pomidor))))
    `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
