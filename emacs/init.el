@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Iosevka Classy 21" nil t)
+(set-frame-font "Berkeley Mono 21" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -115,6 +115,7 @@
   (frame-resize-pixelwise t)
   (enable-recursive-minibuffers t)
   (tab-always-indent 'complete)
+  (cursor-type 'hollow)
 
   :config
   ;; fido
