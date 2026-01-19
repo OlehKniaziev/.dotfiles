@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Berkeley Mono 21" nil t)
+(set-frame-font "Triplicate A Code 21" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -115,7 +115,7 @@
   (frame-resize-pixelwise t)
   (enable-recursive-minibuffers t)
   (tab-always-indent 'complete)
-  (cursor-type 'hollow)
+  (cursor-type 'hbar)
 
   :config
   ;; fido
@@ -132,7 +132,7 @@
 
   ;; fonts
 
-  (set-face-attribute 'fixed-pitch nil :family "input mono narrow")
+  (set-face-attribute 'fixed-pitch nil :family "Triplicate A Code")
 
   ;; whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
@@ -180,6 +180,15 @@
   ;; (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   ;; (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022"))
   )
+
+(use-package tao-theme
+  :ensure t
+  :defer t)
+
+(use-package zenburn-theme
+  :ensure t
+  :defer t)
+
 (use-package doom-themes
   :ensure t
   :defer t
@@ -310,8 +319,14 @@
 
 ;; (load-theme 'ef-eagle t)
 
-(require 'didko-theme)
-(load-theme 'didko t)
+;; (require 'didko-theme)
+;; (load-theme 'didko t)
+
+
+;; (require 'tao-theme)
+
+(require 'zenburn-theme)
+(load-theme 'zenburn t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

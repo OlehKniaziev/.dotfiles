@@ -7,7 +7,8 @@
  '(package-selected-packages
    '(corfu doom-themes eat ef-themes evil flycheck go-mode haskell-mode
            ligature lsp-ui magit monokai-theme odin-ts-mode orderless
-           org-roam paredit php-mode tuareg yasnippet))
+           org-roam paredit php-mode tao-theme tuareg yasnippet
+           zenburn zenburn-theme))
  '(package-vc-selected-packages
    '((odin-ts-mode :url "https://github.com/sampie159/odin-ts-mode"))))
 (custom-set-faces
