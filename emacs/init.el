@@ -187,7 +187,9 @@
 
 (use-package zenburn-theme
   :ensure t
-  :defer t)
+  :defer t
+  :custom-face
+  (whitespace-tab ((t (:background "#3F3F3F" :foreground "#888888")))))
 
 (use-package doom-themes
   :ensure t
