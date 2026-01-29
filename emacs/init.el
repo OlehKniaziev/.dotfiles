@@ -115,7 +115,7 @@
   (frame-resize-pixelwise t)
   (enable-recursive-minibuffers t)
   (tab-always-indent 'complete)
-  (cursor-type 'hbar)
+  (cursor-type 'box)
 
   :config
   ;; fido
@@ -321,14 +321,14 @@
 
 ;; (load-theme 'ef-eagle t)
 
-;; (require 'didko-theme)
-;; (load-theme 'didko t)
+(require 'didko-theme)
+(load-theme 'didko t)
 
 
 ;; (require 'tao-theme)
 
-(require 'zenburn-theme)
-(load-theme 'zenburn t)
+;; (require 'zenburn-theme)
+;; (load-theme 'zenburn t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
