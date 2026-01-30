@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Triplicate A Code 21" nil t)
+(set-frame-font "Triplicate A Code 19" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -188,8 +188,8 @@
 (use-package zenburn-theme
   :ensure t
   :defer t
-  :custom-face
-  (whitespace-tab ((t (:background "#3F3F3F" :foreground "#888888")))))
+  :config
+  (custom-set-faces (whitespace-tab ((t (:background "#3F3F3F" :foreground "#888888"))))))
 
 (use-package doom-themes
   :ensure t
@@ -301,7 +301,7 @@
 (setq projectile-project-search-path
       '("~/personal"))
 
-(setq-default treesit-font-lock-level 4)
+(setq-default treesit-font-lock-level 2)
 
 (setq
  scroll-step 1
@@ -310,25 +310,11 @@
 (add-to-list 'load-path (concat user-emacs-directory "atm"))
 
 (require 'keys)
-;; (require 'ef-themes)
-;; (load-theme 'ef-kassio t)
-;; (load-theme 'ef-tritanopia-dark t)
-;; (load-theme 'ef-eagle t)
-;; (load-theme 'ef-trio-dark t)
-;; (load-theme 'ef-elea-dark t)
-;; (load-theme 'monokai t)
-;; (load-theme 'ef-autumn t)
-
-;; (load-theme 'ef-eagle t)
 
 (require 'didko-theme)
 (load-theme 'didko t)
 
-
-;; (require 'tao-theme)
-
-;; (require 'zenburn-theme)
-;; (load-theme 'zenburn t)
-
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(require 'eset)
