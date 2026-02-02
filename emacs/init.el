@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Triplicate A Code 19" nil t)
+(set-frame-font "Triplicate A Code 18" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))

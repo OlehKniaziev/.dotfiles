@@ -9,7 +9,7 @@
 (deftheme didko
   "Didko theme for Emacs 24.")
 
-(let* ((didko-fg "#dbb96e")
+(let* ((didko-fg "#d0b06e")
       (didko-bg "#000000")
       (didko-bg2 "#303030")
       (didko-bg3 "#505050")
@@ -47,7 +47,7 @@
       (didko-swamp "#77b500")
       (didko-ash "#808080")
       (didko-rose "#CA2E55")
-      (didko-blueish "#3273a8")
+      (didko-blueish "#487aa3")
       (didko-vista "#10A6FF")
       (didko-light-blue "#49b8fc")
       (didko-hl didko-bg3)
@@ -63,7 +63,7 @@
    ;; Basic
    `(default ((t ,(list :background didko-bg
                         :foreground didko-fg))))
-   `(cursor ((t ,(list :background didko-blue))))
+   `(cursor ((t ,(list :background didko-main))))
    `(link ((t ,(list :foreground didko-main
                      :underline t))))
    `(region ((t ,(list :background didko-bg3))))
