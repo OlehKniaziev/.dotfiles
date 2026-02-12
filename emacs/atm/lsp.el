@@ -51,4 +51,4 @@
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
   :commands lsp-ui-mode)
 
-(provide 'atm/lsp)
+(provide 'lsp)

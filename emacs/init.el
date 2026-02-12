@@ -301,7 +301,7 @@
 (setq projectile-project-search-path
       '("~/personal"))
 
-(setq-default treesit-font-lock-level 2)
+(setq-default treesit-font-lock-level 4)
 
 (setq
  scroll-step 1
