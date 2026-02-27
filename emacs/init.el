@@ -160,7 +160,10 @@
                      '(" %i "
                        " %p%% "
                        (vc-mode vc-mode)
-                       " %m "))))))
+                       " %m "
+                       "["
+                       (:eval (current-time-string))
+                       "]"))))))
   ;; scratch buffer
   (setq initial-major-mode 'fundamental-mode)
   (setq initial-scratch-message nil)
