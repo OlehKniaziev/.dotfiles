@@ -52,7 +52,7 @@
        (didko-vista "#10A6FF")
        (didko-light-blue "#49b8fc")
        (didko-hl didko-bg3)
-       (didko-main didko-pumpkin))
+       (didko-main didko-red2))
 
   (custom-theme-set-variables
    'didko
