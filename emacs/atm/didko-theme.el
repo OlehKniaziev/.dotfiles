@@ -187,7 +187,7 @@
    `(font-lock-type-face ((t ,(list :foreground didko-light-blue))))
    `(font-lock-number-face ((t ,(list :foreground didko-snow))))
    `(font-lock-escape-face ((t ,(list :foreground didko-acid))))
-   `(font-lock-constant-face ((t ,(list :foreground didko-fg))))
+   `(font-lock-constant-face ((t ,(list :foreground didko-plum))))
    `(font-lock-preprocessor-face ((t ,(list :foreground didko-plum))))
    `(font-lock-builtin-face ((t ,(list :inherit 'font-lock-function-name-face))))
    `(font-lock-operator-face ((t ,(list :foreground didko-fg))))
