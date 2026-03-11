@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "CodeliaLigatures 18" nil t)
+(set-frame-font "Berkeley Mono 17" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -188,11 +188,11 @@
   :ensure t
   :defer t)
 
-(use-package zenburn-theme
-  :ensure t
-  :defer t
-  :config
-  (custom-set-faces (whitespace-tab ((t (:background "#3F3F3F" :foreground "#888888"))))))
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (custom-set-faces (whitespace-tab ((t (:background "#3F3F3F" :foreground "#888888"))))))
 
 (use-package doom-themes
   :ensure t

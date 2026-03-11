@@ -3,6 +3,7 @@
 (require 'recentf)
 (require 'vc-git)
 (require 'org-roam)
+(require 'task)
 
 ;; Misc mappings
 (keymap-global-set "C-c f r" 'recentf-open)
