@@ -131,7 +131,6 @@
   (global-goto-address-mode 1)
 
   ;; fonts
-
   (set-face-attribute 'fixed-pitch nil :family "Triplicate A Code")
 
   ;; whitespace mode
@@ -229,7 +228,9 @@
 
 (global-hl-line-mode)
 
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-widen t
+      display-line-numbers-type 'relative
+      display-line-numbers-width 5)
 (global-display-line-numbers-mode 1)
 
 (setq inhibit-startup-screen t)
