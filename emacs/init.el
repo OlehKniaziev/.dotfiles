@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Berkeley Mono 17" nil t)
+(set-frame-font "Berkeley Mono 18" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -228,9 +228,9 @@
 
 (global-hl-line-mode)
 
-(setq display-line-numbers-widen t
-      display-line-numbers-type 'relative
-      display-line-numbers-width 5)
+(setq-default display-line-numbers-widen t
+              display-line-numbers-type 'relative
+              display-line-numbers-width 5)
 (global-display-line-numbers-mode 1)
 
 (setq inhibit-startup-screen t)
@@ -301,6 +301,11 @@
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'scheme-mode-hook 'enable-paredit-mode)
+
+(require 'semantic/symref/grep)
+
+(add-to-list 'semantic-symref-filepattern-alist
+             `(c++-ts-mode ,@(cdr (assoc 'c++-mode semantic-symref-filepattern-alist))))
 
 (setq projectile-project-search-path
       '("~/personal"))
