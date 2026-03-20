@@ -147,6 +147,11 @@
    `(org-document-title ((t ,(list :foreground didko-green
                                    :bold t))))
 
+   ;; Markdown
+   `(markdown-header-face ((t ,(list :foreground didko-light-blue
+                                     :bold t))))
+   `(markdown-inline-code-face ((t ,(list :foreground didko-plum))))
+
    ;; Eshell
    `(eshell-prompt ((t ,(list :foreground didko-main
                               :bold t))))
