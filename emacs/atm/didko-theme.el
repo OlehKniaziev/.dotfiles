@@ -176,6 +176,23 @@
    `(compilation-column-number ((t ,(list :foreground didko-grape
                                           :bold t))))
 
+   ;; Flycheck
+   `(flycheck-info ((t ,(list :underline
+                              (list :style
+                                    'line
+                                    :color
+                                    didko-green)))))
+   `(flycheck-warning ((t ,(list :underline
+                                 (list :style
+                                       'line
+                                       :color
+                                       didko-pumpkin)))))
+   `(flycheck-error ((t ,(list :underline
+                               (list :style
+                                     'line
+                                     :color
+                                     didko-red)))))
+
    ;; Font lock
    `(font-lock-keyword-face ((t ,(list :foreground didko-main
                                        :bold nil))))
