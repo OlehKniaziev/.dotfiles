@@ -320,8 +320,10 @@
 
 (require 'keys)
 
-(require 'didko-theme)
-(load-theme 'didko t)
+;; (require 'didko-theme)
+;; (load-theme 'didko t)
+
+(load-theme 'modus-operandi t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
