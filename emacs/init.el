@@ -72,8 +72,8 @@
   :hook
   (haskell-mode . interactive-haskell-mode))
 
-(use-package odin-ts-mode
-  :vc (:url "https://github.com/sampie159/odin-ts-mode"
+(use-package odin-mode
+  :vc (:url "https://github.com/mattt-b/odin-mode"
             :rev :newest)
   :ensure t
   :mode "\\.odin\\'")
@@ -151,7 +151,7 @@
                      '(" "
                        mode-line-modified
                        " "
-                       (:propertize (:eval (meow-indicator)) face italic)
+                       ;; (:propertize (:eval (meow-indicator)) face italic)
                        (:propertize " %b " face bold)
                        " (%l, %c) "
                        " %@ "))
@@ -182,6 +182,10 @@
   ;; (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   ;; (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022"))
   )
+
+(use-package flexoki-themes
+  :ensure t
+  :defer t)
 
 (use-package tao-theme
   :ensure t
@@ -226,7 +230,7 @@
 
 (setq ring-bell-function 'ignore)
 
-(global-hl-line-mode)
+;; (global-hl-line-mode)
 
 (setq-default display-line-numbers-widen t
               display-line-numbers-type 'relative
@@ -255,7 +259,6 @@
     ("\\.ts\\'" . typescript-ts-mode)
     ("\\.mts\\'" . typescript-ts-mode)
     ("\\.tsx\\'" . tsx-ts-mode)
-    ("\\.odin\\'" . odin-mode)
     ("\\.yaml\\'" . yaml-ts-mode)))
 
 (dolist (pair auto-mode-pairs)
@@ -323,7 +326,7 @@
 ;; (require 'didko-theme)
 ;; (load-theme 'didko t)
 
-(load-theme 'modus-operandi t)
+(load-theme 'flexoki-themes-dark t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
