@@ -8,8 +8,8 @@
    '(corfu doom-themes eat ef-themes evil flexoki-themes flycheck go-mode
            haskell-mode ligature lsp-ui magit markdown-mode meow
            monokai-theme odin-mode odin-ts-mode orderless org-roam
-           paredit php-mode tao-theme tuareg yasnippet zenburn
-           zenburn-theme))
+           paredit php-mode tao-theme terraform-mode tuareg yasnippet
+           zenburn zenburn-theme))
  '(package-vc-selected-packages
    '((odin-mode :url "https://github.com/mattt-b/odin-mode")
      (odin-ts-mode :url "https://github.com/sampie159/odin-ts-mode"))))

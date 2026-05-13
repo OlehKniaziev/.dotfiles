@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Berkeley Mono 18" nil t)
+(set-frame-font "Triplicate A Code 15" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -54,8 +54,26 @@
 (use-package orderless
   :ensure t
   :custom
-  (completion-styles '(orderless))
-  (completion-category-overrides '((file (styles partial-completion)))))
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides nil))
+
+(use-package consult
+  :ensure t
+  :custom
+  (consult-async-split-style 'semicolon)
+
+  :config
+  (setq
+   xref-show-xrefs-function 'consult-xref
+   xref-show-definitions-function 'consult-xref))
+
+(use-package marginalia
+  :ensure t
+  :bind (:map minibuffer-local-map
+              ("M-A" . marginalia-cycle))
+  :init
+  (marginalia-mode))
 
 (use-package eat
   :ensure t
@@ -65,6 +83,9 @@
   (setq eat-term-name "xterm"))
 
 (use-package markdown-mode
+  :ensure t)
+
+(use-package terraform-mode
   :ensure t)
 
 (use-package haskell-mode
@@ -121,10 +142,6 @@
   ;; fido
   (require 'icomplete)
 
-  (defun fido-hook ()
-    (setq-local completion-styles '(orderless basic)))
-
-  (add-hook 'icomplete-minibuffer-setup-hook 'fido-hook)
   (fido-vertical-mode)
 
   ;; address mode
@@ -283,6 +300,7 @@
 (defun atm/c++-ts-mode-indent-style ()
   `(
     ((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
+    ((n-p-gp nil "declaration_list" "linkage_specification") parent-bol 0)
     ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
 
 (setq-default c-ts-mode-indent-style #'atm/c++-ts-mode-indent-style)
@@ -313,7 +331,7 @@
 (setq projectile-project-search-path
       '("~/personal"))
 
-(setq-default treesit-font-lock-level 4)
+(setq-default treesit-font-lock-level 3)
 
 (setq
  scroll-step 1

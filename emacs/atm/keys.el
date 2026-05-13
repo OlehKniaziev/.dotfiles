@@ -4,12 +4,11 @@
 (require 'vc-git)
 (require 'org-roam)
 (require 'task)
+;; (require 'consult)
 
-;; Misc mappings
-(keymap-global-set "C-c f r" 'recentf-open)
-(keymap-global-set "C-c f p" 'find-file-at-point)
-(keymap-global-set "C-c s g" 'rgrep)
-(keymap-global-set "C-c s G" 'vc-git-grep)
+;; Grep
+(keymap-global-set "C-c s g" 'consult-ripgrep)
+(keymap-global-set "C-c s G" 'consult-git-grep)
 
 ;; Window mappings
 (keymap-global-set "C-c w h" 'windmove-left)
@@ -21,6 +20,13 @@
 (keymap-global-set "C-c r l" 'org-roam-node-insert)
 (keymap-global-set "C-c r f" 'org-roam-node-find)
 (keymap-global-set "C-c r c" 'org-roam-capture)
+
+;; Misc mappings
+(keymap-global-set "C-c f r" 'recentf-open)
+(keymap-global-set "C-c f p" 'find-file-at-point)
+(keymap-global-set "C-x p f" 'consult-find)
+(keymap-global-set "M-g i" 'consult-imenu)
+(keymap-global-set "C-x b" 'consult-buffer)
 
 ;; ;; Meow 🐱
 ;; (use-package meow
