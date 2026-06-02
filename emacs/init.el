@@ -10,7 +10,7 @@
 
 (package-initialize)
 
-(set-frame-font "Triplicate A Code 15" nil t)
+(set-frame-font "Triplicate A Code 16" nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -86,6 +86,9 @@
   :ensure t)
 
 (use-package terraform-mode
+  :ensure t)
+
+(use-package groovy-mode
   :ensure t)
 
 (use-package haskell-mode
@@ -208,12 +211,6 @@
   :ensure t
   :defer t)
 
-;; (use-package zenburn-theme
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (custom-set-faces (whitespace-tab ((t (:background "#3F3F3F" :foreground "#888888"))))))
-
 (use-package doom-themes
   :ensure t
   :defer t
@@ -225,12 +222,6 @@
 (use-package monokai-theme
   :ensure t
   :defer t)
-
-;; faces
-;; (set-face-attribute 'font-lock-builtin-face nil :weight 'bold :slant 'normal)
-;; (set-face-attribute 'font-lock-keyword-face nil :weight 'normal :slant 'italic)
-;; (set-face-attribute 'font-lock-type-face nil :weight 'bold :slant 'normal)
-;; (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
@@ -246,8 +237,6 @@
 (menu-bar-mode -1)
 
 (setq ring-bell-function 'ignore)
-
-;; (global-hl-line-mode)
 
 (setq-default display-line-numbers-widen t
               display-line-numbers-type 'relative
@@ -297,13 +286,13 @@
 (add-hook 'typescript-ts-mode-hook (lambda ()
                                      (setq-local typescript-ts-mode-indent-offset 4)))
 
-(defun atm/c++-ts-mode-indent-style ()
-  `(
-    ((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
-    ((n-p-gp nil "declaration_list" "linkage_specification") parent-bol 0)
-    ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
+;; (defun atm/c++-ts-mode-indent-style ()
+;;   `(
+;;     ((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
+;;     ((n-p-gp nil "declaration_list" "linkage_specification") parent-bol 0)
+;;     ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
 
-(setq-default c-ts-mode-indent-style #'atm/c++-ts-mode-indent-style)
+(setq-default c-ts-mode-indent-style 'K&R)
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
@@ -341,10 +330,8 @@
 
 (require 'keys)
 
-;; (require 'didko-theme)
-;; (load-theme 'didko t)
-
-(load-theme 'flexoki-themes-dark t)
+(require 'doom-themes)
+(load-theme 'doom-one t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)

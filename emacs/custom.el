@@ -5,11 +5,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(corfu doom-themes eat ef-themes evil flexoki-themes flycheck go-mode
-           haskell-mode ligature lsp-ui magit markdown-mode meow
-           monokai-theme odin-mode odin-ts-mode orderless org-roam
-           paredit php-mode tao-theme terraform-mode tuareg yasnippet
-           zenburn zenburn-theme))
+   '(consult copilot corfu doom-themes eat ef-themes eglot flexoki-themes
+             flycheck go-mode groovy-mode haskell-mode ligature lsp-ui
+             magit marginalia meow monokai-theme odin-mode
+             odin-ts-mode orderless org-roam paredit php-mode
+             tao-theme terraform-mode tuareg yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((odin-mode :url "https://github.com/mattt-b/odin-mode")
      (odin-ts-mode :url "https://github.com/sampie159/odin-ts-mode"))))

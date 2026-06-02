@@ -4,7 +4,7 @@
 (require 'vc-git)
 (require 'org-roam)
 (require 'task)
-;; (require 'consult)
+(require 'consult)
 
 ;; Grep
 (keymap-global-set "C-c s g" 'consult-ripgrep)
