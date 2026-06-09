@@ -138,7 +138,6 @@
   :custom
   (frame-resize-pixelwise t)
   (enable-recursive-minibuffers t)
-  (tab-always-indent 'complete)
   (cursor-type 'box)
 
   :config
