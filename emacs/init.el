@@ -10,7 +10,11 @@
 
 (package-initialize)
 
-(set-frame-font "Triplicate A Code 16" nil t)
+(setq-local
+ atm/mono-font-family "Berkeley Mono"
+ atm/mono-font-size 15)
+
+(set-frame-font (format "%s %d" atm/mono-font-family atm/mono-font-size) nil t)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -150,7 +154,7 @@
   (global-goto-address-mode 1)
 
   ;; fonts
-  (set-face-attribute 'fixed-pitch nil :family "Triplicate A Code")
+  (set-face-attribute 'fixed-pitch nil :family atm/mono-font-family)
 
   ;; whitespace mode
   (setq whitespace-style '(face tabs trailing space-before-tab indentation empty space-after-tab tab-mark))
