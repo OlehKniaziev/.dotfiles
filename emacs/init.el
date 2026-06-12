@@ -297,7 +297,8 @@
     ("\\.ts\\'" . typescript-ts-mode)
     ("\\.mts\\'" . typescript-ts-mode)
     ("\\.tsx\\'" . tsx-ts-mode)
-    ("\\.yaml\\'" . yaml-ts-mode)))
+    ("\\.yaml\\'" . yaml-ts-mode)
+    ("\\.proto\\'" . protobuf-mode)))
 
 (dolist (pair auto-mode-pairs)
   (add-to-list 'auto-mode-alist pair))
@@ -359,6 +360,7 @@
  scroll-conservatively 999)
 
 (add-to-list 'load-path (concat user-emacs-directory "atm"))
+(add-to-list 'load-path (concat user-emacs-directory "packages"))
 
 (require 'keys)
 
@@ -369,3 +371,9 @@
 (put 'downcase-region 'disabled nil)
 
 (require 'eset)
+
+;; Packages
+(require 'protobuf-mode)
+
+(add-hook 'protobuf-mode-hook
+    (lambda () (c-add-style "atm/style" '((c-basic-offset . 2)) t)))
