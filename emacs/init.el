@@ -319,13 +319,12 @@
 (add-hook 'typescript-ts-mode-hook (lambda ()
                                      (setq-local typescript-ts-mode-indent-offset 4)))
 
-;; (defun atm/c++-ts-mode-indent-style ()
-;;   `(
-;;     ((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
-;;     ((n-p-gp nil "declaration_list" "linkage_specification") parent-bol 0)
-;;     ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
+(defun atm/c++-ts-mode-indent-style ()
+  `(((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
+    ((n-p-gp nil "declaration_list" "linkage_specification") parent-bol 0)
+    ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
 
-(setq-default c-ts-mode-indent-style 'K&R)
+(setq-default c-ts-mode-indent-style #'atm/c++-ts-mode-indent-style)
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
