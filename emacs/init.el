@@ -8,11 +8,21 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+(setq package-install-upgrade-built-in t)
+
 (package-initialize)
 
+;; (setq-local
+;;  atm/mono-font-family "Berkeley Mono"
+;;  atm/mono-font-size 14)
+
 (setq-local
- atm/mono-font-family "Berkeley Mono"
- atm/mono-font-size 15)
+ atm/mono-font-family "Iosevka Cozy"
+ atm/mono-font-size 16)
+
+(setq-local
+ atm/mono-font-family "Triplicate A Code"
+ atm/mono-font-size 14)
 
 (set-frame-font (format "%s %d" atm/mono-font-family atm/mono-font-size) nil t)
 
@@ -206,6 +216,14 @@
   ;; (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022"))
   )
 
+(use-package kaolin-themes
+  :ensure t
+  :defer t)
+
+(use-package moe-theme
+  :ensure t
+  :defer t)
+
 (use-package flexoki-themes
   :ensure t
   :defer t)
@@ -363,8 +381,8 @@
 
 (require 'keys)
 
-(require 'doom-themes)
-(load-theme 'doom-one t)
+;; (require 'doom-themes)
+;; (load-theme 'doom-dracula t)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -376,3 +394,6 @@
 
 (add-hook 'protobuf-mode-hook
     (lambda () (c-add-style "atm/style" '((c-basic-offset . 2)) t)))
+
+(require 'moe-theme)
+(load-theme 'moe-dark t)

@@ -26,6 +26,7 @@
 (keymap-global-set "C-c f p" 'find-file-at-point)
 (keymap-global-set "C-x p f" 'consult-find)
 (keymap-global-set "M-g i" 'consult-imenu)
+(keymap-global-set "M-g I" 'consult-imenu-multi)
 (keymap-global-set "C-x b" 'consult-buffer)
 
 ;; ;; Meow 🐱
