@@ -87,6 +87,8 @@
   :bind (:map minibuffer-local-map
               ("M-A" . marginalia-cycle))
   :init
+  (add-hook 'icomplete-minibuffer-setup-hook
+          (lambda () (setq truncate-lines t)))
   (marginalia-mode))
 
 (use-package eat
@@ -396,4 +398,4 @@
     (lambda () (c-add-style "atm/style" '((c-basic-offset . 2)) t)))
 
 (require 'kaolin-themes)
-(load-theme 'kaolin-aurora t)
+(load-theme 'kaolin-valley-dark t)

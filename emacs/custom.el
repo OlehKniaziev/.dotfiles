@@ -4,12 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(consult corfu doom-themes eat ef-themes flexoki-themes flycheck
-             go-mode groovy-mode haskell-mode kaolin-themes ligature
-             lsp-ui magit marginalia moe-theme monokai-theme odin-mode
-             orderless org-roam paredit php-mode tao-theme
-             terraform-mode tuareg yasnippet))
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
    '((odin-mode :url "https://github.com/mattt-b/odin-mode")
      (odin-ts-mode :url "https://github.com/sampie159/odin-ts-mode"))))
