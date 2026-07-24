@@ -397,5 +397,7 @@
 (add-hook 'protobuf-mode-hook
     (lambda () (c-add-style "atm/style" '((c-basic-offset . 2)) t)))
 
-(require 'kaolin-themes)
-(load-theme 'kaolin-valley-dark t)
+;; (require 'kaolin-themes)
+;; (load-theme 'kaolin-valley-dark t)
+
+(load-theme 'modus-operandi t)
