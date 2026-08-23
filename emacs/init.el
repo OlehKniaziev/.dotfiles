@@ -400,4 +400,4 @@
 ;; (require 'kaolin-themes)
 ;; (load-theme 'kaolin-valley-dark t)
 
-(load-theme 'ef-light t)
+(load-theme 'ef-day t)
