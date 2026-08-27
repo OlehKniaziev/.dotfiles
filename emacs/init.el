@@ -246,6 +246,11 @@
   :ensure t
   :defer t)
 
+(use-package batppuccin
+  :vc (:url "https://github.com/bbatsov/batppuccin-emacs" :rev :newest)
+  :ensure t
+  :defer t)
+
 (use-package ligature
   :ensure t
   :config
@@ -400,4 +405,6 @@
 ;; (require 'kaolin-themes)
 ;; (load-theme 'kaolin-valley-dark t)
 
-(load-theme 'ef-day t)
+;; (load-theme 'ef-day t)
+
+(load-theme 'batppuccin-latte t)
