@@ -344,6 +344,9 @@
 (add-hook 'typescript-ts-mode-hook (lambda ()
                                      (setq-local typescript-ts-mode-indent-offset 4)))
 
+(add-hook 'sql-mode-hook (lambda ()
+                           (setq-local tab-width 4)))
+
 (defun atm/c++-ts-mode-indent-style ()
   `(((n-p-gp nil "declaration_list" "namespace_definition") parent-bol 0)
     ((n-p-gp nil "declaration_list" "linkage_specification") parent-bol 0)

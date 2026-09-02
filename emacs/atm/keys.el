@@ -21,6 +21,9 @@
 (keymap-global-set "C-c r f" 'org-roam-node-find)
 (keymap-global-set "C-c r c" 'org-roam-capture)
 
+;; Magit
+(keymap-global-set "C-c g b" 'magit-blame)
+
 ;; Misc mappings
 (keymap-global-set "C-c f r" 'recentf-open)
 (keymap-global-set "C-c f p" 'find-file-at-point)
