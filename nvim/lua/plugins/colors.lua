@@ -17,7 +17,6 @@ return {
 			require("modus-themes").setup(opts)
 		end,
 	},
-	"nyoom-engineering/oxocarbon.nvim",
 	"sainnhe/gruvbox-material",
 	{
 		"folke/tokyonight.nvim",
@@ -97,5 +96,6 @@ return {
 				},
 			})
 		end,
-	}
+	},
+	"ThorstenRhau/token",
 }
