@@ -1,10 +1,11 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local servers = require("configs.servers")
 
+local cmp = require("blink.cmp")
+
 for _, server in ipairs(servers) do
-    vim.lsp.enable(server)
+	vim.lsp.enable(server)
 	vim.lsp.config(server, {
-		capabilities = capabilities,
+		capabilities = cmp.get_lsp_capabilities(),
 	})
 end
 

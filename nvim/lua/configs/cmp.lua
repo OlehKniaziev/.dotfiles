@@ -57,35 +57,6 @@ return {
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
-		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-y>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.confirm({
-					select = true,
-				})
-			else
-				fallback()
-			end
-		end),
-
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
 		["<C-k>"] = cmp.mapping(function(fallback)
 			if luasnip.locally_jumpable(-1) then
 				luasnip.jump(-1)
