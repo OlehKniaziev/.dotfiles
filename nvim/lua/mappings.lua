@@ -1,14 +1,24 @@
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", function()
 	vim.diagnostic.jump({
 		wrap = true,
 		count = -1,
+		on_jump = function()
+			vim.diagnostic.open_float({
+				scope = "line",
+			})
+		end
 	})
 end)
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({
 		wrap = true,
 		count = 1,
+		on_jump = function()
+			vim.diagnostic.open_float({
+				scope = "line",
+			})
+		end
 	})
 end)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
