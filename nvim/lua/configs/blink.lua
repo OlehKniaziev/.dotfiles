@@ -1,3 +1,5 @@
+---@module "blink.cmp"
+---@type blink.cmp.Config
 return {
 	keymap = { preset = "default" },
 
@@ -9,6 +11,10 @@ return {
 
 	signature = {
 		enabled = true,
+	},
+
+	snippets = {
+	    preset = "luasnip",
 	},
 
 	sources = {
