@@ -7,14 +7,19 @@ return {
 		nerd_font_variant = "mono"
 	},
 
-	completion = { documentation = { auto_show = false } },
+	completion = {
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 0,
+		}
+	},
 
 	signature = {
 		enabled = true,
 	},
 
 	snippets = {
-	    preset = "luasnip",
+		preset = "luasnip",
 	},
 
 	sources = {
