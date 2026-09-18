@@ -12,3 +12,9 @@ vim.filetype.add({
 		tf = "terraform",
 	},
 })
+
+vim.filetype.add({
+    extension = {
+	Jenkinsfile = "groovy",
+    },
+})
