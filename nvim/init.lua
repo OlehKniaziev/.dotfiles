@@ -38,4 +38,6 @@ pcall(function()
 	require("eset")
 end)
 
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("token")
+
+require("highlights")
