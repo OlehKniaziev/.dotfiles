@@ -1,17 +1,17 @@
 return {
-	color_overrides = {
-		mocha = {
-			base = "#000000",
-		},
-		macchiato = {
-			base = "#000000",
-		},
-		frappe = {
-			base = "#000000",
-		},
-	},
+	-- color_overrides = {
+	-- 	mocha = {
+	-- 		base = "#000000",
+	-- 	},
+	-- 	macchiato = {
+	-- 		base = "#000000",
+	-- 	},
+	-- 	frappe = {
+	-- 		base = "#000000",
+	-- 	},
+	-- },
 
-	flavour = "macchiato",
+	flavour = "mocha",
 	no_italic = false,
 	no_bold = false,
 	no_underline = false,
@@ -32,7 +32,7 @@ return {
 		return {
 			Boolean = {
 				fg = colors.maroon,
-				style = { "bold" },
+				style = { "italic" },
 			},
 			Constant = {
 				style = { "bold" },
