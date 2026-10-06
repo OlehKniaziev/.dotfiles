@@ -1,6 +1,7 @@
 local c_statement_groups = {
 	"cTypedef",
 	"cStructure",
+	"cppStructure",
 }
 
 for _, g in ipairs(c_statement_groups) do
