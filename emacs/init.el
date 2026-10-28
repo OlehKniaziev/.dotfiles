@@ -98,6 +98,18 @@
   :config
   (setq eat-term-name "xterm"))
 
+(use-package ghostel
+  :ensure t
+  :defer t)
+
+(use-package ghostel-project
+  :defer t
+
+  :bind (:map project-prefix-map
+              ("t" . ghostel-project))
+  :config
+  (add-to-list 'project-switch-commands '(ghostel-project "Ghostel") t))
+
 (use-package markdown-mode
   :ensure t)
 

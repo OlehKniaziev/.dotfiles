@@ -5,10 +5,12 @@
 (require 'org-roam)
 (require 'task)
 (require 'consult)
+(require 'ghostel)
 
 ;; Grep
 (keymap-global-set "C-c s g" 'consult-ripgrep)
 (keymap-global-set "C-c s G" 'consult-git-grep)
+(keymap-global-set "C-c s l" 'consult-line)
 
 ;; Window mappings
 (keymap-global-set "C-c w h" 'windmove-left)
@@ -23,6 +25,13 @@
 
 ;; Magit
 (keymap-global-set "C-c g b" 'magit-blame)
+
+;; Terminal
+(keymap-global-set "C-c t" 'ghostel-project)
+(keymap-global-set "C-c T" 'ghostel)
+
+(keymap-set ghostel-semi-char-mode-map "M-p" (lambda () (interactive) (ghostel-send-key "p" "ctrl")))
+(keymap-set ghostel-semi-char-mode-map "M-n" (lambda () (interactive) (ghostel-send-key "n" "ctrl")))
 
 ;; Misc mappings
 (keymap-global-set "C-c f r" 'recentf-open)
