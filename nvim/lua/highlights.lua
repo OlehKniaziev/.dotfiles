@@ -26,7 +26,8 @@ end
 
 local italicize_groups = {
 	"StorageClass",
-	"Boolean"
+	"Boolean",
+	"@module"
 }
 
 for _, group_name in ipairs(italicize_groups) do

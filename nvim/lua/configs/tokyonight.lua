@@ -4,11 +4,11 @@ return {
 
 	styles = {
 		comments = { italic = true },
-		keywords = { italic = false },
+		keywords = { italic = true },
 	},
 
 	on_highlights = function(highlights, c)
-		highlights.Boolean = { bold = true, fg = c.red }
+		highlights.Boolean = { fg = c.red }
 		highlights.Special = { bold = true, fg = c.magenta }
 
 		highlights["@keyword.modifier"] = { fg = c.magenta }
