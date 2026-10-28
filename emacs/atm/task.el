@@ -28,11 +28,7 @@
   (let* ((task-buffer (get-buffer-create task/buffer-name))
          (dir (if workdir
                   (expand-file-name workdir)
-                default-directory))
-         (shell-command (format "cd %s && %s %s"
-                                dir
-                                task/binary-path
-                                task)))
+                default-directory)))
     (with-current-buffer task-buffer
       (setq buffer-read-only nil)
       (erase-buffer)
@@ -44,7 +40,7 @@
       (setq default-directory dir)
 
       (funcall task/buffer-mode)
-      (goto-char (point-min))
+      (goto-char (point-max))
       (start-process "task" task-buffer "task" task))))
 
 (provide 'task)

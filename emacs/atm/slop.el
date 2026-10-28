@@ -3,7 +3,7 @@
 (use-package agent-shell
   :ensure t
   :defer t
-  ;; TODO: Config.
-)
+  :config
+  (setq agent-shell-inhibit-system-sleep nil))
 
 (provide 'slop)
