@@ -52,7 +52,11 @@
   (org-roam-db-autosync-mode))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :bind (:map project-prefix-map
+              ("m" . magit))
+  :config
+  (add-to-list 'project-switch-commands '(magit "Magit") t))
 
 (use-package transient
   :ensure t)
