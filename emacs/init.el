@@ -426,4 +426,5 @@
 
 ;; (load-theme 'ef-day t)
 
-(load-theme 'batppuccin-latte t)
+;; (load-theme 'batppuccin-latte t)
+(load-theme 'modus-operandi t)
