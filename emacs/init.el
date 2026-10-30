@@ -234,6 +234,11 @@
   ;; (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022"))
   )
 
+;; theming
+(use-package doric-themes
+  :ensure t
+  :defer t)
+
 (use-package kaolin-themes
   :ensure t
   :defer t)
@@ -327,7 +332,8 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
 (defvar auto-mode-pairs
-  '(("\\.rs\\'" . rust-ts-mode)
+  '(("\\.h\\'" . c++-mode)
+    ("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
     ("\\(dockerfile\\|containerfile\\)" . dockerfile-ts-mode)
     ("\\(cmakelists\\.txt\\|\\.cmake\\)" . cmake-ts-mode)
@@ -369,6 +375,10 @@
     ,@(alist-get 'k&r (c-ts-mode--indent-styles 'cpp))))
 
 (setq-default c-ts-mode-indent-style #'atm/c++-ts-mode-indent-style)
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (c-set-offset 'innamespace 0)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
@@ -427,4 +437,7 @@
 ;; (load-theme 'ef-day t)
 
 ;; (load-theme 'batppuccin-latte t)
-(load-theme 'modus-operandi t)
+;; (load-theme 'modus-operandi t)
+
+(require 'doric-themes)
+(load-theme 'doric-almond t)
