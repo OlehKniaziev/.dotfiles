@@ -354,11 +354,12 @@
       '((javascript-mode . js-ts-mode)
         (js-mode . js-ts-mode)
         (python-mode . python-ts-mode)
-        (c-mode . c-ts-mode)
-        (c++-mode . c++-ts-mode)
+        ;; (c-mode . c-ts-mode)
+        ;; (c++-mode . c++-ts-mode)
         (mhtml-mode . html-ts-mode)
         (html-mode . html-ts-mode)
-        (c-or-c++-mode . c-or-c++-ts-mode)))
+        ;; (c-or-c++-mode . c-or-c++-ts-mode)
+        ))
 
 (add-hook 'yaml-ts-mode-hook (lambda ()
                                (setq-local tab-width 2)))
@@ -440,4 +441,4 @@
 ;; (load-theme 'modus-operandi t)
 
 (require 'doric-themes)
-(load-theme 'doric-almond t)
+(load-theme 'doric-marble t)
