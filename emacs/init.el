@@ -166,6 +166,10 @@
   (add-hook 'eshell-load-hook #'eat-eshell-mode)
   (add-to-list 'eshell-modules-list 'eshell-smart))
 
+(use-package 'dired
+  :custom
+  (dired-dwim-target t))
+
 (use-package emacs
   :custom
   (frame-resize-pixelwise t)
@@ -218,8 +222,6 @@
   (setq initial-major-mode 'fundamental-mode)
   (setq initial-scratch-message nil)
 
-  ;; dired
-  (setq dired-dwim-target t)
   ;; misc
   (setq echo-keystrokes 0.001))
 
