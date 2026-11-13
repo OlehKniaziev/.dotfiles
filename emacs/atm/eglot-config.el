@@ -17,6 +17,7 @@
          (go-ts-mode . eglot-ensure)
          (c-ts-mode . eglot-ensure)
          (c++-ts-mode . eglot-ensure)
-         (rust-ts-mode . eglot-ensure)))
+         (rust-ts-mode . eglot-ensure)
+         (eglot-mode . flycheck-mode)))
 
 (provide 'eglot-config)
