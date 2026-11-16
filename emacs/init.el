@@ -166,7 +166,7 @@
   (add-hook 'eshell-load-hook #'eat-eshell-mode)
   (add-to-list 'eshell-modules-list 'eshell-smart))
 
-(use-package 'dired
+(use-package dired
   :custom
   (dired-dwim-target t))
 
