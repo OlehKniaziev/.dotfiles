@@ -6,25 +6,48 @@
   (load custom-file))
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (setq package-install-upgrade-built-in t)
 
 (package-initialize)
 
 ;; (setq-local
 ;;  atm/mono-font-family "Berkeley Mono"
+;;  atm/mono-font-size 16)
+
+;; (setq-local
+;;  atm/mono-font-family "CodeliaLigatures"
+;;  atm/mono-font-size 16)
+
+;; (setq-local
+;;  atm/mono-font-family "Iosevka Term"
 ;;  atm/mono-font-size 14)
+
+;; (setq-local
+;;  atm/mono-font-family "Iosevka Chonk"
+;;  atm/mono-font-size 15)
 
 (setq-local
  atm/mono-font-family "Iosevka Cozy"
- atm/mono-font-size 16)
+ atm/mono-font-size 17)
 
-(setq-local
- atm/mono-font-family "Triplicate A Code"
- atm/mono-font-size 14)
+;; (setq-local
+;;  atm/mono-font-family "MonoLisa"
+;;  atm/mono-font-size 15)
+
+;; (setq-local
+;;  atm/mono-font-family "Triplicate A Code"
+;;  atm/mono-font-size 16)
 
 (set-frame-font (format "%s %d" atm/mono-font-family atm/mono-font-size) nil t)
+
+(setq-local atm/emoji-font-family
+            (if (equal system-type 'windows-nt)
+                "Segoe UI Emoji"
+              "Noto Color Emoji"))
+
+(set-fontset-font t 'emoji atm/emoji-font-family nil 'prepend)
 
 (custom-set-faces
  `(markdown-code-face ((t :inherit default))))
@@ -437,10 +460,11 @@
 ;; (require 'kaolin-themes)
 ;; (load-theme 'kaolin-valley-dark t)
 
-;; (load-theme 'ef-day t)
+(require 'ef-themes)
+(load-theme 'ef-melissa-light t)
 
 ;; (load-theme 'batppuccin-latte t)
 ;; (load-theme 'modus-operandi t)
 
-(require 'doric-themes)
-(load-theme 'doric-marble t)
+;; (require 'doric-themes)
+;; (load-theme 'doric-marble t)
