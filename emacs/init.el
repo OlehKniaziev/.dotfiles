@@ -254,6 +254,8 @@
   :defer t
 
   :config
+  (setq ef-themes-italic-constructs t)
+  (setq ef-themes-bold-constructs t)
   ;; (set-face-underline 'ef-themes-underline-warning '(:style line :color "#c0b000"))
   ;; (set-face-underline 'ef-themes-underline-error '(:style line :color "#df2f2f"))
   ;; (set-face-underline 'ef-themes-underline-info '(:style line :color "#22b022"))
@@ -402,9 +404,19 @@
 
 (setq-default c-ts-mode-indent-style #'atm/c++-ts-mode-indent-style)
 
+(setq-default c-indentation-style 'k&r)
+
 (add-hook 'c++-mode-hook
           (lambda ()
-            (c-set-offset 'innamespace 0)))
+            (c-set-style "k&r")
+            (c-set-offset 'innamespace 0)
+            (c-set-offset 'substatement-open 0)
+            (setq-local c-basic-offset 4)))
+
+(add-hook 'c-mode-hook
+          (lambda ()
+            (c-set-style "k&r")
+            (c-set-offset 'substatement-open 0)))
 
 ;; misc
 (setq eldoc-echo-area-use-multiline-p nil)
