@@ -246,6 +246,10 @@
   (setq initial-scratch-message nil)
 
   ;; misc
+  (setq save-interprogram-paste-before-kill t)
+  (setq read-answer-short t)
+  (setq revert-buffer-quick-short-answers t)
+  (setq use-short-answers t)
   (setq echo-keystrokes 0.001))
 
 ;; theming
