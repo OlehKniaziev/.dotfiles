@@ -109,13 +109,22 @@
    xref-show-xrefs-function 'consult-xref
    xref-show-definitions-function 'consult-xref))
 
+(use-package embark
+  :ensure t
+
+  :bind
+  (("C-;" . embark-act)))
+
+(use-package embark-consult
+  :ensure t)
+
 (use-package marginalia
   :ensure t
   :bind (:map minibuffer-local-map
               ("M-A" . marginalia-cycle))
   :init
   (add-hook 'icomplete-minibuffer-setup-hook
-          (lambda () (setq truncate-lines t)))
+            (lambda () (setq truncate-lines t)))
   (marginalia-mode))
 
 (use-package eat
@@ -366,6 +375,7 @@
   '(("\\.h\\'" . c++-mode)
     ("\\.rs\\'" . rust-ts-mode)
     ("\\.yml\\'" . yaml-ts-mode)
+    ("\\(Jenkinsfile\\|\\.Jenkinsfile\\'\\)" . groovy-mode)
     ("\\(dockerfile\\|containerfile\\)" . dockerfile-ts-mode)
     ("\\(cmakelists\\.txt\\|\\.cmake\\)" . cmake-ts-mode)
     ("\\.go\\'" . go-mode)
